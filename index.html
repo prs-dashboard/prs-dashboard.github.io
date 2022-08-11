@@ -52,8 +52,8 @@
             const params = new URL(document.location).searchParams;
             const code = params['code'];
             let state = params['state'];
-            if (!code || !state) {
-                console.log('Now a oauth flow');
+            if (code === undefined || state === undefined) {
+                console.log('Not a oauth flow');
                 return;
             }
 

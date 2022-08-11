@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parsing parameters</title>
-    <script defer>
+    <script defer async>
         for (const [k, v] of new URL(document.location).searchParams) {
             console.log(k, v);
         }
@@ -49,11 +49,12 @@
         }
 
         async function checkOAuthState() {
-            const params = URL(document.location).searchParams;
+            const params = new URL(document.location).searchParams;
             const code = params['code'];
             let state = params['state'];
             if (!code || !state) {
                 console.log('Now a oauth flow');
+                return;
             }
 
             try {
@@ -88,7 +89,7 @@
                 localStorage.saveItem('oauth_access_token', oauth_access_token);
             }
         }
-        await checkOAuthState();
+        checkOAuthState();
 
     </script>
 </head>

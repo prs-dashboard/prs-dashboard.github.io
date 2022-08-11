@@ -8,7 +8,7 @@
     <title>Parsing parameters</title>
     <script defer>
         for (const [k, v] of new URL(document.location).searchParams) {
-            console.log('search parameters:', k, v);
+            console.log(k, v);
         }
 
         //https://github.com/auth0/docs/blob/master/articles/api-auth/tutorials/authorization-code-grant-pkce.md
@@ -24,26 +24,65 @@
         }
 
         async function getOAuthState() {
+            localStorage.clear();
             let state = localStorage.getItem('oauth_state');
             if (!state) {
                 const buffer = new ArrayBuffer(32);
                 crypto.getRandomValues(new Int32Array(buffer));
 
-                state = await crypto.subtle.digest('SHA-256', buffer);
+                const digest = await crypto.subtle.digest('SHA-256', buffer);
+                state = (new TextDecoder()).decode(digest);
 
                 localStorage.setItem('oauth_state', state);
             }
             return state;
         }
 
+        const oauth_client_id = '41d953248c35fe869df5';
         async function authorizeOnGithub() {
-            const state = getOAuthState();
+            const state = await getOAuthState();
 
-            const client_id = '41d953248c35fe869df5';
-            const scope = 'user repo read:org';
+            const scope = 'read:user repo read:org';
 
             console.log('authorizeOnGithub', state);
-            window.location = `https://github.com/login/oauth/authorize?client_id=${client_id}&redirect_uri=${encodeURI(window.location)}&response_type=code&scope=${encodeURI(scope)}&state=${state}`
+            window.location = `https://github.com/login/oauth/authorize?client_id=${oauth_client_id}&redirect_uri=${encodeURI(window.location)}&response_type=code&scope=${encodeURI(scope)}&state=${encodeURI(state)}`
+        }
+
+        async function checkOAuthState() {
+            const params = URL(document.location).searchParams;
+            const code = params['code'];
+            let state = params['state'];
+            if (code && state) {
+                try {
+                    state = decodeURI(state);
+                    if (state != await getOAuthState()) {
+                        console.log('state mismatch, provided: ', state);
+                        // to regenerate new state on next try
+                        localStorage.removeItem('oauth_state');
+                    }
+                } catch (e) {
+                    console.log(e);
+                }
+            }
+
+            const response = await fetch('https://github.com/login/oauth/access_token', {
+                method: 'POST',
+                body: JSON.stringify({
+                    client_id: '41d953248c35fe869df5',
+                    client_secret: 'c2db9b1b79560897293be6677d3e8bb4f1ecee43',
+                    code: code,
+                }),
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json',
+                },
+            });
+            if (response) {
+                response = response.json();
+                const oauth_access_token = response['access_token'];
+                console.log(oauth_access_token);
+                localStorage.saveItem('oauth_access_token', oauth_access_token);
+            }
         }
 
     </script>

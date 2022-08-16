@@ -1,6 +1,26 @@
 # prs-dashboard.github.io
-Simple tool to visualize PRs of multiple authors to multiple repositories.
-e.g. last [Altinity's PRs](https://prs-dashboard.github.io/?author=excitoon&quickhouse&author=zvonand&author=arthurpassos&author=filimonov&author=vzakaznikov&author=enmk&repo=Altinity/ClickHouse&repo=ClickHouse/ClickHouse:50&repo=ClickHouse/Clickhouse-cpp&repo=ClickHouse/ClickHouse-odbc)
+Bad piece of HTML, JavaScript and GraphQL slapped together tool to visualize PRs of multiple authors on multiple repositories via kind of dashboard.
+
+Quick exaple last [Altinity's PRs](https://prs-dashboard.github.io/?author=excitoon&author=quickhouse&author=zvonand&author=arthurpassos&author=filimonov&author=vzakaznikov&author=enmk&repo=Altinity/ClickHouse&repo=ClickHouse/ClickHouse:50&repo=ClickHouse/Clickhouse-cpp&repo=ClickHouse/ClickHouse-odbc)
+(note that you would require a [live GitHub token to see any results](https://docs.github.com/en/enterprise-server@3.4/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token))
+
+## Setting repositories and authors
+
+Both repos/PR authors are set via URL queryString `https://prs-dashboard.github.io/?params`: e.g.
+[`https://prs-dashboard.github.io/?author=enmk&repo=ClickHouse/ClickHouse`](https://prs-dashboard.github.io/?author=enmk&repo=ClickHouse/ClickHouse)
+- Use `author=` to specify author GitHub login (case insensitive), there could be multiple `author` parameters (or none).
+- Use `repo=` to specify GitHub repository (case insensitive), there could be multiple `repo=` parameters (at least 1).
+- One can also specify how many PRs to fetch from repo by appending `:NUMBER` to the repo name: [`https://prs-dashboard.github.io/?author=enmk&repo=ClickHouse/ClickHouse:50`](https://prs-dashboard.github.io/?author=enmk&repo=ClickHouse/ClickHouse:50)
+
+Right now GitHub allows up to 99 PRs from repo per request, so you can set anything from 1 to 99, 10 is default.
+
+
+### Examples
+There could be multiple authors and multiple repositories at once: 
+[`https://prs-dashboard.github.io/?author=excitoon&author=enmk&repo=Altinity/ClickHouse&repo=ClickHouse/ClickHouse:50&repo=ClickHouse/Clickhouse-cpp`](https://prs-dashboard.github.io/?author=excitoon&author=enmk&repo=Altinity/ClickHouse&repo=ClickHouse/ClickHouse:50&repo=ClickHouse/Clickhouse-cpp)
+
+Or you can completely omit authors and get unfiltered list of PRs from repository: [`https://prs-dashboard.github.io/?author=excitoon&author=enmk&repo=Altinity/ClickHouse&repo=ClickHouse/ClickHouse:50&repo=ClickHouse/Clickhouse-cpp`](https://prs-dashboard.github.io/?author=excitoon&author=enmk&repo=Altinity/ClickHouse&repo=ClickHouse/ClickHouse:50&repo=ClickHouse/Clickhouse-cpp)
+
 
 ## GitHub token and authorization
 Requeres a github token to function, since it utilizes GitHub grapQL API. Scope of the token dictates what results you will see: e.g. there is no way of getting PRs private repos \ private organization authors with plain token.

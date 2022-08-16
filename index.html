@@ -5,99 +5,541 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parsing parameters</title>
-    <script defer async>
-        for (const [k, v] of new URL(document.location).searchParams) {
-            console.log(k, v);
+    <title>GitHub PR dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js" crossorigin="anonymous"
+        referrerpolicy="no-referrer"></script>
+
+    <style>
+        .pr h3 {
+            font-size: medium;
         }
 
-        //https://github.com/auth0/docs/blob/master/articles/api-auth/tutorials/authorization-code-grant-pkce.md
-        function sha256(buffer) {
-            return crypto.createHash('sha256').update(buffer).digest();
+        .avatar {
+            width: 1.2em;
+            height: 1.2em;
+            border-radius: 1em;
+            margin-right: 0.1em
         }
 
-        function base64URLEncode(str) {
-            return str.toString('base64')
-                .replace(/\+/g, '-')
-                .replace(/\//g, '_')
-                .replace(/=/g, '');
+        .pr-files::after {
+            font: var(--fa-font-regular);
+            content: " \f016";
         }
 
-        async function getOAuthState() {
-            localStorage.clear();
-            let state = localStorage.getItem('oauth_state');
-            if (!state) {
-                const buffer = new ArrayBuffer(32);
-                crypto.getRandomValues(new Int32Array(buffer));
-
-                const digest = await crypto.subtle.digest('SHA-256', buffer);
-                state = (new TextDecoder()).decode(digest);
-
-                localStorage.setItem('oauth_state', state);
-            }
-            return state;
+        .pr-comments::after {
+            font: var(--fa-font-regular);
+            content: " \f075";
         }
 
-        const oauth_client_id = '41d953248c35fe869df5';
-        async function authorizeOnGithub() {
-            const state = await getOAuthState();
-
-            const scope = 'read:user repo read:org';
-
-            console.log('authorizeOnGithub', state);
-            window.location = `https://github.com/login/oauth/authorize?client_id=${oauth_client_id}&redirect_uri=${encodeURI(window.location)}&response_type=code&scope=${encodeURI(scope)}&state=${encodeURI(state)}`
+        .pr-commits::after {
+            font: var(--fa-font-regular);
+            content: " \f292";
         }
 
-        async function checkOAuthState() {
-            const params = new URL(document.location).searchParams;
-            const code = params.get('code');
-            let state = params.get('state');
-            console.log('!!!', code, state);
-            if (code === undefined || state === undefined) {
-                console.log('Not a oauth flow');
-                return;
-            }
-
-            try {
-                state = decodeURI(state);
-                if (state != await getOAuthState()) {
-                    console.log('state mismatch, provided: ', state);
-                    // to regenerate new state on next try
-                    localStorage.removeItem('oauth_state');
-                }
-            } catch (e) {
-                console.log(e);
-            }
-            console.log('!!! about to obtain token with', code, state);
-
-            const response = await fetch('https://github.com/login/oauth/access_token', {
-                method: 'POST',
-                body: JSON.stringify({
-                    client_id: '41d953248c35fe869df5',
-                    client_secret: 'c2db9b1b79560897293be6677d3e8bb4f1ecee43',
-                    code: code,
-                }),
-                headers: {
-                    Accept: 'application/json',
-                    'Content-Type': 'application/json',
-                },
-            });
-            if (response) {
-                console.log(response);
-
-                response = response.json();
-                const oauth_access_token = response['access_token'];
-                console.log(oauth_access_token);
-                localStorage.saveItem('oauth_access_token', oauth_access_token);
-            }
+        .pr-list li {
+            display: inline-block;
         }
-        checkOAuthState();
 
-    </script>
+        div.pr-files,
+        div.pr-comments,
+        div.pr-commits-count,
+        .pr-state,
+        .pr-reviewed,
+        .pr-user,
+        .pr-merge-status,
+        .pr-created-at,
+        .pr-updated-at {
+            display: inline
+        }
+
+        /** usually for already merged PRs, hence no need to display mergeability **/
+        .pr-merge-status-unknown {
+            display: none;
+            visibility: hidden;
+        }
+
+        .pr-comments::before,
+        .pr-reviewed::before,
+        .pr-files::before,
+        .pr-merge-status::before {
+            content: " / "
+        }
+
+        .pr-title.pr-state-draft::before {
+            font: var(--fa-font-solid);
+            content: "\f110  ";
+        }
+
+        .pr-title.pr-state-merged::before {
+            /** Doesnt work with --fa-font-regular **/
+            font: var(--fa-font-solid);
+            content: "\f387  ";
+        }
+
+        .pr-title.pr-state-closed::before {
+            font: var(--fa-font-solid);
+            content: "\f00d  ";
+        }
+
+        .pr-title.pr-state-open::before {
+            font: var(--fa-font-regular);
+            content: "\f111  ";
+        }
+
+        .pr-commit-check-status-failure::before {
+            font: var(--fa-font-regular);
+            content: "\f057";
+        }
+
+        .pr-commit-check-status-success::before {
+            font: var(--fa-font-regular);
+            content: "\f058";
+        }
+
+        .pr-commit-check-status-unknown::before {
+            font: var(--fa-font-regular);
+            content: "\f059";
+        }
+
+        .pr-commit-check-status-success,
+        .pr-commit-check-status-failure,
+        .pr-commit-check-status-unknown {
+            text-decoration: none;
+        }
+
+        .repo-title {
+            display: block;
+            padding: 5px;
+            background-color: lightgray;
+            margin-top: 0.5em;
+        }
+
+        .commit-section div {
+            display: inline;
+        }
+
+        .card {
+            max-width: 350px;
+            width: 350px;
+            margin: 0.2em;
+        }
+
+        .card-body {
+            padding-top: 8px;
+            padding-bottom: 8px;
+        }
+
+        .card-header {
+            padding-bottom: 4px;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 4px;
+        }
+
+        .pr-title {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 300px;
+            width: 300px;
+            display: inline-block;
+        }
+
+        list#repo-list li,
+        list#author-list li {
+            display: inline-block;
+            margin: 0 1em 0 0;
+        }
+
+        list#author-list:nth-child(0) {
+            clear: both;
+        }
+
+        /* Inline checkboxes */
+        .form-group {
+            display: inline-block;
+            margin-left: 0.5em;
+        }
+
+        .repo-title .form-group {
+            font-size: 0.5em;
+        }
+
+        form {
+            display: inline-block;
+        }
+
+        /* Floating header */
+        header {
+            position: fixed;
+            background: var(--bs-body-bg);
+            top: 0px;
+            z-index: 10;
+            width: 100%;
+            box-shadow: 0px 0px 5px -1px black;
+        }
+
+        main {
+            padding-top: 3em;
+        }
+    </style>
 </head>
 
 <body>
-    <a id="github-auth" href="#" onclick="authorizeOnGithub()">Authorize on github</a>
+    <header>
+        <div class="d-flex">Repositories:
+            <list id="repo-list">
+            </list>
+        </div>
+        <div class="d-flex">Authors:
+            <form class="authors-filter" id="author-list">
+            </form>
+        </div>
+    </header>
+    <main id="repo-container">
+    </main>
+    <script defer>
+        // https://stackoverflow.com/a/6234804
+        const escapeHtml = (unsafe) => {
+            if (unsafe === null || unsafe === undefined)
+                return unsafe;
+
+            return unsafe.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#039;');
+        }
+
+        function requestBody(request_repo, request_authors, request_limit) {
+            const authors_clause = 'author:' + authors.join(' author:');
+            return `{ search(
+    query: "repo:${request_repo} is:pr ${authors_clause} sort:created-desc "
+    type: ISSUE
+    first: ${request_limit}
+  ) {
+    edges {
+      node {
+        ... on PullRequest {
+          number
+          url
+          title
+          createdAt
+          state
+          isDraft
+          updatedAt
+          mergeable
+#          baseRefName
+          changedFiles
+#          checksResourcePath
+          reviews(last: 1) {
+            edges {
+              node {
+                id
+                state
+              }
+            }
+          }
+          author {
+            avatarUrl
+            login
+            url
+            ... on User {
+              name
+            }
+            ... on Organization {
+              id
+              name
+            }
+            ... on EnterpriseUserAccount {
+              name
+            }
+          }
+          commits(last: 1) {
+            totalCount
+            edges {
+              node {
+                commit {
+                  commitUrl
+                  oid
+                  statusCheckRollup {
+                    state
+                  }
+                }
+              }
+            }
+          }
+          assignees(first: 10) {
+            nodes {
+              login
+              name
+              avatarUrl
+              url
+            }
+          }
+          reviewRequests(first: 100) {
+            nodes {
+              requestedReviewer {
+                ... on User {
+                  name
+                  login
+                  avatarUrl
+                  url
+                }
+              }
+            }
+          }
+          comments {
+            totalCount
+          }
+        }
+      }
+    }
+  }
+}`
+        }
+
+        function getParameters(name) {
+            let result = [];
+            for (const [k, v] of new URL(document.location).searchParams) {
+                if (k === name)
+                    result.push(v);
+            }
+
+            return result;
+        }
+
+        const DEAFULT_PRS_COUNT = 10;
+        function getRepos() {
+            let repos = [];
+            for (let repo of getParameters('repo')) {
+                let [repo_name, prs_count] = decodeURI(repo).split(':');
+                if (prs_count === undefined)
+                    prs_count = DEAFULT_PRS_COUNT;
+                let repo_object = {}
+                repo_object[repo_name] = prs_count;
+                repos.push(repo_object);
+            }
+
+            return repos;
+        }
+
+        async function resetGithubToken() {
+            localStorage.removeItem('github_token');
+            let new_token = prompt('For querying github API we need a token, scope of token depends on repos and authors you want to track');
+            // TODO: update user name and rate limit info in UI somewhere
+            let response = await asyncGet(`{
+  rateLimit {
+    limit
+    cost
+    remaining
+    resetAt
+  }
+  viewer {
+    login
+    name
+  }
+}`, new_token);
+            console.log(response);
+            return new_token;
+        }
+
+        async function getGitHubToken() {
+            let github_token = localStorage.getItem('github_token');
+            if (!github_token) {
+                github_token = await resetGithubToken();
+                // Assuming that resetGithubToken validates token beforehand
+                localStorage.setItem('github_token', github_token);
+            }
+
+            return github_token;
+        }
+
+        const authors = getParameters('author');
+        const repos = getRepos();
+
+        async function asyncGet(request, github_token) {
+            let response = await fetch('https://api.github.com/graphql', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${github_token}`,
+                },
+                // The payload must contain a string called query
+                // https://docs.github.com/en/graphql/guides/forming-calls-with-graphql#communicating-with-graphql
+                body: JSON.stringify({ query: request })
+            });
+            // console.log(response);
+            return await response.json();
+        }
+
+        function createPRNode(pr) {
+            let commit = pr.commits.edges[0].node.commit;
+            // console.log(commit, commit.oid.slice(8));
+            let review = null;
+            try {
+                review = pr.reviews.edges[0].node;
+            }
+            catch (e) {
+                //console.log(e);
+            }
+            const pr_state = pr.isDraft ? 'draft' : pr.state.toLowerCase();
+            const commit_status = commit.statusCheckRollup ? commit.statusCheckRollup.state.toLowerCase() : 'unknown';
+            const pr_card = `
+<li class="pr card pr-state-${pr_state} author-${pr.author.login.toLowerCase()}">
+    <div class="card-header"><a class="pr-title pr-state-${pr_state}"
+            href="${pr.url}"
+            title="#${pr.number} (${pr_state}) ${escapeHtml(pr.title)}">${pr.title}</a>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="pr-attribute pr-user pr-author" title="${escapeHtml(pr.author.name)}">author: <a
+                href="${pr.author.url}"><img class="avatar"
+                    src="${pr.author.avatarUrl}">${pr.author.login}</a>
+        </div>
+        <div class="commit-section">
+            <div class="pr-attribute pr-commit"><a class="pr-commit-check-status-${commit_status}"
+                    href="${commit.commitUrl}/status-details" title="${commit_status}"></a>&nbsp;<a
+                    href="${commit.commitUrl}">${commit.oid.slice(0, 8)}</a>
+            </div>
+            <div class="pr-attribute pr-commits-count">(${pr.commits.totalCount})</div>
+            <div class="pr-attribute pr-files">${pr.changedFiles}</div>
+            <div class="pr-attribute pr-merge-status pr-merge-status-${pr.mergeable.toLowerCase()}">${pr.mergeable.toLowerCase()}</div>
+        </div>
+        ${(() => {
+                    if (pr.assignees && pr.assignees.nodes.length > 0) {
+                        let assignee = pr.assignees.nodes[0];
+                        return `
+        <div class="pr-attribute pr-reviewer pr-user" title="${escapeHtml(assignee.name)}"><a
+                href="${assignee.url}"><img class="avatar"
+                    src="${assignee.avatarUrl}">${assignee.login}</a>
+        </div>
+        `
+                    } else {
+                        return `<div class="pr-attribute pr-reviewer pr-user pr-reviewer-missing">NO REVIEWER</div>`
+                    }
+                })()}
+        <div class="pr-attribute pr-reviewed">${review ? review.state.toLowerCase() : 'NOT REVIEWED'
+                }</div >
+            <div class="pr-attribute pr-comments">${pr.comments.totalCount}</div>
+    </div >
+            <div class="card-footer">
+                <div class="pr-attribute pr-created-at pr-time" title="created at: ${pr.createdAt}">
+                    <time>${moment(pr.createdAt).fromNow()}</time>
+                </div>
+                <div class="pr-attribute pr-updated-at pr-time" title="last updated at: ${pr.updatedAt}">updated:
+                    <time>${moment(pr.updatedAt).fromNow()}</time>
+                </div>
+            </div>
+</li > `;
+            let pr_node = document.createElement('pull-request')
+            pr_node.innerHTML = pr_card;
+            pr_node.github_data = pr;
+
+            return pr_node;
+        }
+
+        function createRepoNode(repo_name, prs_data) {
+            const repo_template = `
+            <section id="${repo_name}" style="container-fluid">
+    <h2 class="repo-title"><a class="repo-name" href="https://github.com/${repo_name}/pulls">${repo_name}</a>
+    <form class="pr-filters">
+    </form>
+    </h2>
+    <list class="pr-list">
+    </list>
+</section>`;
+            let repo_node = document.createElement('repositoty');
+            repo_node.innerHTML = repo_template;
+
+            let pr_list_node = repo_node.querySelector('.pr-list');
+
+            for (pr of prs_data) {
+                pr_list_node.appendChild(createPRNode(pr['node']));
+            }
+
+            let pr_filters_node = repo_node.querySelector('.pr-filters');
+            const pr_states = ['merged', 'open', 'closed', 'draft'];
+            for (pr_state of pr_states) {
+                let pr_of_state = pr_list_node.querySelectorAll(`.pr.card.pr-state-${pr_state}`);
+                let checkbox_name = `${repo_name}-checkbox-${pr_state}`;
+                const check_html = `<div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="${checkbox_name}" checked>
+                    <label class="form-check-label" for="${checkbox_name}">${pr_state} (${pr_of_state.length})</label>
+                </div>`
+                let filter_node = document.createElement('filter');
+                filter_node.innerHTML = check_html;
+                pr_filters_node.appendChild(filter_node);
+
+                let checkbox_node = filter_node.querySelector('input[type=checkbox]');
+                checkbox_node.onchange = function () {
+                    const display = checkbox_node.checked ? '' : 'none';
+                    for (pr of pr_of_state) {
+                        pr.style.display = display;
+                    }
+                };
+            }
+
+            return repo_node;
+        }
+
+        async function buildRepoPRs(repos) {
+            const github_token = await getGitHubToken();
+            for (repo_kv of repos) {
+                const repo_name = Object.keys(repo_kv)[0];
+                const prs_to_fetch = Object.values(repo_kv)[0];
+                console.log("doing ", repo_name);
+                let response = await asyncGet(requestBody(repo_name, authors, prs_to_fetch), github_token);
+                let prs_data = response['data']['search']['edges'];
+                console.log(`got ${prs_data.length} PRs from API`);
+
+                document.getElementById('repo-container').appendChild(createRepoNode(repo_name, prs_data));
+            }
+        }
+
+        buildRepoPRs(repos);
+
+        (function () {
+            const repo_list_node = document.getElementById('repo-list');
+            for (repo_kv of repos) {
+                const repo_name = Object.keys(repo_kv)[0];
+                let r = document.createElement('li');
+                const repo_template = `<a class="repo-name" href="https://github.com/${repo_name}">${repo_name}</a>`;
+                r.innerHTML = repo_template;
+                repo_list_node.append(r);
+            }
+
+            const author_list_node = document.getElementById('author-list');
+            for (author of authors) {
+                let author_node = document.createElement('author-check');
+                const checkbox_name = `${author}-checkbox`;
+                const author_template = `<div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="${checkbox_name}" checked author="${author}">
+                    <label class="form-check-label" for="${checkbox_name}">${author}</label>
+                </div>`;
+
+                author_node.innerHTML = author_template;
+
+                let checkbox_node = author_node.querySelector('input[type=checkbox]');
+                checkbox_node.onchange = function () {
+                    const author_name = checkbox_node.attributes['author'].value;
+                    const display = checkbox_node.checked ? '' : 'none';
+                    console.log(checkbox_node);
+
+                    for (pr of document.querySelectorAll(`.pr.author-${author_name}`)) {
+                        pr.style.display = display;
+                    }
+                };
+
+                author_list_node.append(author_node);
+            }
+        })();
+
+    </script>
 </body>
 
 </html>

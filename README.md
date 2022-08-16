@@ -1,4 +1,7 @@
 # prs-dashboard.github.io
+![image](https://user-images.githubusercontent.com/1110183/184915444-9c7aa72b-bc82-4664-9187-9402ba51be9b.png)
+
+
 Automation tool to visualize GitHub search results in a dashboard.
 
 Useful for tracking PRs of multiple authors on multiple repositories in a visual way.

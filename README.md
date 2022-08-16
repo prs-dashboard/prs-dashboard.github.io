@@ -1,7 +1,7 @@
 # prs-dashboard.github.io
-Bad piece of HTML, JavaScript and GraphQL slapped together tool to visualize PRs of multiple authors on multiple repositories via kind of dashboard.
+Bad piece of HTML, JavaScript and GraphQL slapped together as a tool to visualize PRs of multiple authors on multiple repositories via kind of dashboard.
 
-Quick exaple last [Altinity's PRs](https://prs-dashboard.github.io/?author=excitoon&author=quickhouse&author=zvonand&author=arthurpassos&author=filimonov&author=vzakaznikov&author=enmk&repo=Altinity/ClickHouse&repo=ClickHouse/ClickHouse:50&repo=ClickHouse/Clickhouse-cpp&repo=ClickHouse/ClickHouse-odbc)
+Quick exaple: [last Altinity's PRs](https://prs-dashboard.github.io/?author=excitoon&author=quickhouse&author=zvonand&author=arthurpassos&author=filimonov&author=vzakaznikov&author=enmk&repo=Altinity/ClickHouse&repo=ClickHouse/ClickHouse:50&repo=ClickHouse/Clickhouse-cpp&repo=ClickHouse/ClickHouse-odbc)
 (note that you would require a [live GitHub token to see any results](https://docs.github.com/en/enterprise-server@3.4/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token))
 
 ## Setting repositories and authors
@@ -19,7 +19,7 @@ Right now GitHub allows up to 99 PRs from repo per request, so you can set anyth
 There could be multiple authors and multiple repositories at once: 
 [`https://prs-dashboard.github.io/?author=excitoon&author=enmk&repo=Altinity/ClickHouse&repo=ClickHouse/ClickHouse:50&repo=ClickHouse/Clickhouse-cpp`](https://prs-dashboard.github.io/?author=excitoon&author=enmk&repo=Altinity/ClickHouse&repo=ClickHouse/ClickHouse:50&repo=ClickHouse/Clickhouse-cpp)
 
-Or you can completely omit authors and get unfiltered list of PRs from repository: [`https://prs-dashboard.github.io/?author=excitoon&author=enmk&repo=Altinity/ClickHouse&repo=ClickHouse/ClickHouse:50&repo=ClickHouse/Clickhouse-cpp`](https://prs-dashboard.github.io/?author=excitoon&author=enmk&repo=Altinity/ClickHouse&repo=ClickHouse/ClickHouse:50&repo=ClickHouse/Clickhouse-cpp)
+Or you can completely omit authors and get unfiltered list of PRs from repository: [`https://prs-dashboard.github.io/?repo=Altinity/ClickHouse&repo=ClickHouse/ClickHouse:50&repo=ClickHouse/Clickhouse-cpp`](https://prs-dashboard.github.io/?repo=Altinity/ClickHouse&repo=ClickHouse/ClickHouse:50&repo=ClickHouse/Clickhouse-cpp)
 
 
 ## GitHub token and authorization

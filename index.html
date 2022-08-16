@@ -216,7 +216,12 @@
         }
 
         function requestBody(request_repo, request_authors, request_limit) {
-            const authors_clause = 'author:' + authors.join(' author:');
+            // No filtering by author if no authors provided
+            let authors_clause = '';
+            if (authors.length > 0) {
+                authors_clause = 'author:' + authors.join(' author:');
+            }
+
             return `{ search(
     query: "repo:${request_repo} is:pr ${authors_clause} sort:created-desc "
     type: ISSUE

@@ -1,7 +1,13 @@
 # prs-dashboard.github.io
-Bad piece of HTML, JavaScript and GraphQL slapped together as a tool to visualize PRs of multiple authors on multiple repositories via kind of dashboard.
+Automation tool to visualize GitHub search results in a dashboard.
 
-Quick exaple: [last Altinity's PRs](https://prs-dashboard.github.io/?author=excitoon&author=quickhouse&author=zvonand&author=arthurpassos&author=filimonov&author=vzakaznikov&author=enmk&repo=Altinity/ClickHouse&repo=ClickHouse/ClickHouse:50&repo=ClickHouse/Clickhouse-cpp&repo=ClickHouse/ClickHouse-odbc)
+Useful for tracking PRs of multiple authors on multiple repositories in a visual way.
+Basically it just performs a multiple GitHub searches on your behalf and visualizes results.
+
+Based on some bad piece of HTML, JavaScript and [GitHub GraphQL API](https://docs.github.com/en/graphql) duck-taped together.
+
+
+Quick example: [last Altinity's PRs](https://prs-dashboard.github.io/?author=excitoon&author=quickhouse&author=zvonand&author=arthurpassos&author=filimonov&author=vzakaznikov&author=enmk&repo=Altinity/ClickHouse&repo=ClickHouse/ClickHouse:50&repo=ClickHouse/Clickhouse-cpp&repo=ClickHouse/ClickHouse-odbc)
 (note that you would require a [live GitHub token to see any results](https://docs.github.com/en/enterprise-server@3.4/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token))
 
 ## Setting repositories and authors
@@ -23,9 +29,9 @@ Or you can completely omit authors and get unfiltered list of PRs from repositor
 
 
 ## GitHub token and authorization
-Requeres a github token to function, since it utilizes GitHub grapQL API. Scope of the token dictates what results you will see: e.g. there is no way of getting PRs private repos \ private organization authors with plain token.
+Requires a GitHub token to function, since it utilizes GitHub grapQL API. Scope of the token dictates what results you will see: e.g. there is no way of getting PRs private repos \ private organization authors with plain token.
 
-Token is requested on startup and stored in local storage, which seems to be secure enought. If the future, integration with GitHub OAuth Device flow is possible (unfortunatelly GitHub doesn't support PKCE OAuth flow).
+Token is requested on startup and stored in local storage, which seems to be secure enough. If the future, integration with GitHub OAuth Device flow is possible (unfortunately GitHub doesn't support PKCE OAuth flow).
 
 ### Known issues
 - code is ugly as hell

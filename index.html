@@ -20,8 +20,8 @@
         }
 
         .avatar {
-            width: 1.2em;
-            height: 1.2em;
+            width: 1em;
+            height: 1em;
             border-radius: 1em;
             margin-right: 0.1em
         }
@@ -131,9 +131,8 @@
             content: "\f059";
         }
 
-        .pr-commit-check-status-success,
-        .pr-commit-check-status-failure,
-        .pr-commit-check-status-unknown {
+        .pr-commit-check-status {
+            vertical-align: middle;
             text-decoration: none;
         }
 
@@ -438,7 +437,7 @@
         </div>
         <div class="pr-attribute pr-target-branch" title="${pr_target_branch}">${pr_target_branch}</div>
         <div class="commit-section">
-            <div class="pr-attribute pr-commit"><a class="pr-commit-check-status-${commit_status}"
+            <div class="pr-attribute pr-commit"><a class="pr-commit-check-status pr-commit-check-status-${commit_status}"
                     href="${commit.commitUrl}/status-details" title="${commit_status}"></a>&nbsp;<a
                     href="${commit.commitUrl}">${commit.oid.slice(0, 8)}</a>
             </div>

@@ -32,11 +32,18 @@ Or you can completely omit authors and get unfiltered list of PRs from repositor
 
 
 ## GitHub token and authorization
-Requires a GitHub token to function, since it utilizes GitHub grapQL API. Scope of the token dictates what results you will see: e.g. there is no way of getting PRs private repos \ private organization authors with plain token.
+Requires a GitHub token to function, since `PRs dashboard` utilizes GitHub grapQL API. Scope of the token dictates what results you will see. Plain token, with no scope allows you to see only public info.
 
-Token is requested on startup and stored in local storage, which seems to be secure enough. If the future, integration with GitHub OAuth Device flow is possible (unfortunately GitHub doesn't support PKCE OAuth flow).
+If you want to see results from private repositories/organization, then you should provide token which grant's access to the repos/organizations.
+But even in that case, please consider limits token's scope to **read-only operations**, since `PRs dashboard` does only read-only (search) requests.
 
-### Known issues
+See [GitHub scopes docs](https://docs.github.com/en/developers/apps/building-oauth-apps/scopes-for-oauth-apps) for explanation on how it works.
+
+Token is requested on startup and stored in local storage, which seems to be secure enough. In the future, integration with GitHub OAuth Device flow is possible (unfortunately GitHub doesn't support PKCE OAuth flow).
+
+If you want to set a new token (maybe with different scope), either do some magic tricks in browser's console or revoke current token via GitHub API (safest).
+
+## Known issues
 - code is ugly as hell
 - filtering is messy and may accidentally show items that are not expected to be visible.
 - no GUI for adding authors/repos, you have to edit an URL manually

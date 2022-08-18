@@ -53,8 +53,33 @@
         .pr-user,
         .pr-merge-status,
         .pr-created-at,
-        .pr-updated-at {
+        .pr-updated-at,
+        .pr-target-branch {
             display: inline
+        }
+
+        .pr-target-branch::before {
+            /** Doesnt work with --fa-font-regular **/
+            content: " \f126 ";
+            font: var(--fa-font-solid);
+            margin-left: 0.5em;
+            font-size: 0.7em;
+            margin-right: 0.1em;
+        }
+
+        /* .pr-author::before {
+            content: "by: ";
+        } */
+
+        .pr-target-branch,
+        .pr-author {
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            max-width: 15em;
+            display: inline-block;
+            overflow-x: hidden;
+            vertical-align: top;
+            /* to fix extra space on overflow */
         }
 
         /** usually for already merged PRs, hence no need to display mergeability **/
@@ -124,8 +149,8 @@
         }
 
         .card {
-            max-width: 350px;
-            width: 350px;
+            max-width: 400px;
+            width: 400px;
             margin: 0.2em;
         }
 
@@ -148,8 +173,8 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            max-width: 300px;
-            width: 300px;
+            max-width: 360px;
+            width: 360px;
             display: inline-block;
         }
 
@@ -216,7 +241,6 @@
         }
 
         function requestBody(request_repo, request_authors, request_limit) {
-            // No filtering by author if no authors provided
             let authors_clause = '';
             if (authors.length > 0) {
                 authors_clause = 'author:' + authors.join(' author:');
@@ -238,7 +262,7 @@
           isDraft
           updatedAt
           mergeable
-#          baseRefName
+          baseRefName
           changedFiles
 #          checksResourcePath
           reviews(last: 1) {
@@ -333,33 +357,38 @@
             return repos;
         }
 
+        async function isValidGithubToken(github_token) {
+            if (github_token) {
+                let response = await doGithubGraphQLRequest(`{rateLimit { remaining }}`, github_token);
+                console.log(response);
+                if (response && response.data && response.data.rateLimit.remaining > 0)
+                    return true;
+            }
+
+            return false;
+        }
+
+        async function getValidGithubToken(github_token) {
+            const GITHUB_TOKEN_PROMPT = 'For querying github API we need a valid token, scope of token depends on repos and authors you want to track';
+            const GITHUB_TOKEN_INVALID_MESSAGE = 'It looks like GitHub token you provided either invalid or expired, please check console for more information.';
+
+            while (! await isValidGithubToken(github_token)) {
+                const message = github_token ? GITHUB_TOKEN_INVALID_MESSAGE + '\n' + GITHUB_TOKEN_PROMPT : GITHUB_TOKEN_PROMPT;
+
+                github_token = prompt(message);
+            }
+
+            return github_token;
+        }
+
         async function resetGithubToken() {
             localStorage.removeItem('github_token');
-            let new_token = prompt('For querying github API we need a token, scope of token depends on repos and authors you want to track');
-            // TODO: update user name and rate limit info in UI somewhere
-            let response = await asyncGet(`{
-  rateLimit {
-    limit
-    cost
-    remaining
-    resetAt
-  }
-  viewer {
-    login
-    name
-  }
-}`, new_token);
-            console.log(response);
-            return new_token;
+            return await getValidGithubToken(null);
         }
 
         async function getGitHubToken() {
-            let github_token = localStorage.getItem('github_token');
-            if (!github_token) {
-                github_token = await resetGithubToken();
-                // Assuming that resetGithubToken validates token beforehand
-                localStorage.setItem('github_token', github_token);
-            }
+            let github_token = await getValidGithubToken(localStorage.getItem('github_token'));
+            localStorage.setItem('github_token', github_token);
 
             return github_token;
         }
@@ -367,7 +396,7 @@
         const authors = getParameters('author');
         const repos = getRepos();
 
-        async function asyncGet(request, github_token) {
+        async function doGithubGraphQLRequest(request, github_token) {
             let response = await fetch('https://api.github.com/graphql', {
                 method: 'POST',
                 headers: {
@@ -393,6 +422,7 @@
                 //console.log(e);
             }
             const pr_state = pr.isDraft ? 'draft' : pr.state.toLowerCase();
+            const pr_target_branch = pr.baseRefName ? escapeHtml(pr.baseRefName) : "";
             const commit_status = commit.statusCheckRollup ? commit.statusCheckRollup.state.toLowerCase() : 'unknown';
             const pr_card = `
 <li class="pr card pr-state-${pr_state} author-${pr.author.login.toLowerCase()}">
@@ -402,10 +432,11 @@
         </div>
     </div>
     <div class="card-body">
-        <div class="pr-attribute pr-user pr-author" title="${escapeHtml(pr.author.name)}">author: <a
+        <div class="pr-attribute pr-user pr-author" title="${escapeHtml(pr.author.name)}"><a
                 href="${pr.author.url}"><img class="avatar"
                     src="${pr.author.avatarUrl}">${pr.author.login}</a>
         </div>
+        <div class="pr-attribute pr-target-branch" title="${pr_target_branch}">${pr_target_branch}</div>
         <div class="commit-section">
             <div class="pr-attribute pr-commit"><a class="pr-commit-check-status-${commit_status}"
                     href="${commit.commitUrl}/status-details" title="${commit_status}"></a>&nbsp;<a
@@ -498,7 +529,7 @@
                 const repo_name = Object.keys(repo_kv)[0];
                 const prs_to_fetch = Object.values(repo_kv)[0];
                 console.log("doing ", repo_name);
-                let response = await asyncGet(requestBody(repo_name, authors, prs_to_fetch), github_token);
+                let response = await doGithubGraphQLRequest(requestBody(repo_name, authors, prs_to_fetch), github_token);
                 let prs_data = response['data']['search']['edges'];
                 console.log(`got ${prs_data.length} PRs from API`);
 

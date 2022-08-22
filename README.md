@@ -48,7 +48,6 @@ If you want to set a new token (maybe with different scope), either do some magi
 - filtering is messy and may accidentally show items that are not expected to be visible.
 - no GUI for adding authors/repos, you have to edit an URL manually
 - basically non existing error handling
-- not checking if token from localStorage expired already
 
 
 Please feel free to submit issues\PRs, I'd be happy to address those at some point.

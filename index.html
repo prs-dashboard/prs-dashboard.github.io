@@ -512,10 +512,10 @@
             <div class="pr-attribute pr-comments">${pr.comments.totalCount}</div>
     </div >
             <div class="card-footer">
-                <div class="pr-attribute pr-created-at pr-time" title="created at: ${pr.createdAt}">
+                <div class="pr-attribute pr-created-at pr-time" title="created at: ${moment(pr.createdAt).format('LLLL')}">
                     <time data-time="${pr.createdAt}">${moment(pr.createdAt).fromNow()}</time>
                 </div>
-                <div class="pr-attribute pr-updated-at pr-time" title="last updated at: ${pr.updatedAt}">updated:
+                <div class="pr-attribute pr-updated-at pr-time" title="last updated at: ${moment(pr.updatedAt).format('LLLL')}">updated:
                     <time data-time="${pr.updatedAt}">${moment(pr.updatedAt).fromNow()}</time>
                 </div>
             </div>
@@ -653,6 +653,16 @@
                 }
             }
             setColor(color);
+
+            function updateTimeValues() {
+                for (t of document.getElementsByTagName('time')) {
+                    let human_time = moment(t.dataset.time).fromNow();
+                    console.log(t, human_time);
+                    t.innerText = human_time;
+                }
+            }
+            // Update time values once in a while
+            window.setInterval(updateTimeValues, 5*60*1000);
 
         })();
 

@@ -13,6 +13,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js" crossorigin="anonymous"
         referrerpolicy="no-referrer"></script>
+    <link rel="icon" sizes="any" href='data:image/svg+xml,%3Csvg version="1.1" viewBox="0 0 12 12" xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg"%3E%3Cellipse cx="6.35" cy="6.35" rx="5.588" ry="5.588" fill="white" stroke-width="0"%2F%3E%3Cpath d="m2.3813 6.3475c0 1.8521 0 3.7042 2.6458 3.7065 0.00937-1.033 0-1.8614 0-2.6458h2.6458c0.00125 0.78446 0.00125 1.8491 0 2.6458 2.6458 0 2.6458-1.8544 2.6458-3.7065s0-3.7042-2.6458-3.7018c-0.011341 1.2395 0 2.6458 0 2.6458h-2.6458c-5.1e-6 -1.5689 0.015757-1.7943 0-2.6458-2.6458-0.00234-2.6458 1.8497-2.6458 3.7018z" fill="none" stroke="%23000" stroke-linecap="square" stroke-width="1"%2F%3E%3C%2Fsvg%3E'>
 
     <style>
         .pr h3 {
@@ -211,22 +212,48 @@
             box-shadow: 0px 0px 5px -1px black;
         }
 
+        header {
+            display: grid;
+            grid-template-columns: 20fr 1fr;
+        }
+
+        header div {
+            display: grid;
+            grid-column-start: 1;
+        }
+
+        header div#color {
+            display: grid;
+            grid-column-start: 2;
+            grid-row-start: 1;
+            grid-row-end: 100;
+        }
+
         main {
             padding-top: 3em;
+            scroll-margin-top: 4em;
         }
     </style>
 </head>
 
 <body>
     <header>
-        <div class="d-flex">Repositories:
+        <div>
             <list id="repo-list">
+                Repositories:
             </list>
         </div>
-        <div class="d-flex">Authors:
-            <form class="authors-filter" id="author-list">
+        <div>
+            <form class="author-filter" id="author-list">
+                Authors:
             </form>
         </div>
+        <div>
+            <form class="assignee-filter" id="assignee-list">
+                Reviewers:
+            </form>
+        </div>
+        <div id="color">&nbsp;</div>
     </header>
     <main id="repo-container">
     </main>
@@ -239,14 +266,22 @@
             return unsafe.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#039;');
         }
 
-        function requestBody(request_repo, request_authors, request_limit) {
+        function requestBody(request_repo, request_authors, assignees, query, request_limit) {
             let authors_clause = '';
             if (authors.length > 0) {
                 authors_clause = 'author:' + authors.join(' author:');
             }
 
+            let assignees_clause = '';
+            if (assignees.length > 0) {
+                assignees_clause = 'assignee:' + assignees.join(' assignee:');
+            }
+
+            if (!query)
+                query = '';
+
             return `{ search(
-    query: "repo:${request_repo} is:pr ${authors_clause} sort:created-desc "
+    query: "repo:${request_repo} is:pr ${authors_clause} ${assignees_clause} sort:created-desc ${query}"
     type: ISSUE
     first: ${request_limit}
   ) {
@@ -263,7 +298,6 @@
           mergeable
           baseRefName
           changedFiles
-#          checksResourcePath
           reviews(last: 1) {
             edges {
               node {
@@ -341,6 +375,15 @@
             return result;
         }
 
+        function getParameter(name) {
+            const params = getParameters(name);
+            if (params && params.length > 0) {
+                return params[params.length - 1];
+            }
+
+            return null;
+        }
+
         const DEAFULT_PRS_COUNT = 10;
         function getRepos() {
             let repos = [];
@@ -380,20 +423,26 @@
             return github_token;
         }
 
+        // Allow user to specify namespace to use different tokens for different repos/access rights.
+        const namespace = getParameter('namespace');
+        const github_token_storage_name = namespace && namespace.length > 0 ? namespace + ':github_token' : 'github_token';
         async function resetGithubToken() {
-            localStorage.removeItem('github_token');
+            localStorage.removeItem(github_token_storage_name);
             return await getValidGithubToken(null);
         }
 
         async function getGitHubToken() {
-            let github_token = await getValidGithubToken(localStorage.getItem('github_token'));
-            localStorage.setItem('github_token', github_token);
+            let github_token = await getValidGithubToken(localStorage.getItem(github_token_storage_name));
+            localStorage.setItem(github_token_storage_name, github_token);
 
             return github_token;
         }
 
         const authors = getParameters('author');
         const repos = getRepos();
+
+        const assignees = getParameters('assignee');
+        const query = getParameter('query');
 
         async function doGithubGraphQLRequest(request, github_token) {
             let response = await fetch('https://api.github.com/graphql', {
@@ -464,10 +513,10 @@
     </div >
             <div class="card-footer">
                 <div class="pr-attribute pr-created-at pr-time" title="created at: ${pr.createdAt}">
-                    <time>${moment(pr.createdAt).fromNow()}</time>
+                    <time data-time="${pr.createdAt}">${moment(pr.createdAt).fromNow()}</time>
                 </div>
                 <div class="pr-attribute pr-updated-at pr-time" title="last updated at: ${pr.updatedAt}">updated:
-                    <time>${moment(pr.updatedAt).fromNow()}</time>
+                    <time data-time="${pr.updatedAt}">${moment(pr.updatedAt).fromNow()}</time>
                 </div>
             </div>
 </li > `;
@@ -528,7 +577,7 @@
                 const repo_name = Object.keys(repo_kv)[0];
                 const prs_to_fetch = Object.values(repo_kv)[0];
                 console.log("doing ", repo_name);
-                let response = await doGithubGraphQLRequest(requestBody(repo_name, authors, prs_to_fetch), github_token);
+                let response = await doGithubGraphQLRequest(requestBody(repo_name, authors, assignees, query, prs_to_fetch), github_token);
                 let prs_data = response['data']['search']['edges'];
                 console.log(`got ${prs_data.length} PRs from API`);
 
@@ -538,40 +587,73 @@
 
         buildRepoPRs(repos);
 
+        // Set up Repos/authors/assignees/query fields
         (function () {
             const repo_list_node = document.getElementById('repo-list');
             for (repo_kv of repos) {
                 const repo_name = Object.keys(repo_kv)[0];
                 let r = document.createElement('li');
-                const repo_template = `<a class="repo-name" href="https://github.com/${repo_name}">${repo_name}</a>`;
+                const repo_template = `<a class="repo-name" href="#${repo_name}">${repo_name}</a>`;
                 r.innerHTML = repo_template;
                 repo_list_node.append(r);
             }
 
-            const author_list_node = document.getElementById('author-list');
-            for (author of authors) {
-                let author_node = document.createElement('author-check');
-                const checkbox_name = `${author}-checkbox`;
-                const author_template = `<div class="form-group form-check">
-                    <input type="checkbox" class="form-check-input" id="${checkbox_name}" checked author="${author}">
-                    <label class="form-check-label" for="${checkbox_name}">${author}</label>
-                </div>`;
+            function setUpFilters(filter_type, users) {
+                const list_node = document.getElementById(`${filter_type}-list`);
+                if (users.length == 0)
+                    list_node.style.display = 'none';
 
-                author_node.innerHTML = author_template;
+                for (user of users) {
+                    let node = document.createElement(`${filter_type}-check`);
+                    const checkbox_name = `${filter_type}-${user}-checkbox`;
+                    const template = `<div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="${checkbox_name}" checked ${filter_type}="${user}">
+                        <label class="form-check-label" for="${checkbox_name}">${user}</label>
+                    </div>`;
 
-                let checkbox_node = author_node.querySelector('input[type=checkbox]');
-                checkbox_node.onchange = function () {
-                    const author_name = checkbox_node.attributes['author'].value;
-                    const display = checkbox_node.checked ? '' : 'none';
-                    console.log(checkbox_node);
+                    node.innerHTML = template;
 
-                    for (pr of document.querySelectorAll(`.pr.author-${author_name}`)) {
-                        pr.style.display = display;
-                    }
-                };
+                    let checkbox_node = node.querySelector('input[type=checkbox]');
+                    checkbox_node.onchange = function () {
+                        const user_name = checkbox_node.attributes[`${filter_type}`].value;
+                        const display = checkbox_node.checked ? '' : 'none';
+                        console.log(checkbox_node);
 
-                author_list_node.append(author_node);
+                        for (pr of document.querySelectorAll(`.pr.${filter_type}-${user_name}`)) {
+                            pr.style.display = display;
+                        }
+                    };
+
+                    list_node.append(node);
+                }
             }
+            setUpFilters('author', authors);
+            setUpFilters('assignee', assignees);
+
+            const title = getParameter('title');
+            if (title) {
+                document.title = title;
+            }
+
+
+            const color = getParameter('color');
+            function setColor(new_color) {
+                if (new_color) {
+                    const color_node = document.getElementById('color');
+                    if (!CSS.supports('color', new_color)) {
+                        console.log(`Invalid color value: ${new_color}, would not change accents not favicon color`);
+                        color.display = 'none';
+                        return;
+                    }
+
+                    new_color = encodeURIComponent(new_color);
+                    var icon = document.querySelector('link[rel="icon"]');
+                    icon.href = icon.href.replace('fill="white"', `fill="${new_color}"`);
+                    color_node.style.background = new_color;
+                }
+            }
+            setColor(color);
+
         })();
 
     </script>

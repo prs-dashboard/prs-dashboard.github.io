@@ -46,9 +46,15 @@
             display: inline-block;
         }
 
+        .pr-labels::after {
+            font: var(--fa-font-regular);
+            content: " \f02e";
+        }
+
         div.pr-files,
         div.pr-comments,
         div.pr-commits-count,
+        div.pr-labels,
         .pr-state,
         .pr-reviewed,
         .pr-user,
@@ -90,6 +96,7 @@
         }
 
         .pr-comments::before,
+        .pr-labels::before,
         .pr-reviewed::before,
         .pr-files::before,
         .pr-merge-status::before {
@@ -298,6 +305,13 @@
           mergeable
           baseRefName
           changedFiles
+          labels (last: 20) {
+            totalCount
+            nodes {
+              name
+              color
+            }
+          }
           reviews(last: 1) {
             edges {
               node {
@@ -510,7 +524,16 @@
         <div class="pr-attribute pr-reviewed">${review ? review.state.toLowerCase() : 'NOT REVIEWED'
                 }</div >
             <div class="pr-attribute pr-comments">${pr.comments.totalCount}</div>
-    </div >
+            <div class="pr-attribute pr-labels" title="${(() => {
+                let labels = '';
+                for (label of pr.labels.nodes)
+                    labels += label.name + '\n';
+                // Trim trailing '\n';
+                return labels.slice(0, labels.length - 1);
+            })()}">
+                ${pr.labels ? pr.labels.totalCount : 0}</div>
+            </div >
+            </div >
             <div class="card-footer">
                 <div class="pr-attribute pr-created-at pr-time" title="created at: ${moment(pr.createdAt).format('LLLL')}">
                     <time data-time="${pr.createdAt}">${moment(pr.createdAt).fromNow()}</time>

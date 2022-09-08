@@ -305,6 +305,15 @@
           mergeable
           baseRefName
           changedFiles
+          files(last: 60) {
+            nodes {
+              changeType
+              path
+              deletions
+              additions
+            }
+            totalCount
+          }
           labels (last: 20) {
             totalCount
             nodes {
@@ -505,7 +514,13 @@
                     href="${commit.commitUrl}">${commit.oid.slice(0, 8)}</a>
             </div>
             <div class="pr-attribute pr-commits-count">(${pr.commits.totalCount})</div>
-            <div class="pr-attribute pr-files">${pr.changedFiles}</div>
+            <div class="pr-attribute pr-files" title="${(() => {
+                let files = [];
+                for (file of pr.files.nodes) {
+                    files.push(`${file.changeType.slice(0, 1)}\t-${file.deletions}/+${file.additions}\t${file.path}`);
+                }
+                return files.join('\n');
+            })()}">${pr.changedFiles}</div>
             <div class="pr-attribute pr-merge-status pr-merge-status-${pr.mergeable.toLowerCase()}">${pr.mergeable.toLowerCase()}</div>
         </div>
         ${(() => {

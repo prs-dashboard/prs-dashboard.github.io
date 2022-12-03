@@ -1,18 +1,16 @@
 <script>
-    import 'lodash/escape';
-
     export let user; // = {name: string, url: string, avatarUrl: string}
-  </script>
+</script>
 
 <div
-    class="pr-attribute pr-reviewer pr-user"
-    title="${escape(user.name)}"
+    class="{$$props.class}"
+    title="{user.name}"
     >
     <a
         href="${user.url}"
         >
         <img
-            alt="${escape(user.name)} avatar"
+            alt="{user.name} avatar"
             class="avatar"
             src="{user.avatarUrl}"
             >{user.login}
@@ -24,6 +22,7 @@
         width: 1em;
         height: 1em;
         border-radius: 1em;
-        margin-right: 0.1em
+        margin-right: 0.1em;
+        vertical-align: middle;
     }
 </style>

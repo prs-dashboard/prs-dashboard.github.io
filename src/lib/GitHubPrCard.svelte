@@ -43,15 +43,14 @@
     <a
         class="pr-title pr-state-{pr_state}"
         href="{pr.url}"
-        title="#{pr.number} ({pr_state}) {escape(pr.title)}"
+        title="#{pr.number} ({pr_state}) {pr.title}"
         >
-            {pr.title}
+            #{pr.number} {pr.title}
     </a>
 </div>
 <div class="card-body">
-    <GitHubUser user={pr.author} />
+    <GitHubUser user={pr.author} class="pr-attribute pr-author pr-user"/>
     <div class="pr-attribute pr-target-branch" title="{pr_target_branch}">{pr_target_branch}</div>
-    <div class="commit-section">
         <div class="pr-attribute pr-commit">
             <a
                 class="pr-commit-check-status pr-commit-check-status-{commit_status}"
@@ -79,14 +78,12 @@
             >
                 {pr.mergeable.toLowerCase()}
         </div>
-    </div>
 
 {#if pr.assignees && pr.assignees.nodes.length > 0}
-    <GitHubUser user={pr.assignees.nodes[0]} />
+    <GitHubUser user={pr.assignees.nodes[0]} class="pr-attribute pr-reviewer pr-user"/>
 {:else}
-    <div class="pr-attribute pr-reviewer pr-user pr-reviewer-missing">NO REVIEWER</div>`
+    <div class="pr-attribute pr-reviewer pr-user pr-reviewer-missing">NO REVIEWER</div>
 {/if}
-
     <div
         class="pr-attribute pr-reviewed"
         >
@@ -132,20 +129,6 @@
         content: " \f02e";
     }
 
-    div.pr-files,
-    div.pr-comments,
-    div.pr-commits-count,
-    div.pr-labels,
-    .pr-state,
-    .pr-reviewed,
-    :global(.pr-user), /* result of GitHubUser */
-    .pr-merge-status,
-    .pr-created-at,
-    .pr-updated-at,
-    .pr-target-branch {
-        display: inline
-    }
-
     .pr-target-branch::before {
         /** Doesn't work with --fa-font-regular **/
         content: " \f126 ";
@@ -155,19 +138,25 @@
         margin-right: 0.1em;
     }
 
-    /* .pr-author::before {
-        content: "by: ";
-    } */
+    :global(.pr-attribute) {
+        display: block;
+        float: left;
+        height: 1.6em;
+    }
 
-    .pr-target-branch,
-    .pr-author {
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        max-width: 15em;
-        display: inline-block;
-        overflow-x: hidden;
-        vertical-align: top;
-        /* to fix extra space on overflow */
+    .pr-target-branch {text-align: right; float: right}
+
+    /* Elements that start new row in the card*/
+    :global(.pr-reviewer),
+    .pr-commit,
+    :global(.pr-author) {
+        clear: left;
+    }
+
+    .card-body {
+        display: flow-root;
+        flex-flow: row wrap;
+        justify-content: space-between;
     }
 
     /** usually for already merged PRs, hence no need to display mergeability **/
@@ -181,7 +170,13 @@
     .pr-reviewed::before,
     .pr-files::before,
     .pr-merge-status::before {
-        content: " / "
+        content: "/";
+        padding-left: 0.3em;
+        padding-right: 0.3em;
+    }
+
+    .pr-commits-count {
+        padding-left: 0.1em;
     }
 
     .pr-title.pr-state-draft::before {
@@ -221,8 +216,9 @@
     }
 
     .pr-commit-check-status {
-        vertical-align: middle;
         text-decoration: none;
+        display: inline-block;
+        vertical-align: baseline;
     }
 
     .repo-title {
@@ -230,10 +226,6 @@
         padding: 5px;
         background-color: lightgray;
         margin-top: 0.5em;
-    }
-
-    .commit-section div {
-        display: inline;
     }
 
     .card {
@@ -255,6 +247,7 @@
         display: flex;
         justify-content: space-between;
         padding-top: 4px;
+        padding: 0.2em;
     }
 
     .pr-title {

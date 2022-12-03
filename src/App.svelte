@@ -74,11 +74,30 @@
             var icon = document.querySelector('link[rel="icon"]');
             icon.href = icon.href.replace('fill="white"', `fill="${new_color}"`);
             color_node.style.background = new_color;
+
+            let app_customization = document.querySelector(':root');
+            console.log("customization:", app_customization);
+            app_customization.style.setProperty('--selection-highlight-color', new_color);
         }
     }
 
     onMount( async() => {
         setColor(color);
+
+        // Hightlight selected PR or one that was selected with browser's find
+        // Helpful when searching for PR by title and not all part of it are visible.
+        var selected_pr = null;
+        document.addEventListener('selectionchange', () => {
+            if (selected_pr) {
+                selected_pr.classList.remove('pr-card-selected');
+            }
+
+            selected_pr = window.getSelection().focusNode.parentElement.closest('.pr-card');
+            if (selected_pr) {
+                selected_pr.classList.add('pr-card-selected');
+            }
+        });
+
     });
 </script>
 
@@ -158,6 +177,10 @@
     :global(form.filters > label) {
         display: inline-block;
         margin-right: 1em;
+    }
+
+    :global(.pr-card-selected) {
+        box-shadow: 0px 0px 10px var(--pr-card-selection-highlight-color);
     }
 
 </style>

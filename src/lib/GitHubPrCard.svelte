@@ -17,7 +17,7 @@
         }
     }();
     const pr_state = pr.isDraft ? 'draft' : pr.state.toLowerCase();
-    const pr_target_branch = pr.baseRefName ? escape(pr.baseRefName) : "";
+    const pr_target_branch = pr.baseRefName ? pr.baseRefName : "";
     const commit_status = commit.statusCheckRollup ? commit.statusCheckRollup.state.toLowerCase() : 'unknown';
 
     const commit_files = (() => {

@@ -180,7 +180,7 @@
     }
 
     :global(.pr-card-selected) {
-        box-shadow: 0px 0px 10px var(--pr-card-selection-highlight-color);
+        box-shadow: 0px 0px 2px 2px var(--pr-card-selection-highlight-color);
     }
 
 </style>

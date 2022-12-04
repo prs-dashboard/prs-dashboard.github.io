@@ -1,7 +1,6 @@
 <script>
     export let pull_request; // pull request object from GitHub API
 
-    import 'lodash/escape';
     import GitHubUser from './GitHubUser.svelte';
     import RelativeDateTime from './RelativeDateTime.svelte';
 

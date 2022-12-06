@@ -63,17 +63,14 @@
 
     function setColor(new_color) {
         if (new_color) {
-            const color_node = document.getElementById('color');
             if (!CSS.supports('color', new_color)) {
-                console.log(`Invalid color value: ${new_color}, would not change accents not favicon color`);
-                color_node.style.display = 'none';
+                console.error(`Invalid color value: ${new_color}, would not change accents not favicon color`);
                 return;
             }
 
             new_color = encodeURIComponent(new_color);
             var icon = document.querySelector('link[rel="icon"]');
             icon.href = icon.href.replace('fill="white"', `fill="${new_color}"`);
-            color_node.style.background = new_color;
 
             let app_customization = document.querySelector(':root');
             console.log("customization:", app_customization);
@@ -181,6 +178,10 @@
 
     :global(.pr-card-selected) {
         box-shadow: 0px 0px 2px 2px var(--pr-card-selection-highlight-color);
+    }
+
+    #color {
+        color: var(--selection-highlight-color)
     }
 
 </style>

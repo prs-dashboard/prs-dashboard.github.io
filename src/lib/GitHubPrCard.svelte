@@ -246,7 +246,7 @@
         display: flex;
         justify-content: space-between;
         padding-top: 4px;
-        padding: 0.2em;
+        padding-bottom: 0.2em;
     }
 
     .pr-title {

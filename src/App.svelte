@@ -138,7 +138,10 @@
         selected_authors={authors_selected}
         pull_requests_promise={searchPRs(repo[0], authors, assignees, query, repo[1], token)}
     />
+{:else}
+    <section>It looks empty...<br>please <a href="https://github.com/prs-dashboard/prs-dashboard.github.io#readme">read the docs</a> on how to add repositories/authors/whatever to dashboard</section>
 {/each}
+
 {/await}
 </main>
 

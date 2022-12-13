@@ -7,7 +7,7 @@
     title="{user.name}"
     >
     <a
-        href="${user.url}"
+        href="{user.url}"
         >
         <img
             alt="{user.name} avatar"

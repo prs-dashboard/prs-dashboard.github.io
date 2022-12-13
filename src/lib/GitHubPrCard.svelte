@@ -56,7 +56,7 @@
                 href="{commit.commitUrl}/status-details" title="{commit_status}"
                 > </a><!-- Intentional whitespace -->
             <a
-                href="${commit.commitUrl}"
+                href="{commit.commitUrl}"
                 >
                     {commit.oid.slice(0, 8)}
             </a>
@@ -175,7 +175,7 @@
     }
 
     .pr-commits-count {
-        padding-left: 0.1em;
+        padding-left: 0.3em;
     }
 
     .pr-title.pr-state-draft::before {
@@ -214,6 +214,11 @@
         content: "\f059";
     }
 
+    .pr-commit-check-status-pending::before {
+        font: var(--fa-font-regular);
+        content: "\f192";
+    }
+
     .pr-commit-check-status {
         text-decoration: none;
         display: inline-block;
@@ -239,7 +244,7 @@
     }
 
     .card-header {
-        padding-bottom: 4px;
+        padding-bottom: 0px;
     }
 
     .card-footer {
@@ -256,5 +261,6 @@
         max-width: 360px;
         width: 360px;
         display: inline-block;
+        height: 1.6em;
     }
 </style>

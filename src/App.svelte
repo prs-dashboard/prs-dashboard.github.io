@@ -11,7 +11,7 @@
     const assignees = getParameters('assignee');
     const query = getParameter('query');
 
-    const namespace = getParameter('namespace');
+    const namespace = getParameter('namespace') || '';
     const color = getParameter('color');
 
     // Allow user to specify namespace to use different tokens for different repos/access rights.
@@ -62,20 +62,25 @@
     }
 
     function setColor(new_color) {
-        if (new_color) {
-            if (!CSS.supports('color', new_color)) {
-                console.error(`Invalid color value: ${new_color}, would not change accents not favicon color`);
-                return;
-            }
+        const DEFAULT_COLOR = 'lightGray';
 
-            new_color = encodeURIComponent(new_color);
-            var icon = document.querySelector('link[rel="icon"]');
-            icon.href = icon.href.replace('fill="white"', `fill="${new_color}"`);
-
-            let app_customization = document.querySelector(':root');
-            console.log("customization:", app_customization);
-            app_customization.style.setProperty('--selection-highlight-color', new_color);
+        if (!new_color || !CSS.supports('color', new_color)) {
+            console.error(`Invalid color value: ${new_color}, would not change accents not favicon color`);
+            new_color = DEFAULT_COLOR;
         }
+
+        new_color = encodeURIComponent(new_color);
+        var icon = document.querySelector('link[rel="icon"]');
+        icon.href = icon.href.replace('fill="white"', `fill="${new_color}"`);
+
+        let app_customization = document.querySelector(':root');
+        console.log("customization:", app_customization);
+        app_customization.style.setProperty('--selection-highlight-color', new_color);
+
+        var icon_element = document.getElementById("icon");
+        console.log(icon_element);
+        icon_element.src = icon.href;
+        console.log(icon_element.href);
     }
 
     onMount( async() => {
@@ -100,6 +105,11 @@
 
 <main>
     <header>
+        <div id=icon_container>
+            <a href="https://github.com/prs-dashboard/prs-dashboard.github.io" title="See this project on GitHub">
+                <img id=icon>
+            </a>
+        </div>
         <div>
             <list id="repo-list">
                 Repositories:
@@ -120,7 +130,6 @@
             </Filters>
         </div>
 {/if}
-        <div id="color">&nbsp;</div>
     </header>
 {#await github_token then token}
 {#each repos as repo}
@@ -142,23 +151,28 @@
         z-index: 10;
         width: 100%;
         box-shadow: 0px 0px 5px -1px black;
-    }
 
-    header {
         display: grid;
-        grid-template-columns: 20fr 1fr;
+        grid-template-columns: 1fr 30fr;
     }
 
-    header div {
+    header #icon_container {
         display: grid;
         grid-column-start: 1;
-    }
-
-    header div#color {
-        display: grid;
-        grid-column-start: 2;
         grid-row-start: 1;
         grid-row-end: 100;
+    }
+
+    header #icon_container a {
+        display: block;
+        margin: auto;
+    }
+
+    #icon {
+        width: 40px;
+        height: 40px;
+        margin: auto;
+        display: block;
     }
 
     main {
@@ -178,10 +192,6 @@
 
     :global(.pr-card-selected) {
         box-shadow: 0px 0px 2px 2px var(--pr-card-selection-highlight-color);
-    }
-
-    #color {
-        color: var(--selection-highlight-color)
     }
 
 </style>

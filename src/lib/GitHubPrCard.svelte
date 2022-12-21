@@ -108,24 +108,29 @@
 </pr-card>
 
 <style>
+    /* padding-left spacing for various icons varies to get similar *visual* ident */
     .pr-files::after {
         font: var(--fa-font-regular);
-        content: " \f016";
+        content: "\f016";
+        padding-left: 0.2em;
     }
 
     .pr-comments::after {
         font: var(--fa-font-regular);
-        content: " \f075";
+        content: "\f075";
+        padding-left: 0.2em;
     }
 
     .pr-commits::after {
         font: var(--fa-font-regular);
-        content: " \f292";
+        content: "\f292";
+        padding-left: 0.1em;
     }
 
     .pr-labels::after {
         font: var(--fa-font-regular);
-        content: " \f02e";
+        content: "\f02e";
+        padding-left: 0.1em;
     }
 
     .pr-target-branch::before {
@@ -152,6 +157,15 @@
         clear: left;
     }
 
+    /* Prevent long github user handles from breaking layout */
+    :global(.pr-reviewer) {
+        max-width: 8em;
+        width: 8em;
+        text-overflow: clip;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
     .card-body {
         display: flow-root;
         flex-flow: row wrap;
@@ -170,12 +184,12 @@
     .pr-files::before,
     .pr-merge-status::before {
         content: "/";
-        padding-left: 0.3em;
-        padding-right: 0.3em;
+        padding-left: 0.2em;
+        padding-right: 0.2em;
     }
 
     .pr-commits-count {
-        padding-left: 0.3em;
+        padding-left: 0.2em;
     }
 
     .pr-title.pr-state-draft::before {

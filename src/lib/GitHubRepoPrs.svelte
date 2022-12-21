@@ -1,7 +1,7 @@
 <script>
     export let github_repo = '';
     export let pull_requests_promise = Promise.resolve([])
-    export let selected_authors = [];
+    export let selected_authors = []; // may be null or undefined if no filtering by authors is required
 
     import GitHubPrCard from './GitHubPrCard.svelte';
     import Filters from './Filters.svelte';
@@ -28,7 +28,8 @@
         prs = prs.filter((pr) => {
             const state = pr_state(pr);
             let found = selected_pr_types.includes(state);
-            found = found && selected_authors.includes(pr.author.login.toLowerCase());
+            if (Array.isArray(selected_authors))
+                found = found && selected_authors.includes(pr.author.login.toLowerCase());
 
             if (found) {
                 const prev = counts.get(state) || 0;

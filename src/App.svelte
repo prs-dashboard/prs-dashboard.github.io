@@ -20,6 +20,7 @@
     // Initially all authors/review assignees are checked
     let authors_filter = authors.map(author => ({id: author}));
     let authors_selected = authors;
+    console.log(`authors_selected : ${authors_selected}`)
     let assignees_filter = assignees.map(assignee => ({id: assignee}));
     let assignees_selected = assignees;
 
@@ -118,11 +119,13 @@
 {/each}
             </list>
         </div>
+{#if authors.length}
         <div>
             <Filters group_name="author-filter" filters={authors_filter} bind:selected={authors_selected}>
                 Authors:
             </Filters>
         </div>
+{/if}
 {#if assignees.length}
         <div>
             <Filters group_name="assignee-filter" filters={assignees_filter}  bind:selected={assignees_selected}>
@@ -135,7 +138,7 @@
 {#each repos as repo}
     <GitHubRepoPrs
         github_repo={repo[0]}
-        selected_authors={authors_selected}
+        selected_authors={authors.length > 0 ? authors_selected : null}
         pull_requests_promise={searchPRs(repo[0], authors, assignees, query, repo[1], token)}
     />
 {:else}

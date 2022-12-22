@@ -77,7 +77,7 @@
 
         let app_customization = document.querySelector(':root');
         console.log("customization:", app_customization);
-        app_customization.style.setProperty('--selection-highlight-color', new_color);
+        app_customization.style.setProperty('--pr-card-selection-highlight-color', new_color);
 
         var icon_element = document.getElementById("icon");
         console.log(icon_element);

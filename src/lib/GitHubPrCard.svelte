@@ -160,7 +160,6 @@
     /* Prevent long github user handles from breaking layout */
     :global(.pr-reviewer) {
         max-width: 8em;
-        width: 8em;
         text-overflow: clip;
         overflow: hidden;
         white-space: nowrap;

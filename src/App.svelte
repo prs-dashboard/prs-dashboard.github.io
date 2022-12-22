@@ -137,6 +137,11 @@
             </Filters>
         </div>
 {/if}
+{#if query}
+    <div>
+        Query: {query}
+    </div>
+{/if}
     </header>
 {#await github_token then token}
 {#each repos as repo}

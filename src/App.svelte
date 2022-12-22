@@ -10,6 +10,7 @@
     const authors = getParameters('author');
     const assignees = getParameters('assignee');
     const query = getParameter('query');
+    const title = getParameter('title');
 
     const namespace = getParameter('namespace') || '';
     const color = getParameter('color');
@@ -85,6 +86,9 @@
     }
 
     onMount( async() => {
+        if (title)
+            document.title = title;
+
         setColor(color);
 
         // Hightlight selected PR or one that was selected with browser's find

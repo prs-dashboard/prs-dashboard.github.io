@@ -5,9 +5,7 @@
 Automation tool to visualize GitHub search results in a dashboard.
 
 Useful for tracking PRs of multiple authors on multiple repositories in a visual way.
-Basically it just performs a multiple GitHub searches on your behalf and visualizes results.
-
-Based on some bad piece of HTML, JavaScript and [GitHub GraphQL API](https://docs.github.com/en/graphql) duck-taped together.
+Basically it just performs a multiple GitHub searches via [GitHub GraphQL API](https://docs.github.com/en/graphql) on your behalf and visualizes results.
 
 
 Quick example: [last Altinity's PRs](https://prs-dashboard.github.io/?author=excitoon&author=quickhouse&author=zvonand&author=arthurpassos&author=filimonov&author=vzakaznikov&author=enmk&repo=Altinity/ClickHouse&repo=ClickHouse/ClickHouse:50&repo=ClickHouse/Clickhouse-cpp&repo=ClickHouse/ClickHouse-odbc)

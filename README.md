@@ -11,15 +11,19 @@ Basically it just performs a multiple GitHub searches via [GitHub GraphQL API](h
 Quick example: [last Altinity's PRs](https://prs-dashboard.github.io/?author=excitoon&author=quickhouse&author=zvonand&author=arthurpassos&author=filimonov&author=vzakaznikov&author=enmk&repo=Altinity/ClickHouse&repo=ClickHouse/ClickHouse:50&repo=ClickHouse/Clickhouse-cpp&repo=ClickHouse/ClickHouse-odbc)
 (note that you would require a [live GitHub token to see any results](https://docs.github.com/en/enterprise-server@3.4/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token))
 
-## Setting repositories and authors
+## Parameters
 
 Both repos/PR authors are set via URL queryString `https://prs-dashboard.github.io/?params`: e.g.
 [`https://prs-dashboard.github.io/?author=enmk&repo=ClickHouse/ClickHouse`](https://prs-dashboard.github.io/?author=enmk&repo=ClickHouse/ClickHouse)
-- Use `author=` to specify author GitHub login (case insensitive), there could be multiple `author` parameters (or none).
-- Use `repo=` to specify GitHub repository (case insensitive), there could be multiple `repo=` parameters (at least 1).
-- One can also specify how many PRs to fetch from repo by appending `:NUMBER` to the repo name: [`https://prs-dashboard.github.io/?author=enmk&repo=ClickHouse/ClickHouse:50`](https://prs-dashboard.github.io/?author=enmk&repo=ClickHouse/ClickHouse:50)
+- `author=string` - value is github handle of author, lile `Enmk` (case insensitive). There could be multiple `author` parameters (or none). e.g. `author=enmk`
+- `repo=string[:number]` - value is name of the repo to show results from, like `ClickHouse/ClickHouse` (case insensitive). There could be multiple `repo=` parameters (at least 1). e.g. `repo=ClickHouse/ClickHouse`
+  - One can also specify how many PRs to fetch from repo by appending `:NUMBER` to the repo name, e.g. `repo=ClickHouse/ClickHouse:50`.
+  Right now GitHub allows up to 50 PRs from repo per request, so you can set anything from 1 to 50, 10 is default.
+- `color=string` - value is [HTML color name](https://htmlcolorcodes.com/color-names/). Set to customeze favicon, logo and accent colors, might be usefull to visualy distinguish diferent dsahboards. e.g. `color=DodgerBlue`
+- `title=string` - value is visible window title. e.g. `title=My Prs`
+- `namespace=string` - value is string used as a prefix to a GitHub token in local storage, e.g. allows different namespaces to use different GitHub tokens.
+- `query=string` - value is [extra terms](https://docs.github.com/en/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax) for [search API call](https://docs.github.com/en/graphql/reference/queries#search). e.g. `query=no:assignee`
 
-Right now GitHub allows up to 99 PRs from repo per request, so you can set anything from 1 to 99, 10 is default.
 
 
 ### Examples
@@ -28,9 +32,12 @@ There could be multiple authors and multiple repositories at once:
 
 Or you can completely omit authors and get unfiltered list of PRs from repository: [`https://prs-dashboard.github.io/?repo=Altinity/ClickHouse&repo=ClickHouse/ClickHouse:50&repo=ClickHouse/Clickhouse-cpp`](https://prs-dashboard.github.io/?repo=Altinity/ClickHouse&repo=ClickHouse/ClickHouse:50&repo=ClickHouse/Clickhouse-cpp)
 
+Unassigned PRs from one repo:
+[`https://prs-dashboard.github.io/?repo=ClickHouse/ClickHouse:2&color=Yellow&title=ClickHouse UNASSIGNED PRs&query=no:assignee is:open review:none -is:draft -label:pr-documentation -label:release -label:st-hold`](https://prs-dashboard.github.io/?repo=ClickHouse/ClickHouse:2&color=Yellow&title=ClickHouse%20UNASSIGNED%20PRs&query=no:assignee%20is:open%20review:none%20-is:draft%20-label:pr-documentation%20-label:release%20-label:st-hold)
+
 
 ## GitHub token and authorization
-Requires a GitHub token to function, since `PRs dashboard` utilizes GitHub grapQL API. Scope of the token dictates what results you will see. Plain token, with no scope allows you to see only public info.
+Requires a GitHub token to function, since `PRs dashboard` utilizes GitHub grapQL API. Scope of the token dictates what results you will see. Plain token, with no scope allows you to see only public info from public repos.
 
 If you want to see results from private repositories/organization, then you should provide token which grant's access to the repos/organizations.
 But even in that case, please consider limits token's scope to **read-only operations**, since `PRs dashboard` does only read-only (search) requests.
@@ -42,8 +49,6 @@ Token is requested on startup and stored in local storage, which seems to be sec
 If you want to set a new token (maybe with different scope), either do some magic tricks in browser's console or revoke current token via GitHub API (safest).
 
 ## Known issues
-- code is ugly as hell
-- filtering is messy and may accidentally show items that are not expected to be visible.
 - no GUI for adding authors/repos, you have to edit an URL manually
 - basically non existing error handling
 

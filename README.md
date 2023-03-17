@@ -37,7 +37,7 @@ Unassigned PRs from one repo:
 
 
 ## GitHub token and authorization
-Requires a GitHub token to function, since `PRs dashboard` utilizes GitHub grapQL API. Scope of the token dictates what results you will see. Plain token, with no scope allows you to see only public info from public repos.
+Requires [a GitHub token to function](https://github.com/settings/tokens/new), since `PRs dashboard` utilizes GitHub grapQL API. Scope of the token dictates what results you will see. Plain token, with no scope allows you to see only public info from public repos.
 
 If you want to see results from private repositories/organization, then you should provide token which grant's access to the repos/organizations.
 But even in that case, please consider limits token's scope to **read-only operations**, since `PRs dashboard` does only read-only (search) requests.

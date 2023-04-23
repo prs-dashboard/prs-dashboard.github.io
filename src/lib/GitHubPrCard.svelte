@@ -1,4 +1,10 @@
 <script>
+    /* Pull request card component.
+
+    Displays PR info given the pull_request object, which is obtained from GitHub GraphQL API:
+    https://docs.github.com/en/graphql/reference/objects#pullrequest
+    */
+
     export let pull_request; // pull request object from GitHub API
 
     import GitHubUser from './GitHubUser.svelte';
@@ -43,6 +49,7 @@
         class="pr-title pr-state-{pr_state}"
         href="{pr.url}"
         title="#{pr.number} ({pr_state}) {pr.title}"
+        rel="noopener noreferrer" target="_blank"
         >
             #{pr.number} {pr.title}
     </a>
@@ -54,9 +61,11 @@
             <a
                 class="pr-commit-check-status pr-commit-check-status-{commit_status}"
                 href="{commit.commitUrl}/status-details" title="{commit_status}"
+                rel="noopener noreferrer" target="_blank"
                 > </a><!-- Intentional whitespace -->
             <a
                 href="{commit.commitUrl}"
+                rel="noopener noreferrer" target="_blank"
                 >
                     {commit.oid.slice(0, 8)}
             </a>
@@ -108,7 +117,7 @@
 </pr-card>
 
 <style>
-    /* padding-left spacing for various icons varies to get similar *visual* ident */
+    /* padding-left - spacing for various icons varies to get similar *visual* ident */
     .pr-files::after {
         font: var(--fa-font-regular);
         content: "\f016";

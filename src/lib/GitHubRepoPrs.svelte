@@ -60,6 +60,7 @@
             <a
                 class="repo-name"
                 href="https://github.com/{repo_name}/pulls"
+                rel="noopener noreferrer" target="_blank"
                 >
                     {repo_name}
             </a>

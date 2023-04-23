@@ -1,10 +1,9 @@
 import {doGitHubGraphQLRequest} from './doGitHubGraphQLRequest.js';
 
 export async function searchPRs(request_repo, authors, assignees, query, request_limit, github_token) {
-  const response = await doGitHubGraphQLRequest(searchPRsRequestBody(request_repo, authors, assignees, query, request_limit), github_token);
-  // console.log(response);
+    const response = await doGitHubGraphQLRequest(searchPRsRequestBody(request_repo, authors, assignees, query, request_limit), github_token);
 
-  return response['data']['search']['nodes'];
+    return response['data']['search']['nodes'];
 }
 
 function searchPRsRequestBody(request_repo, authors, assignees, query, request_limit) {

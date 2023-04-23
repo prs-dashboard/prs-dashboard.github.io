@@ -111,8 +111,8 @@
 <main>
     <header>
         <div id=icon_container>
-            <a href="https://github.com/prs-dashboard/prs-dashboard.github.io" title="See this project on GitHub">
-                <img id=icon>
+            <a href="https://github.com/prs-dashboard/prs-dashboard.github.io" rel="noopener noreferrer" target="_blank" title="See this project on GitHub">
+                <img id=icon alt="PRs Dashboard Logo">
             </a>
         </div>
         <div>
@@ -151,7 +151,7 @@
         pull_requests_promise={searchPRs(repo[0], authors, assignees, query, repo[1], token)}
     />
 {:else}
-    <section>It looks empty...<br>please <a href="https://github.com/prs-dashboard/prs-dashboard.github.io#readme">read the docs</a> on how to add repositories/authors/whatever to dashboard</section>
+    <section>It looks empty...<br>please <a href="https://github.com/prs-dashboard/prs-dashboard.github.io#readme" rel="noopener noreferrer" target="_blank">read the docs</a> on how to add repositories/authors/whatever to dashboard</section>
 {/each}
 
 {/await}

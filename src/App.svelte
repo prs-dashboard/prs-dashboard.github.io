@@ -7,7 +7,7 @@
     import { searchPRs } from './lib/GitHubPrs';
 
     const repos = getRepos();
-    const authors = getParameters('author');
+    const authors = getParameters('author', 'authors');
     const assignees = getParameters('assignee');
     const query = getParameter('query');
     const title = getParameter('title');
@@ -25,7 +25,7 @@
     let assignees_filter = assignees.map(assignee => ({id: assignee}));
     let assignees_selected = assignees;
 
-    function getParameters(name) {
+    function getParameters(name, name_array) {
         let result = [];
         // @ts-ignore
         for (const [k, v] of new URL(document.location).searchParams) {
@@ -33,6 +33,13 @@
                 result.push(v);
         }
 
+        for (const [k, v] of new URL(document.location).searchParams) {
+            if (k === name)
+                result.push(v);
+        }
+
+        result = Array.from(new Set(result));
+        result.sort();
         return result;
     }
 

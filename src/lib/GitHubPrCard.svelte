@@ -81,12 +81,12 @@
 {#if pr.assignees && pr.assignees.nodes.length > 0}
     <GitHubUser user={pr.assignees.nodes[0]} class="pr-attribute pr-reviewer pr-user"/>
 {:else}
-    <div class="pr-attribute pr-reviewer pr-user pr-reviewer-missing">NO REVIEWER</div>
+    <div class="pr-attribute pr-reviewer pr-user pr-reviewer-missing">NO&nbsp;REVIEWER</div>
 {/if}
     <div
         class="pr-attribute pr-reviewed"
         >
-        {review ? review.state.toLowerCase() : 'NOT REVIEWED'}
+        {review ? review.state.toLowerCase() : 'NO&nbsp;REVIEW'}
     </div >
     <div
         class="pr-attribute pr-comments"
@@ -124,13 +124,13 @@
     .pr-commits::after {
         font: var(--fa-font-regular);
         content: "\f292";
-        padding-left: 0.1em;
+        padding-left: 0.2em;
     }
 
     .pr-labels::after {
         font: var(--fa-font-regular);
         content: "\f02e";
-        padding-left: 0.1em;
+        padding-left: 0.2em;
     }
 
     .pr-target-branch::before {
@@ -183,8 +183,8 @@
     .pr-files::before,
     .pr-merge-status::before {
         content: "/";
-        padding-left: 0.2em;
-        padding-right: 0.2em;
+        padding-left: 0.3em;
+        padding-right: 0.3em;
     }
 
     .pr-commits-count {
@@ -246,9 +246,9 @@
     }
 
     .card {
-        max-width: 400px;
-        width: 400px;
-        margin: 0.2em;
+        max-width: 365px;
+        width: 365px;
+        margin: .1em;
     }
 
     .card-body {
@@ -271,8 +271,8 @@
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        max-width: 360px;
-        width: 360px;
+        max-width: 330px;
+        width: 330px;
         display: inline-block;
         height: 1.6em;
     }

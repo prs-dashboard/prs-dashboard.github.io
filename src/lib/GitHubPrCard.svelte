@@ -81,12 +81,12 @@
 {#if pr.assignees && pr.assignees.nodes.length > 0}
     <GitHubUser user={pr.assignees.nodes[0]} class="pr-attribute pr-reviewer pr-user"/>
 {:else}
-    <div class="pr-attribute pr-reviewer pr-user pr-reviewer-missing">NO&nbsp;REVIEWER</div>
+    <div class="pr-attribute pr-reviewer pr-user pr-reviewer-missing">NO REVIEWER</div>
 {/if}
     <div
         class="pr-attribute pr-reviewed"
         >
-        {review ? review.state.toLowerCase() : 'NO&nbsp;REVIEW'}
+        {review ? review.state.toLowerCase() : 'NO REVIEW'}
     </div >
     <div
         class="pr-attribute pr-comments"

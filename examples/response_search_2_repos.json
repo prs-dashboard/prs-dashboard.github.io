@@ -1,0 +1,5087 @@
+{
+  "data": {
+    "search": {
+      "nodes": [
+        {
+          "number": 300,
+          "url": "https://github.com/ClickHouse/clickhouse-cpp/pull/300",
+          "title": "Minor: Deprecated LowCardinalitySerializationAdaptor",
+          "createdAt": "2023-04-17T14:02:09Z",
+          "state": "MERGED",
+          "isDraft": false,
+          "updatedAt": "2023-04-17T15:28:48Z",
+          "mergeable": "UNKNOWN",
+          "baseRefName": "master",
+          "changedFiles": 1,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/columns/lowcardinalityadaptor.h",
+                "deletions": 1,
+                "additions": 3
+              }
+            ],
+            "totalCount": 1
+          },
+          "labels": {
+            "totalCount": 0,
+            "nodes": []
+          },
+          "reviews": {
+            "edges": []
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 1,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/clickhouse-cpp/commit/3c33fdaf5898d66ec91276eb4f152bb6be7b1eb7",
+                    "oid": "3c33fdaf5898d66ec91276eb4f152bb6be7b1eb7",
+                    "statusCheckRollup": {
+                      "state": "SUCCESS"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": []
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 0,
+            "nodes": []
+          }
+        },
+        {
+          "number": 299,
+          "url": "https://github.com/ClickHouse/clickhouse-cpp/pull/299",
+          "title": "Fix Windows build",
+          "createdAt": "2023-04-17T11:31:35Z",
+          "state": "MERGED",
+          "isDraft": false,
+          "updatedAt": "2023-04-17T12:35:18Z",
+          "mergeable": "UNKNOWN",
+          "baseRefName": "master",
+          "changedFiles": 3,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/query.h",
+                "deletions": 0,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/utils.cpp",
+                "deletions": 0,
+                "additions": 19
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/utils.h",
+                "deletions": 0,
+                "additions": 6
+              }
+            ],
+            "totalCount": 3
+          },
+          "labels": {
+            "totalCount": 0,
+            "nodes": []
+          },
+          "reviews": {
+            "edges": []
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 1,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/clickhouse-cpp/commit/50a3817bc36d460c632230969090a3f9c82a5be0",
+                    "oid": "50a3817bc36d460c632230969090a3f9c82a5be0",
+                    "statusCheckRollup": {
+                      "state": "FAILURE"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": []
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 0,
+            "nodes": []
+          }
+        },
+        {
+          "number": 298,
+          "url": "https://github.com/ClickHouse/clickhouse-cpp/pull/298",
+          "title": "Added Query.onProfile and handling of Profile data",
+          "createdAt": "2023-04-16T17:38:25Z",
+          "state": "MERGED",
+          "isDraft": false,
+          "updatedAt": "2023-04-17T15:38:04Z",
+          "mergeable": "UNKNOWN",
+          "baseRefName": "master",
+          "changedFiles": 6,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": ".github/workflows/macos.yml",
+                "deletions": 3,
+                "additions": 4
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": ".github/workflows/windows_mingw.yml",
+                "deletions": 1,
+                "additions": 6
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": ".github/workflows/windows_msvc.yml",
+                "deletions": 1,
+                "additions": 5
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/query.h",
+                "deletions": 1,
+                "additions": 9
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/client_ut.cpp",
+                "deletions": 0,
+                "additions": 32
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/utils.cpp",
+                "deletions": 1,
+                "additions": 4
+              }
+            ],
+            "totalCount": 6
+          },
+          "labels": {
+            "totalCount": 0,
+            "nodes": []
+          },
+          "reviews": {
+            "edges": []
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 2,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/clickhouse-cpp/commit/2727d49da4ef30b5c862812d81eb1226ea3b291c",
+                    "oid": "2727d49da4ef30b5c862812d81eb1226ea3b291c",
+                    "statusCheckRollup": {
+                      "state": "SUCCESS"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": []
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 1,
+            "nodes": [
+              {
+                "author": {
+                  "name": "Vasily Nemkov"
+                },
+                "updatedAt": "2023-04-17T12:50:19Z",
+                "body": "closing to re-open and re-trigger builds against most recent master"
+              }
+            ]
+          }
+        },
+        {
+          "number": 292,
+          "url": "https://github.com/ClickHouse/clickhouse-cpp/pull/292",
+          "title": "Added Query.onProfile and handling of Profile data",
+          "createdAt": "2023-03-21T15:51:05Z",
+          "state": "MERGED",
+          "isDraft": false,
+          "updatedAt": "2023-04-17T13:28:59Z",
+          "mergeable": "UNKNOWN",
+          "baseRefName": "master",
+          "changedFiles": 1,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/client_ut.cpp",
+                "deletions": 10,
+                "additions": 0
+              }
+            ],
+            "totalCount": 1
+          },
+          "labels": {
+            "totalCount": 0,
+            "nodes": []
+          },
+          "reviews": {
+            "edges": []
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 1,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/clickhouse-cpp/commit/6cb84a19eb98e3b7e51051fcbb55c3b74266e206",
+                    "oid": "6cb84a19eb98e3b7e51051fcbb55c3b74266e206",
+                    "statusCheckRollup": {
+                      "state": "SUCCESS"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": []
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 1,
+            "nodes": [
+              {
+                "author": {
+                  "name": "Vasily Nemkov"
+                },
+                "updatedAt": "2023-04-17T13:13:29Z",
+                "body": "closing to re-open later, just to trigger builds and tests against latest master"
+              }
+            ]
+          }
+        },
+        {
+          "number": 47578,
+          "url": "https://github.com/ClickHouse/ClickHouse/pull/47578",
+          "title": "Simplify clickhouse-test usage with -b",
+          "createdAt": "2023-03-14T14:37:37Z",
+          "state": "MERGED",
+          "isDraft": false,
+          "updatedAt": "2023-03-15T12:32:44Z",
+          "mergeable": "UNKNOWN",
+          "baseRefName": "master",
+          "changedFiles": 1,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": "tests/clickhouse-test",
+                "deletions": 1,
+                "additions": 2
+              }
+            ],
+            "totalCount": 1
+          },
+          "labels": {
+            "totalCount": 2,
+            "nodes": [
+              {
+                "name": "pr-build",
+                "color": "007700"
+              },
+              {
+                "name": "can be tested",
+                "color": "1d76db"
+              }
+            ]
+          },
+          "reviews": {
+            "edges": [
+              {
+                "node": {
+                  "id": "PRR_kwDOA5dJV85P1qWJ",
+                  "state": "APPROVED"
+                }
+              }
+            ]
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 2,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/ClickHouse/commit/f4f7e110b6523405024fa5ab66944cecbd24e20c",
+                    "oid": "f4f7e110b6523405024fa5ab66944cecbd24e20c",
+                    "statusCheckRollup": {
+                      "state": "FAILURE"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": [
+              {
+                "login": "alexey-milovidov",
+                "name": "Alexey Milovidov",
+                "avatarUrl": "https://avatars.githubusercontent.com/u/18581488?v=4",
+                "url": "https://github.com/alexey-milovidov"
+              }
+            ]
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 0,
+            "nodes": []
+          }
+        },
+        {
+          "number": 286,
+          "url": "https://github.com/ClickHouse/clickhouse-cpp/pull/286",
+          "title": "Dependecies info",
+          "createdAt": "2023-02-15T10:23:26Z",
+          "state": "MERGED",
+          "isDraft": false,
+          "updatedAt": "2023-02-15T10:23:49Z",
+          "mergeable": "UNKNOWN",
+          "baseRefName": "master",
+          "changedFiles": 1,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": "README.md",
+                "deletions": 0,
+                "additions": 18
+              }
+            ],
+            "totalCount": 1
+          },
+          "labels": {
+            "totalCount": 0,
+            "nodes": []
+          },
+          "reviews": {
+            "edges": []
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 1,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/clickhouse-cpp/commit/84f10f99526801bc0b51970162ad6fbe80492715",
+                    "oid": "84f10f99526801bc0b51970162ad6fbe80492715",
+                    "statusCheckRollup": {
+                      "state": "SUCCESS"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": []
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 0,
+            "nodes": []
+          }
+        },
+        {
+          "number": 285,
+          "url": "https://github.com/ClickHouse/clickhouse-cpp/pull/285",
+          "title": "Fixed deprecation warning",
+          "createdAt": "2023-02-15T09:44:38Z",
+          "state": "MERGED",
+          "isDraft": false,
+          "updatedAt": "2023-02-16T10:27:12Z",
+          "mergeable": "UNKNOWN",
+          "baseRefName": "master",
+          "changedFiles": 1,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/client.h",
+                "deletions": 2,
+                "additions": 3
+              }
+            ],
+            "totalCount": 1
+          },
+          "labels": {
+            "totalCount": 0,
+            "nodes": []
+          },
+          "reviews": {
+            "edges": []
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 1,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/clickhouse-cpp/commit/30068ac4740a54c8b30a183d9298eff92724e242",
+                    "oid": "30068ac4740a54c8b30a183d9298eff92724e242",
+                    "statusCheckRollup": {
+                      "state": "SUCCESS"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": []
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 0,
+            "nodes": []
+          }
+        },
+        {
+          "number": 273,
+          "url": "https://github.com/ClickHouse/clickhouse-cpp/pull/273",
+          "title": "Fix crash on invalid AST",
+          "createdAt": "2022-12-23T15:17:22Z",
+          "state": "MERGED",
+          "isDraft": false,
+          "updatedAt": "2022-12-27T06:48:32Z",
+          "mergeable": "UNKNOWN",
+          "baseRefName": "master",
+          "changedFiles": 6,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/columns/factory.cpp",
+                "deletions": 16,
+                "additions": 33
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/types/type_parser.cpp",
+                "deletions": 6,
+                "additions": 51
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/CreateColumnByType_ut.cpp",
+                "deletions": 0,
+                "additions": 6
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/client_ut.cpp",
+                "deletions": 0,
+                "additions": 19
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/type_parser_ut.cpp",
+                "deletions": 0,
+                "additions": 31
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/types_ut.cpp",
+                "deletions": 2,
+                "additions": 6
+              }
+            ],
+            "totalCount": 6
+          },
+          "labels": {
+            "totalCount": 0,
+            "nodes": []
+          },
+          "reviews": {
+            "edges": []
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 5,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/clickhouse-cpp/commit/262b15275790180524b7e5f173d5aa8403ac9269",
+                    "oid": "262b15275790180524b7e5f173d5aa8403ac9269",
+                    "statusCheckRollup": {
+                      "state": "SUCCESS"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": []
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 0,
+            "nodes": []
+          }
+        },
+        {
+          "number": 267,
+          "url": "https://github.com/ClickHouse/clickhouse-cpp/pull/267",
+          "title": "Removed SELECT statement that is not supported on some remote endpoints",
+          "createdAt": "2022-12-10T15:45:48Z",
+          "state": "MERGED",
+          "isDraft": false,
+          "updatedAt": "2022-12-10T16:00:42Z",
+          "mergeable": "UNKNOWN",
+          "baseRefName": "master",
+          "changedFiles": 2,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/client_ut.cpp",
+                "deletions": 1,
+                "additions": 0
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/ssl_ut.cpp",
+                "deletions": 1,
+                "additions": 0
+              }
+            ],
+            "totalCount": 2
+          },
+          "labels": {
+            "totalCount": 0,
+            "nodes": []
+          },
+          "reviews": {
+            "edges": []
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 1,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/clickhouse-cpp/commit/14ee88262d39e58945806a82b7ac2e3c291162f0",
+                    "oid": "14ee88262d39e58945806a82b7ac2e3c291162f0",
+                    "statusCheckRollup": {
+                      "state": "SUCCESS"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": []
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 0,
+            "nodes": []
+          }
+        },
+        {
+          "number": 264,
+          "url": "https://github.com/ClickHouse/clickhouse-cpp/pull/264",
+          "title": "Explicitly using ubuntu-20.04 instead of ubuntu-latest",
+          "createdAt": "2022-12-09T14:52:09Z",
+          "state": "MERGED",
+          "isDraft": false,
+          "updatedAt": "2022-12-10T15:44:02Z",
+          "mergeable": "UNKNOWN",
+          "baseRefName": "master",
+          "changedFiles": 1,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": ".github/workflows/linux.yml",
+                "deletions": 1,
+                "additions": 1
+              }
+            ],
+            "totalCount": 1
+          },
+          "labels": {
+            "totalCount": 0,
+            "nodes": []
+          },
+          "reviews": {
+            "edges": []
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 1,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/clickhouse-cpp/commit/7c64a81f014a8213605b7c85b1e642375071a0fb",
+                    "oid": "7c64a81f014a8213605b7c85b1e642375071a0fb",
+                    "statusCheckRollup": {
+                      "state": "FAILURE"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": []
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 0,
+            "nodes": []
+          }
+        },
+        {
+          "number": 263,
+          "url": "https://github.com/ClickHouse/clickhouse-cpp/pull/263",
+          "title": "Scheduling CI/CD runs on Monday midnight",
+          "createdAt": "2022-12-09T14:40:49Z",
+          "state": "MERGED",
+          "isDraft": false,
+          "updatedAt": "2022-12-10T16:44:38Z",
+          "mergeable": "UNKNOWN",
+          "baseRefName": "master",
+          "changedFiles": 4,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": ".github/workflows/linux.yml",
+                "deletions": 0,
+                "additions": 2
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": ".github/workflows/macos.yml",
+                "deletions": 0,
+                "additions": 2
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": ".github/workflows/windows_mingw.yml",
+                "deletions": 0,
+                "additions": 2
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": ".github/workflows/windows_msvc.yml",
+                "deletions": 0,
+                "additions": 2
+              }
+            ],
+            "totalCount": 4
+          },
+          "labels": {
+            "totalCount": 0,
+            "nodes": []
+          },
+          "reviews": {
+            "edges": []
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 1,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/clickhouse-cpp/commit/bebaac0c871246711e159d2ac60b0ba7c5e0880f",
+                    "oid": "bebaac0c871246711e159d2ac60b0ba7c5e0880f",
+                    "statusCheckRollup": {
+                      "state": "SUCCESS"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": []
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 0,
+            "nodes": []
+          }
+        },
+        {
+          "number": 250,
+          "url": "https://github.com/ClickHouse/clickhouse-cpp/pull/250",
+          "title": "Deprecated StringView",
+          "createdAt": "2022-11-21T14:39:44Z",
+          "state": "MERGED",
+          "isDraft": false,
+          "updatedAt": "2022-11-21T19:03:10Z",
+          "mergeable": "UNKNOWN",
+          "baseRefName": "master",
+          "changedFiles": 1,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/base/string_view.h",
+                "deletions": 1,
+                "additions": 3
+              }
+            ],
+            "totalCount": 1
+          },
+          "labels": {
+            "totalCount": 0,
+            "nodes": []
+          },
+          "reviews": {
+            "edges": []
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 1,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/clickhouse-cpp/commit/e3183cb54acb8308c8591d6b664c6d2a01ca8001",
+                    "oid": "e3183cb54acb8308c8591d6b664c6d2a01ca8001",
+                    "statusCheckRollup": {
+                      "state": "SUCCESS"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": []
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 0,
+            "nodes": []
+          }
+        },
+        {
+          "number": 240,
+          "url": "https://github.com/ClickHouse/clickhouse-cpp/pull/240",
+          "title": "CH server 22.3 for linux workflow",
+          "createdAt": "2022-10-30T11:26:16Z",
+          "state": "MERGED",
+          "isDraft": false,
+          "updatedAt": "2022-10-31T23:47:46Z",
+          "mergeable": "UNKNOWN",
+          "baseRefName": "master",
+          "changedFiles": 1,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": ".github/workflows/linux.yml",
+                "deletions": 12,
+                "additions": 19
+              }
+            ],
+            "totalCount": 1
+          },
+          "labels": {
+            "totalCount": 0,
+            "nodes": []
+          },
+          "reviews": {
+            "edges": []
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 8,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/clickhouse-cpp/commit/ba17f2c3cc75a153543ba992a3896aeb06c54dae",
+                    "oid": "ba17f2c3cc75a153543ba992a3896aeb06c54dae",
+                    "statusCheckRollup": {
+                      "state": "SUCCESS"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": []
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 0,
+            "nodes": []
+          }
+        },
+        {
+          "number": 42641,
+          "url": "https://github.com/ClickHouse/ClickHouse/pull/42641",
+          "title": "Fixed exception when user tries to log in",
+          "createdAt": "2022-10-25T05:43:44Z",
+          "state": "MERGED",
+          "isDraft": false,
+          "updatedAt": "2022-11-30T12:01:58Z",
+          "mergeable": "UNKNOWN",
+          "baseRefName": "master",
+          "changedFiles": 4,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Access/SettingsProfilesCache.cpp",
+                "deletions": 1,
+                "additions": 3
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Access/SettingsProfilesInfo.cpp",
+                "deletions": 0,
+                "additions": 29
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Access/SettingsProfilesInfo.h",
+                "deletions": 9,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "tests/integration/test_settings_profile/test.py",
+                "deletions": 1,
+                "additions": 1
+              }
+            ],
+            "totalCount": 4
+          },
+          "labels": {
+            "totalCount": 2,
+            "nodes": [
+              {
+                "name": "pr-bugfix",
+                "color": "ff4080"
+              },
+              {
+                "name": "can be tested",
+                "color": "1d76db"
+              }
+            ]
+          },
+          "reviews": {
+            "edges": [
+              {
+                "node": {
+                  "id": "PRR_kwDOA5dJV85HQ8Xp",
+                  "state": "COMMENTED"
+                }
+              }
+            ]
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 13,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/ClickHouse/commit/3d0c07ac5b8f18917f2314474030910176ec7940",
+                    "oid": "3d0c07ac5b8f18917f2314474030910176ec7940",
+                    "statusCheckRollup": {
+                      "state": "FAILURE"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": [
+              {
+                "login": "rschu1ze",
+                "name": "Robert Schulze",
+                "avatarUrl": "https://avatars.githubusercontent.com/u/100446237?u=ae8472988266e2efd1ad0b54e50bef5c0879ad31&v=4",
+                "url": "https://github.com/rschu1ze"
+              }
+            ]
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 5,
+            "nodes": [
+              {
+                "author": {
+                  "name": "Vasily Nemkov"
+                },
+                "updatedAt": "2022-11-29T16:21:08Z",
+                "body": "# Errors analysis for [2684fc5b](https://github.com/ClickHouse/ClickHouse/commit/2684fc5b1b31a00d28c31d6182fbb3597ce45747/status-details)\r\n### [ClickHouse Integration Tests (asan) [1/6]](https://s3.amazonaws.com/clickhouse-test-reports/42641/2684fc5b1b31a00d28c31d6182fbb3597ce45747/integration_tests__asan__[1/6].html)\r\n - [test_keeper_zookeeper_converter/test.py::test_acls[False]](https://s3.amazonaws.com/clickhouse-test-reports/42641/2684fc5b1b31a00d28c31d6182fbb3597ce45747/integration_tests__asan__[1/6]/integration_run_parallel1_0.log) - timed out ZK connection\r\n```python\r\n/usr/local/lib/python3.8/dist-packages/kazoo/client.py:635: KazooTimeoutError\r\n```\r\n - [`test_keeper_map/test.py::test_create_drop_keeper_map_concurrent`](https://s3.amazonaws.com/clickhouse-test-reports/42641/2684fc5b1b31a00d28c31d6182fbb3597ce45747/integration_tests__asan__[1/6]/integration_run_parallel1_0.log) - Timeout\r\n```\r\nE               Failed: Timeout >900.0s\r\n```\r\n\r\n### [ClickHouse Integration Tests (asan) [5/6]](https://s3.amazonaws.com/clickhouse-test-reports/42641/2684fc5b1b31a00d28c31d6182fbb3597ce45747/integration_tests__asan__[5/6].html)\r\n\r\n- [`test_settings_profile/test.py::test_function_current_profiles`](https://s3.amazonaws.com/clickhouse-test-reports/42641/2684fc5b1b31a00d28c31d6182fbb3597ce45747/integration_tests__asan__[5/6]/integration_run_parallel2_0.log) `currentProfiles()` now reports implicitly applied profiles too (e.g. `P5` via `ROLE`), which I believe is more correct behavior. Test needs to be updated though:\r\n```\r\n>       assert (\r\n            instance.http_query(\r\n                \"SELECT defaultProfiles(), currentProfiles(), enabledProfiles()\",\r\n                user=\"robin\",\r\n                params={\"session_id\": session_id},\r\n            )\r\n            == \"['P1','P2']\\t['P1','P2']\\t['default','P3','P4','P5','P1','P2']\\n\"\r\n        )\r\nE       assert \"['P1','P2']\\t['default','P3','P5','P1','P2']\\t['default','P3','P4','P5','P1','P2']\\n\" == \"['P1','P2']\\t['P1','P2']\\t['default','P3','P4','P5','P1','P2']\\n\"\r\nE         - ['P1','P2']\t['P1','P2']\t['default','P3','P4','P5','P1','P2']\r\nE         + ['P1','P2']\t['default','P3','P5','P1','P2']\t['default','P3','P4','P5','P1','P2']\r\nE         ?            \t ++++++++++++++++++++\r\n```\r\n\r\n### [ClickHouse Integration Tests (release) [3/4]](https://s3.amazonaws.com/clickhouse-test-reports/42641/2684fc5b1b31a00d28c31d6182fbb3597ce45747/integration_tests__release__[3/4].html)\r\n- [`test_settings_profile/test.py::test_function_current_profiles`](https://s3.amazonaws.com/clickhouse-test-reports/42641/2684fc5b1b31a00d28c31d6182fbb3597ce45747/integration_tests__release__[3/4]/integration_run_parallel3_0.log) - same as above\r\n\r\n### [ClickHouse Integration Tests (tsan)](https://s3.amazonaws.com/clickhouse-test-reports/42641/2684fc5b1b31a00d28c31d6182fbb3597ce45747/integration_tests__tsan__[1/6].html)\r\n- [`test_hedged_requests/test.py::test_receive_timeout2`](https://s3.amazonaws.com/clickhouse-test-reports/42641/2684fc5b1b31a00d28c31d6182fbb3597ce45747/integration_tests__tsan__[1/6]/integration_run_parallel1_0.log)\r\n```\r\nE           helpers.client.QueryRuntimeException: Client failed! Return code: 209, stderr: Received exception from server (version 22.12.1):\r\nE           Code: 209. DB::Exception: Received from 172.16.8.2:9000. DB::NetException. DB::NetException: Timeout exceeded while reading from socket (node_1:9000, receive timeout 3000 ms): While executing Remote. Stack trace:\r\n...\r\n```\r\n\r\n### [ClickHouse Integration Tests (tsan) [5/6]](https://s3.amazonaws.com/clickhouse-test-reports/42641/2684fc5b1b31a00d28c31d6182fbb3597ce45747/integration_tests__tsan__[5/6].html)\r\n- [`test_settings_profile/test.py::test_function_current_profiles`](https://s3.amazonaws.com/clickhouse-test-reports/42641/2684fc5b1b31a00d28c31d6182fbb3597ce45747/integration_tests__tsan__[5/6]/integration_run_parallel2_0.log) - same as other `test_settings_profile/test.py::test_function_current_profiles` cases\r\n\r\n### [ClickHouse Stress Test (asan)](https://s3.amazonaws.com/clickhouse-test-reports/42641/2684fc5b1b31a00d28c31d6182fbb3597ce45747/stress_test__asan_.html)\r\n- Seems unrelated: https://s3.amazonaws.com/clickhouse-test-reports/42641/2684fc5b1b31a00d28c31d6182fbb3597ce45747/stress_test__asan_/fatal_messages.txt\r\n```<Fatal> : Logical error: 'Part all_4_4_0 doesn't exist'```\r\n\r\n\r\n### [ClickHouse Stress Test (debug)](https://s3.amazonaws.com/clickhouse-test-reports/42641/2684fc5b1b31a00d28c31d6182fbb3597ce45747/stress_test__debug_.html)\r\nLooks like [unrelated OOM ](https://s3.amazonaws.com/clickhouse-test-reports/42641/2684fc5b1b31a00d28c31d6182fbb3597ce45747/stress_test__debug_/dmesg.log)\r\n\r\n\r\n# Conclusion\r\nNeed to modify [`tests/integration/test_settings_profile/test.py::test_function_current_profiles`](https://github.com/ClickHouse/ClickHouse/blob/127c980aff4cdcc9c5959cce79fec6704aa2665f/tests/integration/test_settings_profile/test.py#L536) to reflect fixed behavior of `currentProfiles()`\r\n"
+              },
+              {
+                "author": {
+                  "name": "Robert Schulze"
+                },
+                "updatedAt": "2022-11-29T08:09:51Z",
+                "body": "test_function_current_profiles unfortunately still fails.\r\n```\r\n[gw0] [100%] FAILED test_settings_profile/test.py::test_function_current_profiles \r\n\r\n=================================== FAILURES ===================================\r\n________________________ test_function_current_profiles ________________________\r\n[gw0] linux -- Python 3.8.10 /usr/bin/python3\r\n\r\n    def test_function_current_profiles():\r\n        instance.query(\"CREATE SETTINGS PROFILE P1, P2\")\r\n        instance.query(\"ALTER USER robin SETTINGS PROFILE P1, P2\")\r\n        instance.query(\"CREATE SETTINGS PROFILE P3 TO robin\")\r\n        instance.query(\"CREATE SETTINGS PROFILE P4\")\r\n        instance.query(\"CREATE SETTINGS PROFILE P5 SETTINGS INHERIT P4\")\r\n        instance.query(\"CREATE ROLE worker SETTINGS PROFILE P5\")\r\n        instance.query(\"GRANT worker TO robin\")\r\n        instance.query(\"CREATE SETTINGS PROFILE P6\")\r\n    \r\n        session_id = new_session_id()\r\n>       assert (\r\n            instance.http_query(\r\n                \"SELECT defaultProfiles(), currentProfiles(), enabledProfiles()\",\r\n                user=\"robin\",\r\n                params={\"session_id\": session_id},\r\n            )\r\n            == \"['P1','P2']\\t['P1','P2']\\t['default','P3','P4','P5','P1','P2']\\n\"\r\n        )\r\nE       assert \"['P1','P2']\\t['default','P3','P5','P1','P2']\\t['default','P3','P4','P5','P1','P2']\\n\" == \"['P1','P2']\\t['P1','P2']\\t['default','P3','P4','P5','P1','P2']\\n\"\r\nE         - ['P1','P2']\t['P1','P2']\t['default','P3','P4','P5','P1','P2']\r\nE         + ['P1','P2']\t['default','P3','P5','P1','P2']\t['default','P3','P4','P5','P1','P2']\r\nE         ?            \t ++++++++++++++++++++\r\n```"
+              },
+              {
+                "author": {
+                  "name": "Robert Schulze"
+                },
+                "updatedAt": "2022-11-28T11:23:37Z",
+                "body": "Thanks for the analysis, I agree with it, and sorry for the delay (just got back from vacation)\r\n\r\nPlease find one smaller comment attached. Functional test `test_function_current_profiles` looks fishy, like to check?"
+              },
+              {
+                "author": {
+                  "name": "Vasily Nemkov"
+                },
+                "updatedAt": "2022-11-23T13:38:54Z",
+                "body": "> * Is `substituteProfiles` really exception-safe? E.g. it does lots of `.insert()`, `.push_back()` and `.emplace()` where a bad_alloc exception could mess up the state of `SettingsProfileInfo`. This could be fixed by first reserving sufficient space in all members and then populating them.\r\n\r\n`substituteProfiles` is not exception safe, but there should be no way to modify inconsistently `SettingsProfilesInfo` in `SettingsProfilesInfo` due to exception. It only modifies the state of the stack-based `SettingsProfilesInfo` instance, so if an exception is thrown, said instance is not added to the `SettingsProfilesCache::profile_infos_cache` and lost.\r\n\r\nFrom what I see, `substituteProfiles` is always called with a locked `SettingsProfilesCache::mutex` (directly or indirectly):\r\n```mermaid\r\ngraph TD\r\n    mergeSettingsAndConstraints --> mergeSettingsAndConstraintsFor --> substituteProfiles\r\n    getSettingsProfileInfo --> |locks mutex | substituteProfiles\r\n    getEnabledSettings --> |locks mutex | mergeSettingsAndConstraintsFor\r\n    profileRemoved --> |locks mutex | mergeSettingsAndConstraints\r\n    profileAddedOrChanged --> |locks mutex | mergeSettingsAndConstraints\r\n```\r\n\r\nTook another look, and probably fixed the most probable cause in `mergeSettingsAndConstraintsFor`, see \r\nhttps://github.com/ClickHouse/ClickHouse/pull/42641/commits/aa78f1c8421aa78b7a7c6de53d4ea8d235bd5263\r\n\r\n@rschu1ze ^^"
+              },
+              {
+                "author": {
+                  "name": "Robert Schulze"
+                },
+                "updatedAt": "2022-11-03T18:19:37Z",
+                "body": "@Enmk I am not really familiar with the code and its constraints and I will certainly not oppose your fix. But, to be honest, it feels like a bandaid for an issue that should never have happened in the first place. I agree with your section \"bug analysis\", in particular that the member variables of `SettingsProfileInfo` are out-of-sync and that they are set (at least as far as I see) by `SettingsProfilesCache::substituteProfiles()`. So the question is what could have caused this problem. Thoughts:\r\n- We could use Clang TSA to safeguard the locking in SettingsProfileCache, see #38068\r\n- Is `substituteProfiles` really exception-safe? E.g. it does lots of `.insert()`, `.push_back()` and `.emplace()` where a bad_alloc exception could mess up the state of `SettingsProfileInfo`. This could be fixed by first reserving sufficient space in all members and then populating them.\r\n- Maybe there are other places in this function which can throw.\r\n\r\nEven if there is no repro (which is okay, perhaps the issue occurs really super sporadically), my preference would be to make the settings profile creating code more robust."
+              }
+            ]
+          }
+        },
+        {
+          "number": 233,
+          "url": "https://github.com/ClickHouse/clickhouse-cpp/pull/233",
+          "title": "Minor: Deprecated some APIs",
+          "createdAt": "2022-10-24T15:41:31Z",
+          "state": "MERGED",
+          "isDraft": false,
+          "updatedAt": "2022-10-25T05:09:13Z",
+          "mergeable": "UNKNOWN",
+          "baseRefName": "master",
+          "changedFiles": 13,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": "CMakeLists.txt",
+                "deletions": 1,
+                "additions": 2
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/base/sslsocket.cpp",
+                "deletions": 3,
+                "additions": 3
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/base/string_utils.h",
+                "deletions": 0,
+                "additions": 2
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/client.h",
+                "deletions": 5,
+                "additions": 3
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/columns/array.h",
+                "deletions": 2,
+                "additions": 2
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/columns/date.h",
+                "deletions": 2,
+                "additions": 2
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/columns/itemview.cpp",
+                "deletions": 1,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/protocol.h",
+                "deletions": 1,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/query.h",
+                "deletions": 1,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/Column_ut.cpp",
+                "deletions": 2,
+                "additions": 2
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/client_ut.cpp",
+                "deletions": 2,
+                "additions": 2
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/columns_ut.cpp",
+                "deletions": 2,
+                "additions": 2
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/ssl_ut.cpp",
+                "deletions": 2,
+                "additions": 2
+              }
+            ],
+            "totalCount": 13
+          },
+          "labels": {
+            "totalCount": 0,
+            "nodes": []
+          },
+          "reviews": {
+            "edges": []
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 2,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/clickhouse-cpp/commit/43f8dc4c6a685668590037ed4299001b794c1966",
+                    "oid": "43f8dc4c6a685668590037ed4299001b794c1966",
+                    "statusCheckRollup": {
+                      "state": "SUCCESS"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": []
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 0,
+            "nodes": []
+          }
+        },
+        {
+          "number": 42537,
+          "url": "https://github.com/ClickHouse/ClickHouse/pull/42537",
+          "title": "Passing user roles from query originator to other nodes",
+          "createdAt": "2022-10-20T14:59:45Z",
+          "state": "OPEN",
+          "isDraft": false,
+          "updatedAt": "2023-02-14T13:23:49Z",
+          "mergeable": "CONFLICTING",
+          "baseRefName": "master",
+          "changedFiles": 27,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": "programs/client/Client.cpp",
+                "deletions": 1,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Access/AccessControl.cpp",
+                "deletions": 0,
+                "additions": 2
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Access/AccessControl.h",
+                "deletions": 0,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Access/ContextAccess.cpp",
+                "deletions": 1,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Access/ContextAccess.h",
+                "deletions": 1,
+                "additions": 2
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Access/LDAPAccessStorage.cpp",
+                "deletions": 1,
+                "additions": 4
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Client/ClientBase.cpp",
+                "deletions": 0,
+                "additions": 2
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Client/Connection.cpp",
+                "deletions": 0,
+                "additions": 16
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Client/Connection.h",
+                "deletions": 0,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Client/HedgedConnections.cpp",
+                "deletions": 3,
+                "additions": 4
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Client/HedgedConnections.h",
+                "deletions": 1,
+                "additions": 2
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Client/IConnections.h",
+                "deletions": 1,
+                "additions": 2
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Client/IServerConnection.h",
+                "deletions": 0,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Client/LocalConnection.cpp",
+                "deletions": 0,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Client/LocalConnection.h",
+                "deletions": 0,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Client/MultiplexedConnections.cpp",
+                "deletions": 3,
+                "additions": 4
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Client/MultiplexedConnections.h",
+                "deletions": 1,
+                "additions": 2
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Client/Suggest.cpp",
+                "deletions": 1,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Core/ProtocolDefines.h",
+                "deletions": 0,
+                "additions": 3
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Core/Settings.h",
+                "deletions": 0,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Interpreters/Context.cpp",
+                "deletions": 2,
+                "additions": 4
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Interpreters/Context.h",
+                "deletions": 1,
+                "additions": 3
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Interpreters/Session.cpp",
+                "deletions": 20,
+                "additions": 28
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Interpreters/Session.h",
+                "deletions": 2,
+                "additions": 7
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/QueryPipeline/RemoteInserter.cpp",
+                "deletions": 1,
+                "additions": 2
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/QueryPipeline/RemoteQueryExecutor.cpp",
+                "deletions": 1,
+                "additions": 22
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Server/TCPHandler.cpp",
+                "deletions": 1,
+                "additions": 25
+              }
+            ],
+            "totalCount": 27
+          },
+          "labels": {
+            "totalCount": 2,
+            "nodes": [
+              {
+                "name": "pr-feature",
+                "color": "007700"
+              },
+              {
+                "name": "can be tested",
+                "color": "1d76db"
+              }
+            ]
+          },
+          "reviews": {
+            "edges": [
+              {
+                "node": {
+                  "id": "PRR_kwDOA5dJV85NN80j",
+                  "state": "COMMENTED"
+                }
+              }
+            ]
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 6,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/ClickHouse/commit/2cf7aeb1ef0fdee6a63fdf7d885444c73686b3dc",
+                    "oid": "2cf7aeb1ef0fdee6a63fdf7d885444c73686b3dc",
+                    "statusCheckRollup": {
+                      "state": "FAILURE"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": [
+              {
+                "login": "vitlibar",
+                "name": "Vitaly Baranov",
+                "avatarUrl": "https://avatars.githubusercontent.com/u/45142681?u=a2fc017aa6c73c8633cdd3c6ff9e4247d8f7ea59&v=4",
+                "url": "https://github.com/vitlibar"
+              }
+            ]
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 5,
+            "nodes": [
+              {
+                "author": {
+                  "name": "Alexey Milovidov"
+                },
+                "updatedAt": "2023-02-14T10:45:23Z",
+                "body": "The tests should run in CI."
+              },
+              {
+                "author": {
+                  "name": "Vasily Nemkov"
+                },
+                "updatedAt": "2023-02-14T09:55:54Z",
+                "body": "> Missing tests.\r\n\r\nCould you please mark this as \"ready for tests\", so we can execute produced binaries against LDAP suite from here: https://github.com/Altinity/clickhouse-regression/tree/main/ldap ?"
+              },
+              {
+                "author": {
+                  "name": "Alexey Milovidov"
+                },
+                "updatedAt": "2023-02-13T07:47:17Z",
+                "body": "Missing tests."
+              },
+              {
+                "author": {
+                  "name": "Vitaly Baranov"
+                },
+                "updatedAt": "2022-12-28T00:22:40Z",
+                "body": "Is this PR still in work?"
+              },
+              {
+                "author": {
+                  "name": "Alexey Milovidov"
+                },
+                "updatedAt": "2022-10-22T02:24:12Z",
+                "body": "Missing tests."
+              }
+            ]
+          }
+        },
+        {
+          "number": 42531,
+          "url": "https://github.com/ClickHouse/ClickHouse/pull/42531",
+          "title": "[TEST] Ldap fix search limit 2",
+          "createdAt": "2022-10-20T12:40:03Z",
+          "state": "CLOSED",
+          "isDraft": false,
+          "updatedAt": "2022-10-24T08:02:35Z",
+          "mergeable": "CONFLICTING",
+          "baseRefName": "master",
+          "changedFiles": 4,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Access/ExternalAuthenticators.cpp",
+                "deletions": 22,
+                "additions": 28
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Access/LDAPClient.cpp",
+                "deletions": 42,
+                "additions": 58
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Access/LDAPClient.h",
+                "deletions": 6,
+                "additions": 7
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Common/SipHash.h",
+                "deletions": 3,
+                "additions": 8
+              }
+            ],
+            "totalCount": 4
+          },
+          "labels": {
+            "totalCount": 1,
+            "nodes": [
+              {
+                "name": "pr-improvement",
+                "color": "007700"
+              }
+            ]
+          },
+          "reviews": {
+            "edges": []
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 5,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/ClickHouse/commit/90e1873f8b9c0b06d848583a0f022b19001f1c06",
+                    "oid": "90e1873f8b9c0b06d848583a0f022b19001f1c06",
+                    "statusCheckRollup": {
+                      "state": "FAILURE"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": []
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 0,
+            "nodes": []
+          }
+        },
+        {
+          "number": 42461,
+          "url": "https://github.com/ClickHouse/ClickHouse/pull/42461",
+          "title": "fix LDAP in case of many roles on user",
+          "createdAt": "2022-10-18T21:27:22Z",
+          "state": "MERGED",
+          "isDraft": false,
+          "updatedAt": "2022-11-22T19:05:34Z",
+          "mergeable": "UNKNOWN",
+          "baseRefName": "master",
+          "changedFiles": 4,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Access/ExternalAuthenticators.cpp",
+                "deletions": 22,
+                "additions": 28
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Access/LDAPClient.cpp",
+                "deletions": 43,
+                "additions": 59
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Access/LDAPClient.h",
+                "deletions": 6,
+                "additions": 7
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Common/SipHash.h",
+                "deletions": 3,
+                "additions": 8
+              }
+            ],
+            "totalCount": 4
+          },
+          "labels": {
+            "totalCount": 2,
+            "nodes": [
+              {
+                "name": "pr-improvement",
+                "color": "007700"
+              },
+              {
+                "name": "can be tested",
+                "color": "1d76db"
+              }
+            ]
+          },
+          "reviews": {
+            "edges": [
+              {
+                "node": {
+                  "id": "PRR_kwDOA5dJV85EteX_",
+                  "state": "APPROVED"
+                }
+              }
+            ]
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 13,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/ClickHouse/commit/2c292e38660e26bc0ca8d7841b20794954fd0b37",
+                    "oid": "2c292e38660e26bc0ca8d7841b20794954fd0b37",
+                    "statusCheckRollup": {
+                      "state": "FAILURE"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": [
+              {
+                "login": "alexey-milovidov",
+                "name": "Alexey Milovidov",
+                "avatarUrl": "https://avatars.githubusercontent.com/u/18581488?v=4",
+                "url": "https://github.com/alexey-milovidov"
+              }
+            ]
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 5,
+            "nodes": [
+              {
+                "author": {
+                  "name": "Alexey Milovidov"
+                },
+                "updatedAt": "2022-11-22T19:05:34Z",
+                "body": "@lavasser I expect it in the next release 22.12 in December."
+              },
+              {
+                "author": {
+                  "name": "Alexey Milovidov"
+                },
+                "updatedAt": "2022-11-17T21:21:10Z",
+                "body": "https://s3.amazonaws.com/clickhouse-test-reports/42461/0cfbf30b89f3884865d53bfae599a2eb85b08a9f/stress_test__ubsan_/bc_check_error_messages.txt\r\n\r\nhttps://s3.amazonaws.com/clickhouse-test-reports/42461/0cfbf30b89f3884865d53bfae599a2eb85b08a9f/stress_test__tsan_/bc_check_error_messages.txt"
+              },
+              {
+                "author": {
+                  "name": null
+                },
+                "updatedAt": "2022-11-17T09:00:52Z",
+                "body": "Hello! When can expect fix? "
+              },
+              {
+                "author": {
+                  "name": "Alexey Milovidov"
+                },
+                "updatedAt": "2022-10-24T09:23:06Z",
+                "body": "> fatal: unable to access 'https://github.com/ClickHouse/sysroot.git/': Failed to connect to github.com port 443: Connection timed out\r\n\r\nGitHub downtime."
+              },
+              {
+                "author": {
+                  "name": "Vasily Nemkov"
+                },
+                "updatedAt": "2022-10-20T13:59:51Z",
+                "body": "There was some weird issue with this PR being reported unmergeable by GitHub even after merging master into topic branch several times."
+              }
+            ]
+          }
+        },
+        {
+          "number": 229,
+          "url": "https://github.com/ClickHouse/clickhouse-cpp/pull/229",
+          "title": "Shared+Static build variants for Windows MSVC",
+          "createdAt": "2022-10-17T16:21:49Z",
+          "state": "CLOSED",
+          "isDraft": false,
+          "updatedAt": "2022-12-10T19:23:00Z",
+          "mergeable": "CONFLICTING",
+          "baseRefName": "master",
+          "changedFiles": 3,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": ".github/workflows/linux.yml",
+                "deletions": 0,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": ".github/workflows/windows_msvc.yml",
+                "deletions": 1,
+                "additions": 8
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/CMakeLists.txt",
+                "deletions": 1,
+                "additions": 4
+              }
+            ],
+            "totalCount": 3
+          },
+          "labels": {
+            "totalCount": 0,
+            "nodes": []
+          },
+          "reviews": {
+            "edges": []
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 1,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/clickhouse-cpp/commit/c1341902205530b4cd6fb7559cd1b19cd80f0acc",
+                    "oid": "c1341902205530b4cd6fb7559cd1b19cd80f0acc",
+                    "statusCheckRollup": {
+                      "state": "FAILURE"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": []
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 0,
+            "nodes": []
+          }
+        },
+        {
+          "number": 228,
+          "url": "https://github.com/ClickHouse/clickhouse-cpp/pull/228",
+          "title": "Socket RAII wrapper to prevent leaking socket",
+          "createdAt": "2022-10-17T13:04:55Z",
+          "state": "MERGED",
+          "isDraft": false,
+          "updatedAt": "2022-10-17T13:38:03Z",
+          "mergeable": "UNKNOWN",
+          "baseRefName": "master",
+          "changedFiles": 1,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/base/socket.cpp",
+                "deletions": 21,
+                "additions": 49
+              }
+            ],
+            "totalCount": 1
+          },
+          "labels": {
+            "totalCount": 0,
+            "nodes": []
+          },
+          "reviews": {
+            "edges": []
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 2,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/clickhouse-cpp/commit/038548ee5f5ef8bd724f9bdd9374c5b7aa777a66",
+                    "oid": "038548ee5f5ef8bd724f9bdd9374c5b7aa777a66",
+                    "statusCheckRollup": {
+                      "state": "SUCCESS"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": []
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 0,
+            "nodes": []
+          }
+        },
+        {
+          "number": 227,
+          "url": "https://github.com/ClickHouse/clickhouse-cpp/pull/227",
+          "title": "Minor fixes",
+          "createdAt": "2022-10-17T12:20:59Z",
+          "state": "CLOSED",
+          "isDraft": false,
+          "updatedAt": "2022-12-10T19:23:10Z",
+          "mergeable": "CONFLICTING",
+          "baseRefName": "master",
+          "changedFiles": 5,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/base/sslsocket.cpp",
+                "deletions": 0,
+                "additions": 3
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/columns/string.cpp",
+                "deletions": 0,
+                "additions": 3
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/columns/string.h",
+                "deletions": 1,
+                "additions": 2
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/query.h",
+                "deletions": 24,
+                "additions": 0
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/Column_ut.cpp",
+                "deletions": 0,
+                "additions": 9
+              }
+            ],
+            "totalCount": 5
+          },
+          "labels": {
+            "totalCount": 0,
+            "nodes": []
+          },
+          "reviews": {
+            "edges": []
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 1,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/clickhouse-cpp/commit/98c271c9ec666175d7fcb8594fee5a21e72a74aa",
+                    "oid": "98c271c9ec666175d7fcb8594fee5a21e72a74aa",
+                    "statusCheckRollup": {
+                      "state": "SUCCESS"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": []
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 5,
+            "nodes": [
+              {
+                "author": {
+                  "name": "Teach.Wang"
+                },
+                "updatedAt": "2022-10-17T15:38:29Z",
+                "body": "> @1261385937, could you please share the way you build it? I'm thinking about adding another CI/CD workflow variant to speed discovering/fixing such things up.\r\n\r\nclickhouse/CMakeLists.txt, add  below line:\r\n```cmake\r\nSET (CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS TRUE)\r\n```\r\nut/CMakeLists.txt, change static to share:\r\n```cmake\r\nTARGET_LINK_LIBRARIES (clickhouse-cpp-ut\r\n    clickhouse-cpp-lib\r\n    gtest-lib\r\n)\r\n```\r\nAt last, i use visual studio build the local branch"
+              },
+              {
+                "author": {
+                  "name": "Vasily Nemkov"
+                },
+                "updatedAt": "2022-10-17T14:07:44Z",
+                "body": "@1261385937, could you please share the way you build it? I'm thinking about adding another CI/CD workflow variant to speed discovering/fixing such things up."
+              },
+              {
+                "author": {
+                  "name": "Teach.Wang"
+                },
+                "updatedAt": "2022-10-17T13:32:35Z",
+                "body": "@Enmk  same time online.  zzzz"
+              },
+              {
+                "author": {
+                  "name": "Teach.Wang"
+                },
+                "updatedAt": "2022-10-17T13:05:51Z",
+                "body": "``` c++\r\n1>client_ut.obj : error LNK2001: unresolved external symbol \"public: static class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const clickhouse::Query::default_query_id\" (?default_query_id@Query@clickhouse@@2V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@B)\r\n1>performance_tests.obj : error LNK2001: unresolved external symbol \"public: static class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const clickhouse::Query::default_query_id\" (?default_query_id@Query@clickhouse@@2V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@B)\r\n1>roundtrip_column.obj : error LNK2001: unresolved external symbol \"public: static class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const clickhouse::Query::default_query_id\" (?default_query_id@Query@clickhouse@@2V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@B)\r\n1>columns_ut.obj : error LNK2019: unresolved external symbol \"const clickhouse::ColumnFixedString::`vftable'\" (??_7ColumnFixedString@clickhouse@@6B@)，function \"public: __cdecl clickhouse::ColumnFixedString::ColumnFixedString<class std::vector<class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,class std::allocator<class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > > > >(unsigned __int64,class std::vector<class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,class std::allocator<class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > > > const &)\" (??$?0V?$vector@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$allocator@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@@std@@@ColumnFixedString@clickhouse@@QEAA@_KAEBV?$vector@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$allocator@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@@std@@@Z) quote the symbol\r\n1>D:\\contrib\\clickhouse-cpp-dll\\clickhouse-cpp\\sln\\ut\\Debug\\clickhouse-cpp-ut.exe : fatal error LNK1120: two unresolved external symbol\r\n```"
+              },
+              {
+                "author": {
+                  "name": "Teach.Wang"
+                },
+                "updatedAt": "2022-10-17T13:01:22Z",
+                "body": "Still has unresolved external symbol "
+              }
+            ]
+          }
+        },
+        {
+          "number": 40168,
+          "url": "https://github.com/ClickHouse/ClickHouse/pull/40168",
+          "title": "Fixed crash when `decrypt`ing bogus input",
+          "createdAt": "2022-08-12T16:07:55Z",
+          "state": "CLOSED",
+          "isDraft": false,
+          "updatedAt": "2022-08-15T15:41:50Z",
+          "mergeable": "UNKNOWN",
+          "baseRefName": "master",
+          "changedFiles": 4,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Columns/ColumnNullable.h",
+                "deletions": 3,
+                "additions": 8
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Functions/FunctionsAES.h",
+                "deletions": 1,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Functions/array/arrayIndex.h",
+                "deletions": 1,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "tests/queries/0_stateless/01318_decrypt.sql",
+                "deletions": 0,
+                "additions": 4
+              }
+            ],
+            "totalCount": 4
+          },
+          "labels": {
+            "totalCount": 1,
+            "nodes": [
+              {
+                "name": "pr-bugfix",
+                "color": "ff4080"
+              }
+            ]
+          },
+          "reviews": {
+            "edges": [
+              {
+                "node": {
+                  "id": "PRR_kwDOA5dJV84_8oGa",
+                  "state": "COMMENTED"
+                }
+              }
+            ]
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 1,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/ClickHouse/commit/2d2d48825425af25ba93cac2c0647686854ae562",
+                    "oid": "2d2d48825425af25ba93cac2c0647686854ae562",
+                    "statusCheckRollup": {
+                      "state": "FAILURE"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": [
+              {
+                "login": "alexey-milovidov",
+                "name": "Alexey Milovidov",
+                "avatarUrl": "https://avatars.githubusercontent.com/u/18581488?v=4",
+                "url": "https://github.com/alexey-milovidov"
+              }
+            ]
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 2,
+            "nodes": [
+              {
+                "author": {
+                  "name": "Alexey Milovidov"
+                },
+                "updatedAt": "2022-08-14T02:29:58Z",
+                "body": "Superseded by #40194."
+              },
+              {
+                "author": {
+                  "name": "Alexey Milovidov"
+                },
+                "updatedAt": "2022-08-12T19:46:48Z",
+                "body": "Tests have failed."
+              }
+            ]
+          }
+        },
+        {
+          "number": 193,
+          "url": "https://github.com/ClickHouse/clickhouse-cpp/pull/193",
+          "title": "Translate comments",
+          "createdAt": "2022-07-01T11:15:11Z",
+          "state": "MERGED",
+          "isDraft": false,
+          "updatedAt": "2022-07-01T11:15:20Z",
+          "mergeable": "CONFLICTING",
+          "baseRefName": "Enmk-translate-comments",
+          "changedFiles": 3,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/base/compressed.cpp",
+                "deletions": 1,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/protocol.h",
+                "deletions": 1,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/query.h",
+                "deletions": 3,
+                "additions": 3
+              }
+            ],
+            "totalCount": 3
+          },
+          "labels": {
+            "totalCount": 0,
+            "nodes": []
+          },
+          "reviews": {
+            "edges": []
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 2,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/clickhouse-cpp/commit/de89ebeed9ec992bd3d28c57b623ee8cac78a4a3",
+                    "oid": "de89ebeed9ec992bd3d28c57b623ee8cac78a4a3",
+                    "statusCheckRollup": {
+                      "state": "SUCCESS"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": []
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 0,
+            "nodes": []
+          }
+        },
+        {
+          "number": 192,
+          "url": "https://github.com/ClickHouse/clickhouse-cpp/pull/192",
+          "title": "Better ColumnEnum - less memory",
+          "createdAt": "2022-07-01T10:22:03Z",
+          "state": "MERGED",
+          "isDraft": false,
+          "updatedAt": "2022-07-01T10:31:09Z",
+          "mergeable": "UNKNOWN",
+          "baseRefName": "master",
+          "changedFiles": 4,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/columns/enum.cpp",
+                "deletions": 1,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/columns/enum.h",
+                "deletions": 2,
+                "additions": 2
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/types/types.cpp",
+                "deletions": 3,
+                "additions": 3
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/types/types.h",
+                "deletions": 2,
+                "additions": 2
+              }
+            ],
+            "totalCount": 4
+          },
+          "labels": {
+            "totalCount": 0,
+            "nodes": []
+          },
+          "reviews": {
+            "edges": []
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 1,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/clickhouse-cpp/commit/c0c42c78725d7c5938c0850d4ca50e3f9ad881bb",
+                    "oid": "c0c42c78725d7c5938c0850d4ca50e3f9ad881bb",
+                    "statusCheckRollup": {
+                      "state": "SUCCESS"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": []
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 0,
+            "nodes": []
+          }
+        },
+        {
+          "number": 191,
+          "url": "https://github.com/ClickHouse/clickhouse-cpp/pull/191",
+          "title": "Various test fixes",
+          "createdAt": "2022-07-01T09:58:42Z",
+          "state": "MERGED",
+          "isDraft": false,
+          "updatedAt": "2022-07-01T11:11:45Z",
+          "mergeable": "UNKNOWN",
+          "baseRefName": "master",
+          "changedFiles": 9,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/CMakeLists.txt",
+                "deletions": 0,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/Column_ut.cpp",
+                "deletions": 0,
+                "additions": 35
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/array_of_low_cardinality_tests.cpp",
+                "deletions": 9,
+                "additions": 13
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/client_ut.cpp",
+                "deletions": 57,
+                "additions": 1
+              },
+              {
+                "changeType": "ADDED",
+                "path": "ut/roundtrip_column.cpp",
+                "deletions": 0,
+                "additions": 40
+              },
+              {
+                "changeType": "ADDED",
+                "path": "ut/roundtrip_column.h",
+                "deletions": 0,
+                "additions": 9
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/utils.cpp",
+                "deletions": 0,
+                "additions": 5
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/utils.h",
+                "deletions": 1,
+                "additions": 21
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/value_generators.h",
+                "deletions": 0,
+                "additions": 1
+              }
+            ],
+            "totalCount": 9
+          },
+          "labels": {
+            "totalCount": 0,
+            "nodes": []
+          },
+          "reviews": {
+            "edges": []
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 3,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/clickhouse-cpp/commit/734b48c762d3fb306e364d536788ba9aa036aeee",
+                    "oid": "734b48c762d3fb306e364d536788ba9aa036aeee",
+                    "statusCheckRollup": {
+                      "state": "SUCCESS"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": []
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 0,
+            "nodes": []
+          }
+        },
+        {
+          "number": 190,
+          "url": "https://github.com/ClickHouse/clickhouse-cpp/pull/190",
+          "title": "Fixed Date32 range, now it supports pre-epoch values",
+          "createdAt": "2022-07-01T09:56:51Z",
+          "state": "MERGED",
+          "isDraft": false,
+          "updatedAt": "2022-07-01T10:19:48Z",
+          "mergeable": "UNKNOWN",
+          "baseRefName": "master",
+          "changedFiles": 7,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/columns/date.cpp",
+                "deletions": 4,
+                "additions": 4
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/columns/date.h",
+                "deletions": 1,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/columns/itemview.cpp",
+                "deletions": 0,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/columns/itemview.h",
+                "deletions": 1,
+                "additions": 2
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/Column_ut.cpp",
+                "deletions": 1,
+                "additions": 13
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/value_generators.cpp",
+                "deletions": 0,
+                "additions": 17
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/value_generators.h",
+                "deletions": 0,
+                "additions": 1
+              }
+            ],
+            "totalCount": 7
+          },
+          "labels": {
+            "totalCount": 0,
+            "nodes": []
+          },
+          "reviews": {
+            "edges": []
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 1,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/clickhouse-cpp/commit/4809d9b826f659496a97576c81e3efd7b01fee05",
+                    "oid": "4809d9b826f659496a97576c81e3efd7b01fee05",
+                    "statusCheckRollup": {
+                      "state": "SUCCESS"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": []
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 0,
+            "nodes": []
+          }
+        },
+        {
+          "number": 189,
+          "url": "https://github.com/ClickHouse/clickhouse-cpp/pull/189",
+          "title": "Translated comments",
+          "createdAt": "2022-06-19T18:04:31Z",
+          "state": "MERGED",
+          "isDraft": false,
+          "updatedAt": "2022-07-01T11:26:07Z",
+          "mergeable": "UNKNOWN",
+          "baseRefName": "master",
+          "changedFiles": 3,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/base/compressed.cpp",
+                "deletions": 1,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/protocol.h",
+                "deletions": 21,
+                "additions": 20
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/query.h",
+                "deletions": 3,
+                "additions": 3
+              }
+            ],
+            "totalCount": 3
+          },
+          "labels": {
+            "totalCount": 0,
+            "nodes": []
+          },
+          "reviews": {
+            "edges": []
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 4,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/clickhouse-cpp/commit/0835e231057f8938f30fc76f772ea04af8c19386",
+                    "oid": "0835e231057f8938f30fc76f772ea04af8c19386",
+                    "statusCheckRollup": {
+                      "state": "SUCCESS"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": []
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 0,
+            "nodes": []
+          }
+        },
+        {
+          "number": 186,
+          "url": "https://github.com/ClickHouse/clickhouse-cpp/pull/186",
+          "title": "Deprecated backward_compatibility_lowcardinality_as_wrapped_column",
+          "createdAt": "2022-06-09T08:41:25Z",
+          "state": "OPEN",
+          "isDraft": true,
+          "updatedAt": "2022-08-10T11:14:16Z",
+          "mergeable": "CONFLICTING",
+          "baseRefName": "master",
+          "changedFiles": 1,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/client.h",
+                "deletions": 1,
+                "additions": 5
+              }
+            ],
+            "totalCount": 1
+          },
+          "labels": {
+            "totalCount": 0,
+            "nodes": []
+          },
+          "reviews": {
+            "edges": []
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 2,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/clickhouse-cpp/commit/a942a30438c9bfd7774525a31a362498cb9a710f",
+                    "oid": "a942a30438c9bfd7774525a31a362498cb9a710f",
+                    "statusCheckRollup": {
+                      "state": "FAILURE"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": []
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 0,
+            "nodes": []
+          }
+        },
+        {
+          "number": 37789,
+          "url": "https://github.com/ClickHouse/ClickHouse/pull/37789",
+          "title": "Fixed storing user ip address on failed login attempt",
+          "createdAt": "2022-06-02T12:04:47Z",
+          "state": "CLOSED",
+          "isDraft": false,
+          "updatedAt": "2022-06-02T13:23:08Z",
+          "mergeable": "UNKNOWN",
+          "baseRefName": "master",
+          "changedFiles": 3,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Interpreters/Session.cpp",
+                "deletions": 1,
+                "additions": 2
+              },
+              {
+                "changeType": "ADDED",
+                "path": "tests/queries/0_stateless/02303_SessionLog_client_IP_on_login_failure.reference",
+                "deletions": 0,
+                "additions": 1
+              },
+              {
+                "changeType": "ADDED",
+                "path": "tests/queries/0_stateless/02303_SessionLog_client_IP_on_login_failure.sh",
+                "deletions": 0,
+                "additions": 29
+              }
+            ],
+            "totalCount": 3
+          },
+          "labels": {
+            "totalCount": 1,
+            "nodes": [
+              {
+                "name": "pr-bugfix",
+                "color": "ff4080"
+              }
+            ]
+          },
+          "reviews": {
+            "edges": []
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 1,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/ClickHouse/commit/6766eede75f51adc2354f041853421289804e4b0",
+                    "oid": "6766eede75f51adc2354f041853421289804e4b0",
+                    "statusCheckRollup": {
+                      "state": "FAILURE"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": [
+              {
+                "login": "tavplubix",
+                "name": "Alexander Tokmakov",
+                "avatarUrl": "https://avatars.githubusercontent.com/u/14847450?v=4",
+                "url": "https://github.com/tavplubix"
+              }
+            ]
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 1,
+            "nodes": [
+              {
+                "author": {
+                  "name": "Alexander Tokmakov"
+                },
+                "updatedAt": "2022-06-02T13:23:07Z",
+                "body": "Already fixed in #37303"
+              }
+            ]
+          }
+        },
+        {
+          "number": 183,
+          "url": "https://github.com/ClickHouse/clickhouse-cpp/pull/183",
+          "title": "Tests for Column::GetItem",
+          "createdAt": "2022-05-24T13:32:31Z",
+          "state": "MERGED",
+          "isDraft": false,
+          "updatedAt": "2022-05-26T07:16:06Z",
+          "mergeable": "UNKNOWN",
+          "baseRefName": "master",
+          "changedFiles": 11,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/columns/date.cpp",
+                "deletions": 3,
+                "additions": 3
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/columns/decimal.cpp",
+                "deletions": 1,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/columns/ip4.cpp",
+                "deletions": 1,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/columns/ip6.cpp",
+                "deletions": 1,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/columns/itemview.cpp",
+                "deletions": 22,
+                "additions": 46
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/columns/itemview.h",
+                "deletions": 5,
+                "additions": 14
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/columns/uuid.cpp",
+                "deletions": 1,
+                "additions": 5
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/types/types.cpp",
+                "deletions": 22,
+                "additions": 41
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/types/types.h",
+                "deletions": 0,
+                "additions": 3
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/Column_ut.cpp",
+                "deletions": 0,
+                "additions": 39
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/itemview_ut.cpp",
+                "deletions": 108,
+                "additions": 112
+              }
+            ],
+            "totalCount": 11
+          },
+          "labels": {
+            "totalCount": 0,
+            "nodes": []
+          },
+          "reviews": {
+            "edges": []
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 3,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/clickhouse-cpp/commit/8615012e64d57d202d24d427b999995b8f531875",
+                    "oid": "8615012e64d57d202d24d427b999995b8f531875",
+                    "statusCheckRollup": {
+                      "state": "SUCCESS"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": []
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 0,
+            "nodes": []
+          }
+        },
+        {
+          "number": 37416,
+          "url": "https://github.com/ClickHouse/ClickHouse/pull/37416",
+          "title": "Implemented changing comment to a ReplicatedMergeTree table",
+          "createdAt": "2022-05-21T17:10:44Z",
+          "state": "MERGED",
+          "isDraft": false,
+          "updatedAt": "2022-05-29T06:28:44Z",
+          "mergeable": "UNKNOWN",
+          "baseRefName": "master",
+          "changedFiles": 4,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Storages/StorageReplicatedMergeTree.cpp",
+                "deletions": 6,
+                "additions": 24
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "tests/queries/0_stateless/02020_alter_table_modify_comment.reference",
+                "deletions": 9,
+                "additions": 9
+              },
+              {
+                "changeType": "ADDED",
+                "path": "tests/queries/0_stateless/02302_ReplicatedMergeTree_comment.reference",
+                "deletions": 0,
+                "additions": 3
+              },
+              {
+                "changeType": "ADDED",
+                "path": "tests/queries/0_stateless/02302_ReplicatedMergeTree_comment.sql",
+                "deletions": 0,
+                "additions": 23
+              }
+            ],
+            "totalCount": 4
+          },
+          "labels": {
+            "totalCount": 1,
+            "nodes": [
+              {
+                "name": "pr-feature",
+                "color": "007700"
+              }
+            ]
+          },
+          "reviews": {
+            "edges": [
+              {
+                "node": {
+                  "id": "PRR_kwDOA5dJV84638Ib",
+                  "state": "COMMENTED"
+                }
+              }
+            ]
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 4,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/ClickHouse/commit/abe6b5d0133c00c1f672f4d5bf5ae2acefd18e26",
+                    "oid": "abe6b5d0133c00c1f672f4d5bf5ae2acefd18e26",
+                    "statusCheckRollup": {
+                      "state": "FAILURE"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": [
+              {
+                "login": "vdimir",
+                "name": "Vladimir C",
+                "avatarUrl": "https://avatars.githubusercontent.com/u/7023786?v=4",
+                "url": "https://github.com/vdimir"
+              }
+            ]
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 1,
+            "nodes": [
+              {
+                "author": {
+                  "name": "Alexander Tokmakov"
+                },
+                "updatedAt": "2022-05-29T06:28:44Z",
+                "body": "This PR breaks test `00992_system_parts_race_condition_zookeeper_long` with `Replicated` database:\r\nhttps://play.clickhouse.com/play?user=play#c2VsZWN0IAp0b1N0YXJ0T2ZIb3VyKGNoZWNrX3N0YXJ0X3RpbWUpIGFzIGQsCmNvdW50KCksIGdyb3VwVW5pcUFycmF5KHB1bGxfcmVxdWVzdF9udW1iZXIpCmZyb20gY2hlY2tzIHdoZXJlICcyMDIyLTAzLTAxJyA8PSBjaGVja19zdGFydF90aW1lIGFuZCB0ZXN0X25hbWUgbGlrZSAnMDA5OTJfc3lzdGVtX3BhcnRzX3JhY2VfY29uZGl0aW9uX3pvb2tlZXBlcl9sb25nJScgYW5kIGNoZWNrX25hbWUgaWxpa2UgJyVyZXBsJScgYW5kIHRlc3Rfc3RhdHVzIGluICgnRkFJTCcsICdGTEFLWScsICdFUlJPUicpIGdyb3VwIGJ5IGQgb3JkZXIgYnkgZCBkZXNj"
+              }
+            ]
+          }
+        },
+        {
+          "number": 180,
+          "url": "https://github.com/ClickHouse/clickhouse-cpp/pull/180",
+          "title": "temporary disabled SSL test that fails to connect to 'play.clickhousecom'",
+          "createdAt": "2022-05-12T16:26:48Z",
+          "state": "MERGED",
+          "isDraft": false,
+          "updatedAt": "2022-05-12T16:37:13Z",
+          "mergeable": "UNKNOWN",
+          "baseRefName": "master",
+          "changedFiles": 1,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/ssl_ut.cpp",
+                "deletions": 1,
+                "additions": 1
+              }
+            ],
+            "totalCount": 1
+          },
+          "labels": {
+            "totalCount": 0,
+            "nodes": []
+          },
+          "reviews": {
+            "edges": []
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 1,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/clickhouse-cpp/commit/86707c654646b130192a6bcecf744cdab6ea0c0d",
+                    "oid": "86707c654646b130192a6bcecf744cdab6ea0c0d",
+                    "statusCheckRollup": {
+                      "state": "SUCCESS"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": []
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 0,
+            "nodes": []
+          }
+        },
+        {
+          "number": 179,
+          "url": "https://github.com/ClickHouse/clickhouse-cpp/pull/179",
+          "title": "Test refactoring",
+          "createdAt": "2022-05-12T16:17:34Z",
+          "state": "MERGED",
+          "isDraft": false,
+          "updatedAt": "2022-05-16T08:17:46Z",
+          "mergeable": "UNKNOWN",
+          "baseRefName": "master",
+          "changedFiles": 14,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/columns/date.cpp",
+                "deletions": 1,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/CMakeLists.txt",
+                "deletions": 2,
+                "additions": 7
+              },
+              {
+                "changeType": "ADDED",
+                "path": "ut/Column_ut.cpp",
+                "deletions": 0,
+                "additions": 213
+              },
+              {
+                "changeType": "ADDED",
+                "path": "ut/CreateColumnByType_ut.cpp",
+                "deletions": 0,
+                "additions": 84
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/client_ut.cpp",
+                "deletions": 12,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/columns_ut.cpp",
+                "deletions": 221,
+                "additions": 31
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/performance_tests.cpp",
+                "deletions": 0,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/utils.cpp",
+                "deletions": 22,
+                "additions": 40
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/utils.h",
+                "deletions": 217,
+                "additions": 43
+              },
+              {
+                "changeType": "ADDED",
+                "path": "ut/utils_comparison.h",
+                "deletions": 0,
+                "additions": 163
+              },
+              {
+                "changeType": "ADDED",
+                "path": "ut/utils_meta.h",
+                "deletions": 0,
+                "additions": 41
+              },
+              {
+                "changeType": "ADDED",
+                "path": "ut/utils_performance.h",
+                "deletions": 0,
+                "additions": 67
+              },
+              {
+                "changeType": "ADDED",
+                "path": "ut/value_generators.cpp",
+                "deletions": 0,
+                "additions": 132
+              },
+              {
+                "changeType": "ADDED",
+                "path": "ut/value_generators.h",
+                "deletions": 0,
+                "additions": 122
+              }
+            ],
+            "totalCount": 14
+          },
+          "labels": {
+            "totalCount": 0,
+            "nodes": []
+          },
+          "reviews": {
+            "edges": []
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 8,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/clickhouse-cpp/commit/fa9a93abb065f99d005da33ad72a38563e4fbcbc",
+                    "oid": "fa9a93abb065f99d005da33ad72a38563e4fbcbc",
+                    "statusCheckRollup": {
+                      "state": "SUCCESS"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": []
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 0,
+            "nodes": []
+          }
+        },
+        {
+          "number": 176,
+          "url": "https://github.com/ClickHouse/clickhouse-cpp/pull/176",
+          "title": "Optimized ColumnArray::Slice",
+          "createdAt": "2022-05-07T07:48:37Z",
+          "state": "MERGED",
+          "isDraft": false,
+          "updatedAt": "2022-05-12T17:08:17Z",
+          "mergeable": "UNKNOWN",
+          "baseRefName": "master",
+          "changedFiles": 2,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/columns/array.cpp",
+                "deletions": 4,
+                "additions": 4
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/column_array_ut.cpp",
+                "deletions": 6,
+                "additions": 15
+              }
+            ],
+            "totalCount": 2
+          },
+          "labels": {
+            "totalCount": 0,
+            "nodes": []
+          },
+          "reviews": {
+            "edges": []
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 2,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/clickhouse-cpp/commit/64b8f92323728bea428aabd57e9e034f22d179eb",
+                    "oid": "64b8f92323728bea428aabd57e9e034f22d179eb",
+                    "statusCheckRollup": {
+                      "state": "SUCCESS"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": []
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 0,
+            "nodes": []
+          }
+        },
+        {
+          "number": 36935,
+          "url": "https://github.com/ClickHouse/ClickHouse/pull/36935",
+          "title": "Fixed issues with concurrent access to User object",
+          "createdAt": "2022-05-05T10:29:37Z",
+          "state": "CLOSED",
+          "isDraft": false,
+          "updatedAt": "2022-05-09T13:06:17Z",
+          "mergeable": "UNKNOWN",
+          "baseRefName": "master",
+          "changedFiles": 4,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Interpreters/Access/InterpreterGrantQuery.cpp",
+                "deletions": 1,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Interpreters/Access/InterpreterSetRoleQuery.cpp",
+                "deletions": 1,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Interpreters/Context.cpp",
+                "deletions": 0,
+                "additions": 7
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Interpreters/Session.cpp",
+                "deletions": 1,
+                "additions": 2
+              }
+            ],
+            "totalCount": 4
+          },
+          "labels": {
+            "totalCount": 1,
+            "nodes": [
+              {
+                "name": "pr-bugfix",
+                "color": "ff4080"
+              }
+            ]
+          },
+          "reviews": {
+            "edges": [
+              {
+                "node": {
+                  "id": "PRR_kwDOA5dJV845dMQH",
+                  "state": "COMMENTED"
+                }
+              }
+            ]
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 2,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/ClickHouse/commit/8a0020c21fe2f093007a4fab2d94a966b7b8fc3b",
+                    "oid": "8a0020c21fe2f093007a4fab2d94a966b7b8fc3b",
+                    "statusCheckRollup": {
+                      "state": "FAILURE"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": [
+              {
+                "login": "tavplubix",
+                "name": "Alexander Tokmakov",
+                "avatarUrl": "https://avatars.githubusercontent.com/u/14847450?v=4",
+                "url": "https://github.com/tavplubix"
+              }
+            ]
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 2,
+            "nodes": [
+              {
+                "author": {
+                  "name": "Alexander Tokmakov"
+                },
+                "updatedAt": "2022-05-09T13:06:16Z",
+                "body": "Continued in #35763"
+              },
+              {
+                "author": {
+                  "name": "Alexey Milovidov"
+                },
+                "updatedAt": "2022-05-05T20:50:50Z",
+                "body": "> Fixed a crash that could happen if a user was dropped in a concurrent query.\r\n\r\nIn what concurrent query?\r\nNeed a test."
+              }
+            ]
+          }
+        },
+        {
+          "number": 36930,
+          "url": "https://github.com/ClickHouse/ClickHouse/pull/36930",
+          "title": "Fixed GRANT check",
+          "createdAt": "2022-05-05T07:30:43Z",
+          "state": "CLOSED",
+          "isDraft": false,
+          "updatedAt": "2022-05-05T10:31:03Z",
+          "mergeable": "UNKNOWN",
+          "baseRefName": "master",
+          "changedFiles": 1,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Interpreters/Access/InterpreterGrantQuery.cpp",
+                "deletions": 1,
+                "additions": 1
+              }
+            ],
+            "totalCount": 1
+          },
+          "labels": {
+            "totalCount": 1,
+            "nodes": [
+              {
+                "name": "pr-bugfix",
+                "color": "ff4080"
+              }
+            ]
+          },
+          "reviews": {
+            "edges": []
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 1,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/ClickHouse/commit/24b4384597afe2723c7c88614d3b2ff44f5d6664",
+                    "oid": "24b4384597afe2723c7c88614d3b2ff44f5d6664",
+                    "statusCheckRollup": {
+                      "state": "FAILURE"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": []
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 0,
+            "nodes": []
+          }
+        },
+        {
+          "number": 171,
+          "url": "https://github.com/ClickHouse/clickhouse-cpp/pull/171",
+          "title": "Fix Nested Array",
+          "createdAt": "2022-04-23T10:29:05Z",
+          "state": "MERGED",
+          "isDraft": false,
+          "updatedAt": "2022-05-04T14:03:30Z",
+          "mergeable": "UNKNOWN",
+          "baseRefName": "master",
+          "changedFiles": 37,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/base/wire_format.cpp",
+                "deletions": 1,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/columns/array.cpp",
+                "deletions": 11,
+                "additions": 43
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/columns/array.h",
+                "deletions": 6,
+                "additions": 226
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/columns/column.h",
+                "deletions": 0,
+                "additions": 12
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/columns/date.cpp",
+                "deletions": 0,
+                "additions": 12
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/columns/date.h",
+                "deletions": 3,
+                "additions": 3
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/columns/decimal.cpp",
+                "deletions": 0,
+                "additions": 5
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/columns/decimal.h",
+                "deletions": 0,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/columns/enum.cpp",
+                "deletions": 0,
+                "additions": 5
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/columns/enum.h",
+                "deletions": 1,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/columns/ip4.cpp",
+                "deletions": 0,
+                "additions": 4
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/columns/ip4.h",
+                "deletions": 1,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/columns/ip6.cpp",
+                "deletions": 0,
+                "additions": 4
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/columns/ip6.h",
+                "deletions": 0,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/columns/lowcardinality.cpp",
+                "deletions": 3,
+                "additions": 7
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/columns/lowcardinality.h",
+                "deletions": 1,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/columns/lowcardinalityadaptor.h",
+                "deletions": 1,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/columns/nothing.h",
+                "deletions": 18,
+                "additions": 18
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/columns/nullable.cpp",
+                "deletions": 0,
+                "additions": 4
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/columns/nullable.h",
+                "deletions": 0,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/columns/numeric.cpp",
+                "deletions": 0,
+                "additions": 5
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/columns/numeric.h",
+                "deletions": 0,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/columns/string.cpp",
+                "deletions": 0,
+                "additions": 8
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/columns/string.h",
+                "deletions": 1,
+                "additions": 2
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/columns/tuple.cpp",
+                "deletions": 1,
+                "additions": 13
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/columns/tuple.h",
+                "deletions": 0,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/columns/uuid.cpp",
+                "deletions": 0,
+                "additions": 4
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/columns/uuid.h",
+                "deletions": 0,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/exceptions.h",
+                "deletions": 0,
+                "additions": 4
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/CMakeLists.txt",
+                "deletions": 0,
+                "additions": 2
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/client_ut.cpp",
+                "deletions": 1,
+                "additions": 165
+              },
+              {
+                "changeType": "ADDED",
+                "path": "ut/column_array_ut.cpp",
+                "deletions": 0,
+                "additions": 306
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/columns_ut.cpp",
+                "deletions": 37,
+                "additions": 3
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/performance_tests.cpp",
+                "deletions": 2,
+                "additions": 2
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/utils.cpp",
+                "deletions": 3,
+                "additions": 48
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/utils.h",
+                "deletions": 0,
+                "additions": 158
+              },
+              {
+                "changeType": "ADDED",
+                "path": "ut/utils_ut.cpp",
+                "deletions": 0,
+                "additions": 35
+              }
+            ],
+            "totalCount": 37
+          },
+          "labels": {
+            "totalCount": 0,
+            "nodes": []
+          },
+          "reviews": {
+            "edges": [
+              {
+                "node": {
+                  "id": "PRR_kwDODGaNZc45VcS8",
+                  "state": "APPROVED"
+                }
+              }
+            ]
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 24,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/clickhouse-cpp/commit/6708b822f2f6067346fd2d30c891905cee53a2b8",
+                    "oid": "6708b822f2f6067346fd2d30c891905cee53a2b8",
+                    "statusCheckRollup": {
+                      "state": "SUCCESS"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": []
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 0,
+            "nodes": []
+          }
+        },
+        {
+          "number": 36482,
+          "url": "https://github.com/ClickHouse/ClickHouse/pull/36482",
+          "title": "Fixed missing enum values for ClientInfo::Interface",
+          "createdAt": "2022-04-21T09:17:23Z",
+          "state": "MERGED",
+          "isDraft": false,
+          "updatedAt": "2022-05-18T13:17:37Z",
+          "mergeable": "UNKNOWN",
+          "baseRefName": "master",
+          "changedFiles": 1,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Interpreters/SessionLog.cpp",
+                "deletions": 2,
+                "additions": 4
+              }
+            ],
+            "totalCount": 1
+          },
+          "labels": {
+            "totalCount": 1,
+            "nodes": [
+              {
+                "name": "pr-not-for-changelog",
+                "color": "007700"
+              }
+            ]
+          },
+          "reviews": {
+            "edges": [
+              {
+                "node": {
+                  "id": "PRR_kwDOA5dJV844klr_",
+                  "state": "APPROVED"
+                }
+              }
+            ]
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 2,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/ClickHouse/commit/583cbcb8345f4ef7af34fe51278ef3f39ad637e8",
+                    "oid": "583cbcb8345f4ef7af34fe51278ef3f39ad637e8",
+                    "statusCheckRollup": {
+                      "state": "FAILURE"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": [
+              {
+                "login": "kitaisreal",
+                "name": "Maksim Kita",
+                "avatarUrl": "https://avatars.githubusercontent.com/u/22458333?v=4",
+                "url": "https://github.com/kitaisreal"
+              }
+            ]
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 1,
+            "nodes": [
+              {
+                "author": {
+                  "name": "Vasily Nemkov"
+                },
+                "updatedAt": "2022-04-21T09:20:00Z",
+                "body": "Similar to #36480, but also adds some preventive measures"
+              }
+            ]
+          }
+        },
+        {
+          "number": 35763,
+          "url": "https://github.com/ClickHouse/ClickHouse/pull/35763",
+          "title": "Fixed crash when reporting successful login if \"Session Log\" is enabled.",
+          "createdAt": "2022-03-30T14:16:32Z",
+          "state": "CLOSED",
+          "isDraft": false,
+          "updatedAt": "2022-05-19T08:32:25Z",
+          "mergeable": "UNKNOWN",
+          "baseRefName": "master",
+          "changedFiles": 8,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Interpreters/Access/InterpreterGrantQuery.cpp",
+                "deletions": 1,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Interpreters/Access/InterpreterSetRoleQuery.cpp",
+                "deletions": 1,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Interpreters/Context.cpp",
+                "deletions": 0,
+                "additions": 7
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Interpreters/Session.cpp",
+                "deletions": 16,
+                "additions": 5
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Interpreters/SessionLog.cpp",
+                "deletions": 7,
+                "additions": 4
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Interpreters/SessionLog.h",
+                "deletions": 1,
+                "additions": 2
+              },
+              {
+                "changeType": "ADDED",
+                "path": "tests/queries/0_stateless/02242_delete_user_race.reference",
+                "deletions": 0,
+                "additions": 0
+              },
+              {
+                "changeType": "ADDED",
+                "path": "tests/queries/0_stateless/02242_delete_user_race.sh",
+                "deletions": 0,
+                "additions": 62
+              }
+            ],
+            "totalCount": 8
+          },
+          "labels": {
+            "totalCount": 1,
+            "nodes": [
+              {
+                "name": "pr-bugfix",
+                "color": "ff4080"
+              }
+            ]
+          },
+          "reviews": {
+            "edges": [
+              {
+                "node": {
+                  "id": "PRR_kwDOA5dJV84517gM",
+                  "state": "COMMENTED"
+                }
+              }
+            ]
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 13,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/ClickHouse/commit/59ed1f9d8efb0c6e79dcf0bc2a47bb958aed9352",
+                    "oid": "59ed1f9d8efb0c6e79dcf0bc2a47bb958aed9352",
+                    "statusCheckRollup": {
+                      "state": "FAILURE"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": [
+              {
+                "login": "tavplubix",
+                "name": "Alexander Tokmakov",
+                "avatarUrl": "https://avatars.githubusercontent.com/u/14847450?v=4",
+                "url": "https://github.com/tavplubix"
+              }
+            ]
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 13,
+            "nodes": [
+              {
+                "author": {
+                  "name": "Alexander Tokmakov"
+                },
+                "updatedAt": "2022-05-10T13:44:21Z",
+                "body": "Stress test (undefined, actions) - segfault in `Session::makeQueryContextImpl` (as expected), need to add `no-backward-compatibility-check` tag"
+              },
+              {
+                "author": {
+                  "name": "Alexander Tokmakov"
+                },
+                "updatedAt": "2022-05-09T13:05:24Z",
+                "body": "> So, I've merged those two together\r\n\r\nSorry, I did not notice it"
+              },
+              {
+                "author": {
+                  "name": "Alexander Tokmakov"
+                },
+                "updatedAt": "2022-05-09T13:03:26Z",
+                "body": "But we cannot merge this PR because tests fail. So we need to merge #36935 first, then merge master into this branch and restart tests in this PR. "
+              },
+              {
+                "author": {
+                  "name": "Vasily Nemkov"
+                },
+                "updatedAt": "2022-05-09T13:01:59Z",
+                "body": "Well, the original issue in SessionLog was fixed a long time ago. Other issues discovered by tests in this PR were addressed in another PR: https://github.com/ClickHouse/ClickHouse/pull/36935\r\n\r\nSo, I've merged those two together"
+              },
+              {
+                "author": {
+                  "name": "Alexey Milovidov"
+                },
+                "updatedAt": "2022-05-07T12:43:12Z",
+                "body": "As nothing was fixed in this PR and it is abandoned, let's close.\r\nIn the meantime I've added deprecation warnings around session_log,\r\nso it will be removed in subsequent releases."
+              },
+              {
+                "author": {
+                  "name": "Alexander Tokmakov"
+                },
+                "updatedAt": "2022-04-30T14:18:50Z",
+                "body": "Actually it's segfault, not timeout:\r\n```\r\n2022.04.28 19:03:29.481245 [ 153165 ] {} <Fatal> BaseDaemon: ########################################\r\n2022.04.28 19:03:29.481304 [ 153165 ] {} <Fatal> BaseDaemon: (version 22.5.1.1, build id: 9203DFA55512D6D8) (from thread 152925) (no query) Received signal Segmentation fault (11)\r\n2022.04.28 19:03:29.481337 [ 153165 ] {} <Fatal> BaseDaemon: Address: 0x138 Access: read. Address not mapped to object.\r\n2022.04.28 19:03:29.481353 [ 153165 ] {} <Fatal> BaseDaemon: Stack trace: 0x154fbe44 0x15cf31a8 0x16273fba 0x17008ad5 0x17017579 0x1b3e358f 0x1b3e59e1 0x1b5ac429 0x1b5a9780 0x7f8bb89e5609 0x7f8bb890a163\r\n2022.04.28 19:03:29.481404 [ 153165 ] {} <Fatal> BaseDaemon: 2. DB::GrantedRoles::findGranted(DB::RolesOrUsersSet const&) const @ 0x154fbe44 in /usr/bin/clickhouse\r\n2022.04.28 19:03:29.481429 [ 153165 ] {} <Fatal> BaseDaemon: 3. DB::Context::setUser(StrongTypedef<wide::integer<128ul, unsigned int>, DB::UUIDTag> const&) @ 0x15cf31a8 in /usr/bin/clickhouse\r\n2022.04.28 19:03:29.481449 [ 153165 ] {} <Fatal> BaseDaemon: 4. DB::Session::makeSessionContext() @ 0x16273fba in /usr/bin/clickhouse\r\n2022.04.28 19:03:29.481469 [ 153165 ] {} <Fatal> BaseDaemon: 5. DB::TCPHandler::runImpl() @ 0x17008ad5 in /usr/bin/clickhouse\r\n2022.04.28 19:03:29.481496 [ 153165 ] {} <Fatal> BaseDaemon: 6. DB::TCPHandler::run() @ 0x17017579 in /usr/bin/clickhouse\r\n2022.04.28 19:03:29.481514 [ 153165 ] {} <Fatal> BaseDaemon: 7. Poco::Net::TCPServerConnection::start() @ 0x1b3e358f in /usr/bin/clickhouse\r\n2022.04.28 19:03:29.481530 [ 153165 ] {} <Fatal> BaseDaemon: 8. Poco::Net::TCPServerDispatcher::run() @ 0x1b3e59e1 in /usr/bin/clickhouse\r\n2022.04.28 19:03:29.481548 [ 153165 ] {} <Fatal> BaseDaemon: 9. Poco::PooledThread::run() @ 0x1b5ac429 in /usr/bin/clickhouse\r\n2022.04.28 19:03:29.481567 [ 153165 ] {} <Fatal> BaseDaemon: 10. Poco::ThreadImpl::runnableEntry(void*) @ 0x1b5a9780 in /usr/bin/clickhouse\r\n2022.04.28 19:03:29.481581 [ 153165 ] {} <Fatal> BaseDaemon: 11. ? @ 0x7f8bb89e5609 in ?\r\n2022.04.28 19:03:29.481594 [ 153165 ] {} <Fatal> BaseDaemon: 12. clone @ 0x7f8bb890a163 in ?\r\n2022.04.28 19:03:30.869445 [ 153165 ] {} <Fatal> BaseDaemon: Calculated checksum of the binary: F40ACC981B80710C79AC778284059B0B. There is no information about the reference checksum.\r\n2022.04.28 19:03:49.892777 [ 387 ] {} <Fatal> Application: Child process was terminated by signal 11.\r\n```"
+              },
+              {
+                "author": {
+                  "name": "Alexey Milovidov"
+                },
+                "updatedAt": "2022-04-30T11:38:46Z",
+                "body": "@Enmk we still observe timeouts in tests."
+              },
+              {
+                "author": {
+                  "name": "Azat Khuzhin"
+                },
+                "updatedAt": "2022-04-15T22:04:43Z",
+                "body": ">Looks like a deadlock. I don't think that reducing number of iterations from 1000 to 100 will really help, we should investigate why this timeout happened.\r\n\r\nI've looked at the logs and they does not have any queries to clickhouse:\r\n\r\n```sh\r\n$ pigz -cd clickhouse-server.log.gz | grep -F -f <(clickhouse-local --file query_log.tsv.gz --input-format TSVWithNamesAndTypes -q \"select distinct query_id from table where current_database = 'test_l3v6if'\")\r\n2022.04.01 01:41:09.875566 [ 385 ] {34dc998d-a7ad-4fb0-bc9d-4529e21b08b6} <Debug> executeQuery: (from [::1]:43106) (comment: 02242_delete_user_race.sh) DROP ROLE IF EXISTS test_role_02242;\r\n2022.04.01 01:41:09.876314 [ 385 ] {34dc998d-a7ad-4fb0-bc9d-4529e21b08b6} <Trace> ContextAccess (default): Access granted: DROP ROLE ON *.*\r\n2022.04.01 01:41:09.877758 [ 385 ] {34dc998d-a7ad-4fb0-bc9d-4529e21b08b6} <Debug> MemoryTracker: Peak memory usage (for query): 0.00 B.\r\n2022.04.01 01:41:09.880693 [ 385 ] {8d6fb637-2cb1-49c1-ab92-b15fa7d0a75a} <Debug> executeQuery: (from [::1]:43106) (comment: 02242_delete_user_race.sh) CREATE ROLE test_role_02242;\r\n2022.04.01 01:41:09.881434 [ 385 ] {8d6fb637-2cb1-49c1-ab92-b15fa7d0a75a} <Trace> ContextAccess (default): Access granted: CREATE ROLE ON *.*\r\n2022.04.01 01:41:09.883165 [ 385 ] {8d6fb637-2cb1-49c1-ab92-b15fa7d0a75a} <Debug> MemoryTracker: Peak memory usage (for query): 3.00 MiB.\r\n```\r\n\r\nSo it is something with the test itself, maybe some issue with `wait` in `bash` (something related to `wait_for: No record of process` error), this test requires some logging to investigate this."
+              },
+              {
+                "author": {
+                  "name": "Alexander Tokmakov"
+                },
+                "updatedAt": "2022-04-01T13:28:29Z",
+                "body": "```\r\n2022-04-01 01:40:58 02242_delete_user_race:                                                 [ OK ] 5.21 sec.\r\n2022-04-01 01:41:03 02242_delete_user_race:                                                 [ OK ] 4.95 sec.\r\n2022-04-01 01:41:08 02242_delete_user_race:                                                 [ OK ] 5.15 sec.\r\n2022-04-01 01:51:09 02242_delete_user_race:                                                 [ FAIL ] 600.47 sec. - Timeout!\r\n2022-04-01 01:51:09 Settings used in the test: --max_insert_threads=10 --group_by_two_level_threshold=100000 --group_by_two_level_threshold_bytes=50000000 --distributed_aggregation_memory_efficient=0 --fsync_metadata=0 --priority=4 --output_format_parallel_formatting=0 --input_format_parallel_parsing=1 --min_chunk_bytes_for_parallel_parsing=17960349 --max_read_buffer_size=868583 --prefer_localhost_replica=0 --max_block_size=41584 --max_threads=5\r\n2022-04-01 01:51:09 \r\n2022-04-01 01:51:09 Database: test_l3v6if\r\n2022-04-01 01:51:15 02242_delete_user_race:                                                 [ OK ] 5.73 sec.\r\n2022-04-01 01:51:21 02242_delete_user_race:                                                 [ OK ] 5.31 sec.\r\n2022-04-01 01:51:27 02242_delete_user_race:                                                 [ OK ] 5.50 sec.\r\n2022-04-01 01:51:32 02242_delete_user_race:                                                 [ OK ] 5.33 sec.\r\n```\r\n\r\nLooks like a deadlock. I don't think that reducing number of iterations from 1000 to 100 will really help, we should investigate why this timeout happened. "
+              },
+              {
+                "author": {
+                  "name": "Alexey Milovidov"
+                },
+                "updatedAt": "2022-03-30T23:27:51Z",
+                "body": "Let'a add a test."
+              }
+            ]
+          }
+        },
+        {
+          "number": 161,
+          "url": "https://github.com/ClickHouse/clickhouse-cpp/pull/161",
+          "title": "Query_ID",
+          "createdAt": "2022-03-08T09:57:48Z",
+          "state": "MERGED",
+          "isDraft": false,
+          "updatedAt": "2022-03-08T13:40:13Z",
+          "mergeable": "UNKNOWN",
+          "baseRefName": "master",
+          "changedFiles": 22,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/block.cpp",
+                "deletions": 1,
+                "additions": 15
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/block.h",
+                "deletions": 2,
+                "additions": 29
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/client.cpp",
+                "deletions": 61,
+                "additions": 73
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/client.h",
+                "deletions": 0,
+                "additions": 3
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/columns/array.cpp",
+                "deletions": 2,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/query.cpp",
+                "deletions": 2,
+                "additions": 6
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/query.h",
+                "deletions": 4,
+                "additions": 11
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/types/types.cpp",
+                "deletions": 2,
+                "additions": 2
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/types/types.h",
+                "deletions": 0,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "tests/simple/CMakeLists.txt",
+                "deletions": 2,
+                "additions": 2
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "tests/simple/main.cpp",
+                "deletions": 1,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/CMakeLists.txt",
+                "deletions": 0,
+                "additions": 1
+              },
+              {
+                "changeType": "ADDED",
+                "path": "ut/block_ut.cpp",
+                "deletions": 0,
+                "additions": 85
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/client_ut.cpp",
+                "deletions": 9,
+                "additions": 56
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/columns_ut.cpp",
+                "deletions": 2,
+                "additions": 16
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/readonly_client_test.cpp",
+                "deletions": 1,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/socket_ut.cpp",
+                "deletions": 18,
+                "additions": 37
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/tcp_server.cpp",
+                "deletions": 3,
+                "additions": 6
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/tcp_server.h",
+                "deletions": 2,
+                "additions": 5
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/types_ut.cpp",
+                "deletions": 0,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/utils.cpp",
+                "deletions": 0,
+                "additions": 87
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/utils.h",
+                "deletions": 5,
+                "additions": 19
+              }
+            ],
+            "totalCount": 22
+          },
+          "labels": {
+            "totalCount": 0,
+            "nodes": []
+          },
+          "reviews": {
+            "edges": []
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 9,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/clickhouse-cpp/commit/07a928f75ce62f3c9ac4224bc53c8daaba48164b",
+                    "oid": "07a928f75ce62f3c9ac4224bc53c8daaba48164b",
+                    "statusCheckRollup": {
+                      "state": "SUCCESS"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": []
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 0,
+            "nodes": []
+          }
+        },
+        {
+          "number": 158,
+          "url": "https://github.com/ClickHouse/clickhouse-cpp/pull/158",
+          "title": "Improved build: building each translation unit only once",
+          "createdAt": "2022-03-04T10:09:33Z",
+          "state": "CLOSED",
+          "isDraft": false,
+          "updatedAt": "2022-03-06T16:51:40Z",
+          "mergeable": "UNKNOWN",
+          "baseRefName": "master",
+          "changedFiles": 2,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/CMakeLists.txt",
+                "deletions": 19,
+                "additions": 20
+              },
+              {
+                "changeType": "DELETED",
+                "path": "clickhouse/base/platform.cpp",
+                "deletions": 1,
+                "additions": 0
+              }
+            ],
+            "totalCount": 2
+          },
+          "labels": {
+            "totalCount": 0,
+            "nodes": []
+          },
+          "reviews": {
+            "edges": []
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 1,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/clickhouse-cpp/commit/e110de7629be9638dd2f84cbe2e5763bba59cc3d",
+                    "oid": "e110de7629be9638dd2f84cbe2e5763bba59cc3d",
+                    "statusCheckRollup": {
+                      "state": "FAILURE"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": []
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 0,
+            "nodes": []
+          }
+        },
+        {
+          "number": 156,
+          "url": "https://github.com/ClickHouse/clickhouse-cpp/pull/156",
+          "title": "Better performance for Type::IsEqual()",
+          "createdAt": "2022-02-17T10:18:52Z",
+          "state": "MERGED",
+          "isDraft": false,
+          "updatedAt": "2022-02-22T14:13:42Z",
+          "mergeable": "UNKNOWN",
+          "baseRefName": "master",
+          "changedFiles": 3,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/types/types.cpp",
+                "deletions": 1,
+                "additions": 62
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/types/types.h",
+                "deletions": 1,
+                "additions": 10
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/types_ut.cpp",
+                "deletions": 0,
+                "additions": 56
+              }
+            ],
+            "totalCount": 3
+          },
+          "labels": {
+            "totalCount": 0,
+            "nodes": []
+          },
+          "reviews": {
+            "edges": []
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 3,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/clickhouse-cpp/commit/8e3970c03d3bbc0e8d0df961cfa6c7973323b991",
+                    "oid": "8e3970c03d3bbc0e8d0df961cfa6c7973323b991",
+                    "statusCheckRollup": {
+                      "state": "SUCCESS"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": []
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 0,
+            "nodes": []
+          }
+        },
+        {
+          "number": 155,
+          "url": "https://github.com/ClickHouse/clickhouse-cpp/pull/155",
+          "title": "Added tests to EnumType::GetName() on empty enums",
+          "createdAt": "2022-02-16T16:43:03Z",
+          "state": "MERGED",
+          "isDraft": false,
+          "updatedAt": "2022-02-16T16:52:41Z",
+          "mergeable": "UNKNOWN",
+          "baseRefName": "master",
+          "changedFiles": 1,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/types_ut.cpp",
+                "deletions": 0,
+                "additions": 5
+              }
+            ],
+            "totalCount": 1
+          },
+          "labels": {
+            "totalCount": 0,
+            "nodes": []
+          },
+          "reviews": {
+            "edges": []
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 1,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/clickhouse-cpp/commit/f346e341e382ca3eba5353bed0c97345fd7f42b6",
+                    "oid": "f346e341e382ca3eba5353bed0c97345fd7f42b6",
+                    "statusCheckRollup": {
+                      "state": "SUCCESS"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": []
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 0,
+            "nodes": []
+          }
+        },
+        {
+          "number": 152,
+          "url": "https://github.com/ClickHouse/clickhouse-cpp/pull/152",
+          "title": "OpenSSL updates: allow to configure or skip verification",
+          "createdAt": "2022-02-09T10:35:03Z",
+          "state": "MERGED",
+          "isDraft": false,
+          "updatedAt": "2022-02-16T16:43:17Z",
+          "mergeable": "UNKNOWN",
+          "baseRefName": "master",
+          "changedFiles": 12,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/base/sslsocket.cpp",
+                "deletions": 32,
+                "additions": 90
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/base/sslsocket.h",
+                "deletions": 2,
+                "additions": 8
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/client.cpp",
+                "deletions": 4,
+                "additions": 13
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/client.h",
+                "deletions": 9,
+                "additions": 37
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "tests/simple/CMakeLists.txt",
+                "deletions": 0,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "tests/simple/main.cpp",
+                "deletions": 27,
+                "additions": 15
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/client_ut.cpp",
+                "deletions": 36,
+                "additions": 38
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/connection_failed_client_test.cpp",
+                "deletions": 3,
+                "additions": 4
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/connection_failed_client_test.h",
+                "deletions": 1,
+                "additions": 6
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/ssl_ut.cpp",
+                "deletions": 30,
+                "additions": 90
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/utils.cpp",
+                "deletions": 10,
+                "additions": 2
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/utils.h",
+                "deletions": 17,
+                "additions": 35
+              }
+            ],
+            "totalCount": 12
+          },
+          "labels": {
+            "totalCount": 0,
+            "nodes": []
+          },
+          "reviews": {
+            "edges": [
+              {
+                "node": {
+                  "id": "PRR_kwDODGaNZc40Tc4-",
+                  "state": "COMMENTED"
+                }
+              }
+            ]
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 1,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/clickhouse-cpp/commit/257909bba4a81c3d875a2457cdf1c7d5e15f59fc",
+                    "oid": "257909bba4a81c3d875a2457cdf1c7d5e15f59fc",
+                    "statusCheckRollup": {
+                      "state": "SUCCESS"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": []
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 0,
+            "nodes": []
+          }
+        },
+        {
+          "number": 151,
+          "url": "https://github.com/ClickHouse/clickhouse-cpp/pull/151",
+          "title": "OpenSSL updates: allow to configure or skip verification",
+          "createdAt": "2022-02-09T09:03:56Z",
+          "state": "CLOSED",
+          "isDraft": false,
+          "updatedAt": "2022-02-09T10:34:26Z",
+          "mergeable": "UNKNOWN",
+          "baseRefName": "master",
+          "changedFiles": 12,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/base/sslsocket.cpp",
+                "deletions": 24,
+                "additions": 59
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/base/sslsocket.h",
+                "deletions": 0,
+                "additions": 6
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/client.cpp",
+                "deletions": 5,
+                "additions": 28
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/client.h",
+                "deletions": 7,
+                "additions": 37
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "tests/simple/CMakeLists.txt",
+                "deletions": 0,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "tests/simple/main.cpp",
+                "deletions": 27,
+                "additions": 15
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/client_ut.cpp",
+                "deletions": 22,
+                "additions": 26
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/connection_failed_client_test.cpp",
+                "deletions": 2,
+                "additions": 2
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/connection_failed_client_test.h",
+                "deletions": 1,
+                "additions": 6
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/ssl_ut.cpp",
+                "deletions": 30,
+                "additions": 85
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/utils.cpp",
+                "deletions": 5,
+                "additions": 0
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/utils.h",
+                "deletions": 17,
+                "additions": 28
+              }
+            ],
+            "totalCount": 12
+          },
+          "labels": {
+            "totalCount": 0,
+            "nodes": []
+          },
+          "reviews": {
+            "edges": []
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 2,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/clickhouse-cpp/commit/cc33b00e6b0412ab0d6b108be3c21aae6147b938",
+                    "oid": "cc33b00e6b0412ab0d6b108be3c21aae6147b938",
+                    "statusCheckRollup": {
+                      "state": "FAILURE"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": []
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 0,
+            "nodes": []
+          }
+        },
+        {
+          "number": 150,
+          "url": "https://github.com/ClickHouse/clickhouse-cpp/pull/150",
+          "title": "Refactored streams",
+          "createdAt": "2022-02-07T06:02:40Z",
+          "state": "MERGED",
+          "isDraft": false,
+          "updatedAt": "2022-02-08T13:08:08Z",
+          "mergeable": "UNKNOWN",
+          "baseRefName": "master",
+          "changedFiles": 14,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/base/compressed.cpp",
+                "deletions": 10,
+                "additions": 9
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/base/input.cpp",
+                "deletions": 5,
+                "additions": 5
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/base/input.h",
+                "deletions": 2,
+                "additions": 3
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/base/output.cpp",
+                "deletions": 18,
+                "additions": 6
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/base/output.h",
+                "deletions": 4,
+                "additions": 13
+              },
+              {
+                "changeType": "DELETED",
+                "path": "clickhouse/base/streamstack.h",
+                "deletions": 59,
+                "additions": 0
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/base/wire_format.cpp",
+                "deletions": 9,
+                "additions": 9
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/base/wire_format.h",
+                "deletions": 21,
+                "additions": 21
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/client.cpp",
+                "deletions": 87,
+                "additions": 77
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/columns/enum.cpp",
+                "deletions": 2,
+                "additions": 2
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/columns/lowcardinality.cpp",
+                "deletions": 8,
+                "additions": 8
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/columns/numeric.cpp",
+                "deletions": 2,
+                "additions": 2
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/columns/string.cpp",
+                "deletions": 5,
+                "additions": 5
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/stream_ut.cpp",
+                "deletions": 2,
+                "additions": 3
+              }
+            ],
+            "totalCount": 14
+          },
+          "labels": {
+            "totalCount": 0,
+            "nodes": []
+          },
+          "reviews": {
+            "edges": []
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 1,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/clickhouse-cpp/commit/da724982db588d623022db808857e542605aa1ec",
+                    "oid": "da724982db588d623022db808857e542605aa1ec",
+                    "statusCheckRollup": {
+                      "state": "SUCCESS"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": []
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 0,
+            "nodes": []
+          }
+        },
+        {
+          "number": 149,
+          "url": "https://github.com/ClickHouse/clickhouse-cpp/pull/149",
+          "title": "Fixed ColumnIPv4 and ColumnIPv6 costruct from data",
+          "createdAt": "2022-02-04T14:01:18Z",
+          "state": "MERGED",
+          "isDraft": false,
+          "updatedAt": "2022-02-07T03:10:29Z",
+          "mergeable": "UNKNOWN",
+          "baseRefName": "master",
+          "changedFiles": 7,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/columns/ip4.cpp",
+                "deletions": 7,
+                "additions": 16
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/columns/ip4.h",
+                "deletions": 0,
+                "additions": 8
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/columns/ip6.cpp",
+                "deletions": 11,
+                "additions": 15
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/columns/ip6.h",
+                "deletions": 2,
+                "additions": 10
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/columns_ut.cpp",
+                "deletions": 38,
+                "additions": 156
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/utils.cpp",
+                "deletions": 2,
+                "additions": 29
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/utils.h",
+                "deletions": 1,
+                "additions": 15
+              }
+            ],
+            "totalCount": 7
+          },
+          "labels": {
+            "totalCount": 0,
+            "nodes": []
+          },
+          "reviews": {
+            "edges": []
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 2,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/clickhouse-cpp/commit/d9f6d0fa5173e1f20945d1bdc869ead17f1be986",
+                    "oid": "d9f6d0fa5173e1f20945d1bdc869ead17f1be986",
+                    "statusCheckRollup": {
+                      "state": "SUCCESS"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": []
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 0,
+            "nodes": []
+          }
+        },
+        {
+          "number": 148,
+          "url": "https://github.com/ClickHouse/clickhouse-cpp/pull/148",
+          "title": "Fixed ColumnIPv4::Append()",
+          "createdAt": "2022-02-02T15:09:59Z",
+          "state": "MERGED",
+          "isDraft": false,
+          "updatedAt": "2022-02-03T12:34:10Z",
+          "mergeable": "UNKNOWN",
+          "baseRefName": "master",
+          "changedFiles": 8,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/columns/ip4.cpp",
+                "deletions": 11,
+                "additions": 11
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/columns/ip4.h",
+                "deletions": 1,
+                "additions": 5
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/columns/ip6.cpp",
+                "deletions": 2,
+                "additions": 7
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/columns/ip6.h",
+                "deletions": 1,
+                "additions": 4
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/columns/nothing.h",
+                "deletions": 0,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "tests/simple/main.cpp",
+                "deletions": 0,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/columns_ut.cpp",
+                "deletions": 4,
+                "additions": 99
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "ut/performance_tests.cpp",
+                "deletions": 0,
+                "additions": 2
+              }
+            ],
+            "totalCount": 8
+          },
+          "labels": {
+            "totalCount": 0,
+            "nodes": []
+          },
+          "reviews": {
+            "edges": [
+              {
+                "node": {
+                  "id": "PRR_kwDODGaNZc4z8ziC",
+                  "state": "APPROVED"
+                }
+              }
+            ]
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 2,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/clickhouse-cpp/commit/60c1f66cc27ef2d8d4dcdcc6b0b7b002f0f92e18",
+                    "oid": "60c1f66cc27ef2d8d4dcdcc6b0b7b002f0f92e18",
+                    "statusCheckRollup": {
+                      "state": "SUCCESS"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": []
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 1,
+            "nodes": [
+              {
+                "author": {
+                  "name": "Vasily Nemkov"
+                },
+                "updatedAt": "2022-02-03T12:32:53Z",
+                "body": "> \r\nWe have a 'Client'-tests for that."
+              }
+            ]
+          }
+        },
+        {
+          "number": 134,
+          "url": "https://github.com/ClickHouse/clickhouse-cpp/pull/134",
+          "title": "GCC-8 support fix",
+          "createdAt": "2022-01-08T16:52:29Z",
+          "state": "MERGED",
+          "isDraft": false,
+          "updatedAt": "2022-02-01T12:25:36Z",
+          "mergeable": "UNKNOWN",
+          "baseRefName": "master",
+          "changedFiles": 3,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": ".github/workflows/linux.yml",
+                "deletions": 6,
+                "additions": 17
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "CMakeLists.txt",
+                "deletions": 0,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "clickhouse/base/sslsocket.cpp",
+                "deletions": 1,
+                "additions": 1
+              }
+            ],
+            "totalCount": 3
+          },
+          "labels": {
+            "totalCount": 0,
+            "nodes": []
+          },
+          "reviews": {
+            "edges": []
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 2,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/clickhouse-cpp/commit/2c235bedc6c63246054d2932bcff33e6d4125926",
+                    "oid": "2c235bedc6c63246054d2932bcff33e6d4125926",
+                    "statusCheckRollup": {
+                      "state": "FAILURE"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": []
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 0,
+            "nodes": []
+          }
+        },
+        {
+          "number": 132,
+          "url": "https://github.com/ClickHouse/clickhouse-cpp/pull/132",
+          "title": "CI/CD: fixing  MacOS OpenSSL variant",
+          "createdAt": "2022-01-06T15:36:10Z",
+          "state": "MERGED",
+          "isDraft": false,
+          "updatedAt": "2022-02-01T12:26:18Z",
+          "mergeable": "UNKNOWN",
+          "baseRefName": "master",
+          "changedFiles": 1,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": ".github/workflows/macos_ssl.yml",
+                "deletions": 2,
+                "additions": 3
+              }
+            ],
+            "totalCount": 1
+          },
+          "labels": {
+            "totalCount": 0,
+            "nodes": []
+          },
+          "reviews": {
+            "edges": []
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 4,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/clickhouse-cpp/commit/2214d97e4edb6890fb4a9d1a705d28ca5b497e26",
+                    "oid": "2214d97e4edb6890fb4a9d1a705d28ca5b497e26",
+                    "statusCheckRollup": {
+                      "state": "SUCCESS"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": []
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 0,
+            "nodes": []
+          }
+        }
+      ],
+      "pageInfo": {
+        "endCursor": "Y3Vyc29yOjUw",
+        "hasNextPage": true
+      }
+    }
+  }
+}

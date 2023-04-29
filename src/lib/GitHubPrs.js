@@ -1,136 +1,88 @@
-import {doGitHubGraphQLRequest} from './doGitHubGraphQLRequest.js';
+export
+class SimpleRepoProvider {
+  constructor (
+      github_api /* GitHubGraphQLAPI */
+    , name /* string */
+    , authors /* array of strings */
+    , assignees /* array of strings */
+    , query /* string or null */
+    , request_limit /* number */
+  ) {
+    this.api = github_api;
+    this.search_response = this.api.search(name, authors, assignees, query, request_limit);
+    this.cached_prs = [];
+    this.name = name
 
-export async function searchPRs(request_repo, authors, assignees, query, request_limit, github_token) {
-    const response = await doGitHubGraphQLRequest(searchPRsRequestBody(request_repo, authors, assignees, query, request_limit), github_token);
+    console.log("SimpleRepoProvider.constructor", this, " github_api: ", github_api);
+  }
 
-    return response['data']['search']['nodes'];
+  repoName() {
+    return this.name;
+  }
+
+  async getPrs() {
+    const prs = (await this.search_response).data.search;
+    console.log("SimpleRepoProvider.getPrs() ", this, ", prs: ", prs);
+
+    this.endCursor = prs.pageInfo.endCursor
+    this.hasNextPage = prs.pageInfo.hasNextPage
+
+    let result = [];
+    for (const pr of prs.nodes) {
+      this.cached_prs.push(pr);
+      result.push(pr);
+    }
+
+    return result;
+  }
+
+  async loadMore() {
+
+  }
 }
 
-function searchPRsRequestBody(request_repo, authors, assignees, query, request_limit) {
-    let authors_clause = '';
-    if (authors.length > 0) {
-        authors_clause = 'author:' + authors.join(' author:');
-    }
+export
+class PRsProvider
+{
+  constructor (
+      github_api /* string */
+      , authors /* array of strings */
+      , repos /* array of strings, but can be undefined/null */
+      , assignees /* array of strings */
+      , query /* string or null */
+      )
+  {
+    this.github = github_api;
+    this.authors = authors;
+    this.repos = repos;
+    this.providers = new Map();
 
-    let assignees_clause = '';
-    if (assignees.length > 0) {
-        assignees_clause = 'assignee:' + assignees.join(' assignee:');
-    }
-
-    if (!query)
-        query = '';
-
-    return `{ search(
-      query: "repo:${request_repo} is:pr ${authors_clause} ${assignees_clause} sort:created-desc ${query}"
-      type: ISSUE
-      first: ${request_limit}
-    ) {
-      nodes {
-          ... on PullRequest {
-            number
-            url
-            title
-            createdAt
-            state
-            isDraft
-            updatedAt
-            mergeable
-            baseRefName
-            changedFiles
-            files(last: 60) {
-              nodes {
-                changeType
-                path
-                deletions
-                additions
-              }
-              totalCount
-            }
-            labels (last: 20) {
-              totalCount
-              nodes {
-                name
-                color
-              }
-            }
-            reviews(last: 1) {
-              edges {
-                node {
-                  id
-                  state
-                }
-              }
-            }
-            author {
-              avatarUrl
-              login
-              url
-              ... on User {
-                name
-              }
-              ... on Organization {
-                id
-                name
-              }
-              ... on EnterpriseUserAccount {
-                name
-              }
-            }
-            commits(last: 1) {
-              totalCount
-              edges {
-                node {
-                  commit {
-                    commitUrl
-                    oid
-                    statusCheckRollup {
-                      state
-                    }
-                  }
-                }
-              }
-            }
-            assignees(first: 10) {
-              nodes {
-                login
-                name
-                avatarUrl
-                url
-              }
-            }
-            reviewRequests(first: 100) {
-              nodes {
-                requestedReviewer {
-                  ... on User {
-                    name
-                    login
-                    avatarUrl
-                    url
-                  }
-                }
-              }
-            }
-            comments(last: 10, orderBy: {field: UPDATED_AT, direction: DESC}) {
-              totalCount
-              nodes {
-                author {
-                  ... on User {
-                    name
-                  }
-                  ... on Organization {
-                    id
-                    name
-                  }
-                  ... on EnterpriseUserAccount {
-                    name
-                  }
-                }
-                updatedAt
-                body
-              }
-            }
-          }
+    // We know list of repos beforehand - just make request for each
+    if (this.repos) {
+      let self = this;
+      this.repo_providers = Promise.resolve(function* () {
+        for (const repo of repos) {
+          const repo_name = repo[0];
+          const repo_limit = repo[1];
+          const provider = new SimpleRepoProvider(self.github, repo_name, authors, assignees, query, repo_limit);
+          self.providers[repo_name] = provider;
+          yield provider;
         }
-      }
-  }`
+      });
+    } else {
+      throw Error("As of now, must have multiple repos defined")
+    }
+    console.log(`constructed PRsProvider ${this}, repo providers: ${this.repo_providers}`);
+  }
+
+  async getRepoPrProvider(repo_name) {
+    console.log(`PRsProvider.getRepoPrProvider(${repo_name}), ${this.repoProviders}`);
+    const result = await this.repoProviders()[repo_name];
+    console.log(`result: ${result}`);
+    return result;
+  }
+
+  async repoProviders() {
+    return await this.repo_providers;
+  }
 }

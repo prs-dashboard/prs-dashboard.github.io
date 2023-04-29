@@ -1,0 +1,2813 @@
+{
+  "data": {
+    "search": {
+      "nodes": [
+        {
+          "number": 47578,
+          "url": "https://github.com/ClickHouse/ClickHouse/pull/47578",
+          "title": "Simplify clickhouse-test usage with -b",
+          "createdAt": "2023-03-14T14:37:37Z",
+          "state": "MERGED",
+          "isDraft": false,
+          "updatedAt": "2023-03-15T12:32:44Z",
+          "mergeable": "UNKNOWN",
+          "baseRefName": "master",
+          "changedFiles": 1,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": "tests/clickhouse-test",
+                "deletions": 1,
+                "additions": 2
+              }
+            ],
+            "totalCount": 1
+          },
+          "labels": {
+            "totalCount": 2,
+            "nodes": [
+              {
+                "name": "pr-build",
+                "color": "007700"
+              },
+              {
+                "name": "can be tested",
+                "color": "1d76db"
+              }
+            ]
+          },
+          "reviews": {
+            "edges": [
+              {
+                "node": {
+                  "id": "PRR_kwDOA5dJV85P1qWJ",
+                  "state": "APPROVED"
+                }
+              }
+            ]
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 2,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/ClickHouse/commit/f4f7e110b6523405024fa5ab66944cecbd24e20c",
+                    "oid": "f4f7e110b6523405024fa5ab66944cecbd24e20c",
+                    "statusCheckRollup": {
+                      "state": "FAILURE"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": [
+              {
+                "login": "alexey-milovidov",
+                "name": "Alexey Milovidov",
+                "avatarUrl": "https://avatars.githubusercontent.com/u/18581488?v=4",
+                "url": "https://github.com/alexey-milovidov"
+              }
+            ]
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 0,
+            "nodes": []
+          }
+        },
+        {
+          "number": 42641,
+          "url": "https://github.com/ClickHouse/ClickHouse/pull/42641",
+          "title": "Fixed exception when user tries to log in",
+          "createdAt": "2022-10-25T05:43:44Z",
+          "state": "MERGED",
+          "isDraft": false,
+          "updatedAt": "2022-11-30T12:01:58Z",
+          "mergeable": "UNKNOWN",
+          "baseRefName": "master",
+          "changedFiles": 4,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Access/SettingsProfilesCache.cpp",
+                "deletions": 1,
+                "additions": 3
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Access/SettingsProfilesInfo.cpp",
+                "deletions": 0,
+                "additions": 29
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Access/SettingsProfilesInfo.h",
+                "deletions": 9,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "tests/integration/test_settings_profile/test.py",
+                "deletions": 1,
+                "additions": 1
+              }
+            ],
+            "totalCount": 4
+          },
+          "labels": {
+            "totalCount": 2,
+            "nodes": [
+              {
+                "name": "pr-bugfix",
+                "color": "ff4080"
+              },
+              {
+                "name": "can be tested",
+                "color": "1d76db"
+              }
+            ]
+          },
+          "reviews": {
+            "edges": [
+              {
+                "node": {
+                  "id": "PRR_kwDOA5dJV85HQ8Xp",
+                  "state": "COMMENTED"
+                }
+              }
+            ]
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 13,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/ClickHouse/commit/3d0c07ac5b8f18917f2314474030910176ec7940",
+                    "oid": "3d0c07ac5b8f18917f2314474030910176ec7940",
+                    "statusCheckRollup": {
+                      "state": "FAILURE"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": [
+              {
+                "login": "rschu1ze",
+                "name": "Robert Schulze",
+                "avatarUrl": "https://avatars.githubusercontent.com/u/100446237?u=ae8472988266e2efd1ad0b54e50bef5c0879ad31&v=4",
+                "url": "https://github.com/rschu1ze"
+              }
+            ]
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 5,
+            "nodes": [
+              {
+                "author": {
+                  "name": "Vasily Nemkov"
+                },
+                "updatedAt": "2022-11-29T16:21:08Z",
+                "body": "# Errors analysis for [2684fc5b](https://github.com/ClickHouse/ClickHouse/commit/2684fc5b1b31a00d28c31d6182fbb3597ce45747/status-details)\r\n### [ClickHouse Integration Tests (asan) [1/6]](https://s3.amazonaws.com/clickhouse-test-reports/42641/2684fc5b1b31a00d28c31d6182fbb3597ce45747/integration_tests__asan__[1/6].html)\r\n - [test_keeper_zookeeper_converter/test.py::test_acls[False]](https://s3.amazonaws.com/clickhouse-test-reports/42641/2684fc5b1b31a00d28c31d6182fbb3597ce45747/integration_tests__asan__[1/6]/integration_run_parallel1_0.log) - timed out ZK connection\r\n```python\r\n/usr/local/lib/python3.8/dist-packages/kazoo/client.py:635: KazooTimeoutError\r\n```\r\n - [`test_keeper_map/test.py::test_create_drop_keeper_map_concurrent`](https://s3.amazonaws.com/clickhouse-test-reports/42641/2684fc5b1b31a00d28c31d6182fbb3597ce45747/integration_tests__asan__[1/6]/integration_run_parallel1_0.log) - Timeout\r\n```\r\nE               Failed: Timeout >900.0s\r\n```\r\n\r\n### [ClickHouse Integration Tests (asan) [5/6]](https://s3.amazonaws.com/clickhouse-test-reports/42641/2684fc5b1b31a00d28c31d6182fbb3597ce45747/integration_tests__asan__[5/6].html)\r\n\r\n- [`test_settings_profile/test.py::test_function_current_profiles`](https://s3.amazonaws.com/clickhouse-test-reports/42641/2684fc5b1b31a00d28c31d6182fbb3597ce45747/integration_tests__asan__[5/6]/integration_run_parallel2_0.log) `currentProfiles()` now reports implicitly applied profiles too (e.g. `P5` via `ROLE`), which I believe is more correct behavior. Test needs to be updated though:\r\n```\r\n>       assert (\r\n            instance.http_query(\r\n                \"SELECT defaultProfiles(), currentProfiles(), enabledProfiles()\",\r\n                user=\"robin\",\r\n                params={\"session_id\": session_id},\r\n            )\r\n            == \"['P1','P2']\\t['P1','P2']\\t['default','P3','P4','P5','P1','P2']\\n\"\r\n        )\r\nE       assert \"['P1','P2']\\t['default','P3','P5','P1','P2']\\t['default','P3','P4','P5','P1','P2']\\n\" == \"['P1','P2']\\t['P1','P2']\\t['default','P3','P4','P5','P1','P2']\\n\"\r\nE         - ['P1','P2']\t['P1','P2']\t['default','P3','P4','P5','P1','P2']\r\nE         + ['P1','P2']\t['default','P3','P5','P1','P2']\t['default','P3','P4','P5','P1','P2']\r\nE         ?            \t ++++++++++++++++++++\r\n```\r\n\r\n### [ClickHouse Integration Tests (release) [3/4]](https://s3.amazonaws.com/clickhouse-test-reports/42641/2684fc5b1b31a00d28c31d6182fbb3597ce45747/integration_tests__release__[3/4].html)\r\n- [`test_settings_profile/test.py::test_function_current_profiles`](https://s3.amazonaws.com/clickhouse-test-reports/42641/2684fc5b1b31a00d28c31d6182fbb3597ce45747/integration_tests__release__[3/4]/integration_run_parallel3_0.log) - same as above\r\n\r\n### [ClickHouse Integration Tests (tsan)](https://s3.amazonaws.com/clickhouse-test-reports/42641/2684fc5b1b31a00d28c31d6182fbb3597ce45747/integration_tests__tsan__[1/6].html)\r\n- [`test_hedged_requests/test.py::test_receive_timeout2`](https://s3.amazonaws.com/clickhouse-test-reports/42641/2684fc5b1b31a00d28c31d6182fbb3597ce45747/integration_tests__tsan__[1/6]/integration_run_parallel1_0.log)\r\n```\r\nE           helpers.client.QueryRuntimeException: Client failed! Return code: 209, stderr: Received exception from server (version 22.12.1):\r\nE           Code: 209. DB::Exception: Received from 172.16.8.2:9000. DB::NetException. DB::NetException: Timeout exceeded while reading from socket (node_1:9000, receive timeout 3000 ms): While executing Remote. Stack trace:\r\n...\r\n```\r\n\r\n### [ClickHouse Integration Tests (tsan) [5/6]](https://s3.amazonaws.com/clickhouse-test-reports/42641/2684fc5b1b31a00d28c31d6182fbb3597ce45747/integration_tests__tsan__[5/6].html)\r\n- [`test_settings_profile/test.py::test_function_current_profiles`](https://s3.amazonaws.com/clickhouse-test-reports/42641/2684fc5b1b31a00d28c31d6182fbb3597ce45747/integration_tests__tsan__[5/6]/integration_run_parallel2_0.log) - same as other `test_settings_profile/test.py::test_function_current_profiles` cases\r\n\r\n### [ClickHouse Stress Test (asan)](https://s3.amazonaws.com/clickhouse-test-reports/42641/2684fc5b1b31a00d28c31d6182fbb3597ce45747/stress_test__asan_.html)\r\n- Seems unrelated: https://s3.amazonaws.com/clickhouse-test-reports/42641/2684fc5b1b31a00d28c31d6182fbb3597ce45747/stress_test__asan_/fatal_messages.txt\r\n```<Fatal> : Logical error: 'Part all_4_4_0 doesn't exist'```\r\n\r\n\r\n### [ClickHouse Stress Test (debug)](https://s3.amazonaws.com/clickhouse-test-reports/42641/2684fc5b1b31a00d28c31d6182fbb3597ce45747/stress_test__debug_.html)\r\nLooks like [unrelated OOM ](https://s3.amazonaws.com/clickhouse-test-reports/42641/2684fc5b1b31a00d28c31d6182fbb3597ce45747/stress_test__debug_/dmesg.log)\r\n\r\n\r\n# Conclusion\r\nNeed to modify [`tests/integration/test_settings_profile/test.py::test_function_current_profiles`](https://github.com/ClickHouse/ClickHouse/blob/127c980aff4cdcc9c5959cce79fec6704aa2665f/tests/integration/test_settings_profile/test.py#L536) to reflect fixed behavior of `currentProfiles()`\r\n"
+              },
+              {
+                "author": {
+                  "name": "Robert Schulze"
+                },
+                "updatedAt": "2022-11-29T08:09:51Z",
+                "body": "test_function_current_profiles unfortunately still fails.\r\n```\r\n[gw0] [100%] FAILED test_settings_profile/test.py::test_function_current_profiles \r\n\r\n=================================== FAILURES ===================================\r\n________________________ test_function_current_profiles ________________________\r\n[gw0] linux -- Python 3.8.10 /usr/bin/python3\r\n\r\n    def test_function_current_profiles():\r\n        instance.query(\"CREATE SETTINGS PROFILE P1, P2\")\r\n        instance.query(\"ALTER USER robin SETTINGS PROFILE P1, P2\")\r\n        instance.query(\"CREATE SETTINGS PROFILE P3 TO robin\")\r\n        instance.query(\"CREATE SETTINGS PROFILE P4\")\r\n        instance.query(\"CREATE SETTINGS PROFILE P5 SETTINGS INHERIT P4\")\r\n        instance.query(\"CREATE ROLE worker SETTINGS PROFILE P5\")\r\n        instance.query(\"GRANT worker TO robin\")\r\n        instance.query(\"CREATE SETTINGS PROFILE P6\")\r\n    \r\n        session_id = new_session_id()\r\n>       assert (\r\n            instance.http_query(\r\n                \"SELECT defaultProfiles(), currentProfiles(), enabledProfiles()\",\r\n                user=\"robin\",\r\n                params={\"session_id\": session_id},\r\n            )\r\n            == \"['P1','P2']\\t['P1','P2']\\t['default','P3','P4','P5','P1','P2']\\n\"\r\n        )\r\nE       assert \"['P1','P2']\\t['default','P3','P5','P1','P2']\\t['default','P3','P4','P5','P1','P2']\\n\" == \"['P1','P2']\\t['P1','P2']\\t['default','P3','P4','P5','P1','P2']\\n\"\r\nE         - ['P1','P2']\t['P1','P2']\t['default','P3','P4','P5','P1','P2']\r\nE         + ['P1','P2']\t['default','P3','P5','P1','P2']\t['default','P3','P4','P5','P1','P2']\r\nE         ?            \t ++++++++++++++++++++\r\n```"
+              },
+              {
+                "author": {
+                  "name": "Robert Schulze"
+                },
+                "updatedAt": "2022-11-28T11:23:37Z",
+                "body": "Thanks for the analysis, I agree with it, and sorry for the delay (just got back from vacation)\r\n\r\nPlease find one smaller comment attached. Functional test `test_function_current_profiles` looks fishy, like to check?"
+              },
+              {
+                "author": {
+                  "name": "Vasily Nemkov"
+                },
+                "updatedAt": "2022-11-23T13:38:54Z",
+                "body": "> * Is `substituteProfiles` really exception-safe? E.g. it does lots of `.insert()`, `.push_back()` and `.emplace()` where a bad_alloc exception could mess up the state of `SettingsProfileInfo`. This could be fixed by first reserving sufficient space in all members and then populating them.\r\n\r\n`substituteProfiles` is not exception safe, but there should be no way to modify inconsistently `SettingsProfilesInfo` in `SettingsProfilesInfo` due to exception. It only modifies the state of the stack-based `SettingsProfilesInfo` instance, so if an exception is thrown, said instance is not added to the `SettingsProfilesCache::profile_infos_cache` and lost.\r\n\r\nFrom what I see, `substituteProfiles` is always called with a locked `SettingsProfilesCache::mutex` (directly or indirectly):\r\n```mermaid\r\ngraph TD\r\n    mergeSettingsAndConstraints --> mergeSettingsAndConstraintsFor --> substituteProfiles\r\n    getSettingsProfileInfo --> |locks mutex | substituteProfiles\r\n    getEnabledSettings --> |locks mutex | mergeSettingsAndConstraintsFor\r\n    profileRemoved --> |locks mutex | mergeSettingsAndConstraints\r\n    profileAddedOrChanged --> |locks mutex | mergeSettingsAndConstraints\r\n```\r\n\r\nTook another look, and probably fixed the most probable cause in `mergeSettingsAndConstraintsFor`, see \r\nhttps://github.com/ClickHouse/ClickHouse/pull/42641/commits/aa78f1c8421aa78b7a7c6de53d4ea8d235bd5263\r\n\r\n@rschu1ze ^^"
+              },
+              {
+                "author": {
+                  "name": "Robert Schulze"
+                },
+                "updatedAt": "2022-11-03T18:19:37Z",
+                "body": "@Enmk I am not really familiar with the code and its constraints and I will certainly not oppose your fix. But, to be honest, it feels like a bandaid for an issue that should never have happened in the first place. I agree with your section \"bug analysis\", in particular that the member variables of `SettingsProfileInfo` are out-of-sync and that they are set (at least as far as I see) by `SettingsProfilesCache::substituteProfiles()`. So the question is what could have caused this problem. Thoughts:\r\n- We could use Clang TSA to safeguard the locking in SettingsProfileCache, see #38068\r\n- Is `substituteProfiles` really exception-safe? E.g. it does lots of `.insert()`, `.push_back()` and `.emplace()` where a bad_alloc exception could mess up the state of `SettingsProfileInfo`. This could be fixed by first reserving sufficient space in all members and then populating them.\r\n- Maybe there are other places in this function which can throw.\r\n\r\nEven if there is no repro (which is okay, perhaps the issue occurs really super sporadically), my preference would be to make the settings profile creating code more robust."
+              }
+            ]
+          }
+        },
+        {
+          "number": 42537,
+          "url": "https://github.com/ClickHouse/ClickHouse/pull/42537",
+          "title": "Passing user roles from query originator to other nodes",
+          "createdAt": "2022-10-20T14:59:45Z",
+          "state": "OPEN",
+          "isDraft": false,
+          "updatedAt": "2023-02-14T13:23:49Z",
+          "mergeable": "UNKNOWN",
+          "baseRefName": "master",
+          "changedFiles": 27,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": "programs/client/Client.cpp",
+                "deletions": 1,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Access/AccessControl.cpp",
+                "deletions": 0,
+                "additions": 2
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Access/AccessControl.h",
+                "deletions": 0,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Access/ContextAccess.cpp",
+                "deletions": 1,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Access/ContextAccess.h",
+                "deletions": 1,
+                "additions": 2
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Access/LDAPAccessStorage.cpp",
+                "deletions": 1,
+                "additions": 4
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Client/ClientBase.cpp",
+                "deletions": 0,
+                "additions": 2
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Client/Connection.cpp",
+                "deletions": 0,
+                "additions": 16
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Client/Connection.h",
+                "deletions": 0,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Client/HedgedConnections.cpp",
+                "deletions": 3,
+                "additions": 4
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Client/HedgedConnections.h",
+                "deletions": 1,
+                "additions": 2
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Client/IConnections.h",
+                "deletions": 1,
+                "additions": 2
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Client/IServerConnection.h",
+                "deletions": 0,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Client/LocalConnection.cpp",
+                "deletions": 0,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Client/LocalConnection.h",
+                "deletions": 0,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Client/MultiplexedConnections.cpp",
+                "deletions": 3,
+                "additions": 4
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Client/MultiplexedConnections.h",
+                "deletions": 1,
+                "additions": 2
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Client/Suggest.cpp",
+                "deletions": 1,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Core/ProtocolDefines.h",
+                "deletions": 0,
+                "additions": 3
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Core/Settings.h",
+                "deletions": 0,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Interpreters/Context.cpp",
+                "deletions": 2,
+                "additions": 4
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Interpreters/Context.h",
+                "deletions": 1,
+                "additions": 3
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Interpreters/Session.cpp",
+                "deletions": 20,
+                "additions": 28
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Interpreters/Session.h",
+                "deletions": 2,
+                "additions": 7
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/QueryPipeline/RemoteInserter.cpp",
+                "deletions": 1,
+                "additions": 2
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/QueryPipeline/RemoteQueryExecutor.cpp",
+                "deletions": 1,
+                "additions": 22
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Server/TCPHandler.cpp",
+                "deletions": 1,
+                "additions": 25
+              }
+            ],
+            "totalCount": 27
+          },
+          "labels": {
+            "totalCount": 2,
+            "nodes": [
+              {
+                "name": "pr-feature",
+                "color": "007700"
+              },
+              {
+                "name": "can be tested",
+                "color": "1d76db"
+              }
+            ]
+          },
+          "reviews": {
+            "edges": [
+              {
+                "node": {
+                  "id": "PRR_kwDOA5dJV85NN80j",
+                  "state": "COMMENTED"
+                }
+              }
+            ]
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 6,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/ClickHouse/commit/2cf7aeb1ef0fdee6a63fdf7d885444c73686b3dc",
+                    "oid": "2cf7aeb1ef0fdee6a63fdf7d885444c73686b3dc",
+                    "statusCheckRollup": {
+                      "state": "FAILURE"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": [
+              {
+                "login": "vitlibar",
+                "name": "Vitaly Baranov",
+                "avatarUrl": "https://avatars.githubusercontent.com/u/45142681?u=a2fc017aa6c73c8633cdd3c6ff9e4247d8f7ea59&v=4",
+                "url": "https://github.com/vitlibar"
+              }
+            ]
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 5,
+            "nodes": [
+              {
+                "author": {
+                  "name": "Alexey Milovidov"
+                },
+                "updatedAt": "2023-02-14T10:45:23Z",
+                "body": "The tests should run in CI."
+              },
+              {
+                "author": {
+                  "name": "Vasily Nemkov"
+                },
+                "updatedAt": "2023-02-14T09:55:54Z",
+                "body": "> Missing tests.\r\n\r\nCould you please mark this as \"ready for tests\", so we can execute produced binaries against LDAP suite from here: https://github.com/Altinity/clickhouse-regression/tree/main/ldap ?"
+              },
+              {
+                "author": {
+                  "name": "Alexey Milovidov"
+                },
+                "updatedAt": "2023-02-13T07:47:17Z",
+                "body": "Missing tests."
+              },
+              {
+                "author": {
+                  "name": "Vitaly Baranov"
+                },
+                "updatedAt": "2022-12-28T00:22:40Z",
+                "body": "Is this PR still in work?"
+              },
+              {
+                "author": {
+                  "name": "Alexey Milovidov"
+                },
+                "updatedAt": "2022-10-22T02:24:12Z",
+                "body": "Missing tests."
+              }
+            ]
+          }
+        },
+        {
+          "number": 42531,
+          "url": "https://github.com/ClickHouse/ClickHouse/pull/42531",
+          "title": "[TEST] Ldap fix search limit 2",
+          "createdAt": "2022-10-20T12:40:03Z",
+          "state": "CLOSED",
+          "isDraft": false,
+          "updatedAt": "2022-10-24T08:02:35Z",
+          "mergeable": "CONFLICTING",
+          "baseRefName": "master",
+          "changedFiles": 4,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Access/ExternalAuthenticators.cpp",
+                "deletions": 22,
+                "additions": 28
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Access/LDAPClient.cpp",
+                "deletions": 42,
+                "additions": 58
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Access/LDAPClient.h",
+                "deletions": 6,
+                "additions": 7
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Common/SipHash.h",
+                "deletions": 3,
+                "additions": 8
+              }
+            ],
+            "totalCount": 4
+          },
+          "labels": {
+            "totalCount": 1,
+            "nodes": [
+              {
+                "name": "pr-improvement",
+                "color": "007700"
+              }
+            ]
+          },
+          "reviews": {
+            "edges": []
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 5,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/ClickHouse/commit/90e1873f8b9c0b06d848583a0f022b19001f1c06",
+                    "oid": "90e1873f8b9c0b06d848583a0f022b19001f1c06",
+                    "statusCheckRollup": {
+                      "state": "FAILURE"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": []
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 0,
+            "nodes": []
+          }
+        },
+        {
+          "number": 42461,
+          "url": "https://github.com/ClickHouse/ClickHouse/pull/42461",
+          "title": "fix LDAP in case of many roles on user",
+          "createdAt": "2022-10-18T21:27:22Z",
+          "state": "MERGED",
+          "isDraft": false,
+          "updatedAt": "2022-11-22T19:05:34Z",
+          "mergeable": "UNKNOWN",
+          "baseRefName": "master",
+          "changedFiles": 4,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Access/ExternalAuthenticators.cpp",
+                "deletions": 22,
+                "additions": 28
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Access/LDAPClient.cpp",
+                "deletions": 43,
+                "additions": 59
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Access/LDAPClient.h",
+                "deletions": 6,
+                "additions": 7
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Common/SipHash.h",
+                "deletions": 3,
+                "additions": 8
+              }
+            ],
+            "totalCount": 4
+          },
+          "labels": {
+            "totalCount": 2,
+            "nodes": [
+              {
+                "name": "pr-improvement",
+                "color": "007700"
+              },
+              {
+                "name": "can be tested",
+                "color": "1d76db"
+              }
+            ]
+          },
+          "reviews": {
+            "edges": [
+              {
+                "node": {
+                  "id": "PRR_kwDOA5dJV85EteX_",
+                  "state": "APPROVED"
+                }
+              }
+            ]
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 13,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/ClickHouse/commit/2c292e38660e26bc0ca8d7841b20794954fd0b37",
+                    "oid": "2c292e38660e26bc0ca8d7841b20794954fd0b37",
+                    "statusCheckRollup": {
+                      "state": "FAILURE"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": [
+              {
+                "login": "alexey-milovidov",
+                "name": "Alexey Milovidov",
+                "avatarUrl": "https://avatars.githubusercontent.com/u/18581488?v=4",
+                "url": "https://github.com/alexey-milovidov"
+              }
+            ]
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 5,
+            "nodes": [
+              {
+                "author": {
+                  "name": "Alexey Milovidov"
+                },
+                "updatedAt": "2022-11-22T19:05:34Z",
+                "body": "@lavasser I expect it in the next release 22.12 in December."
+              },
+              {
+                "author": {
+                  "name": "Alexey Milovidov"
+                },
+                "updatedAt": "2022-11-17T21:21:10Z",
+                "body": "https://s3.amazonaws.com/clickhouse-test-reports/42461/0cfbf30b89f3884865d53bfae599a2eb85b08a9f/stress_test__ubsan_/bc_check_error_messages.txt\r\n\r\nhttps://s3.amazonaws.com/clickhouse-test-reports/42461/0cfbf30b89f3884865d53bfae599a2eb85b08a9f/stress_test__tsan_/bc_check_error_messages.txt"
+              },
+              {
+                "author": {
+                  "name": null
+                },
+                "updatedAt": "2022-11-17T09:00:52Z",
+                "body": "Hello! When can expect fix? "
+              },
+              {
+                "author": {
+                  "name": "Alexey Milovidov"
+                },
+                "updatedAt": "2022-10-24T09:23:06Z",
+                "body": "> fatal: unable to access 'https://github.com/ClickHouse/sysroot.git/': Failed to connect to github.com port 443: Connection timed out\r\n\r\nGitHub downtime."
+              },
+              {
+                "author": {
+                  "name": "Vasily Nemkov"
+                },
+                "updatedAt": "2022-10-20T13:59:51Z",
+                "body": "There was some weird issue with this PR being reported unmergeable by GitHub even after merging master into topic branch several times."
+              }
+            ]
+          }
+        },
+        {
+          "number": 40168,
+          "url": "https://github.com/ClickHouse/ClickHouse/pull/40168",
+          "title": "Fixed crash when `decrypt`ing bogus input",
+          "createdAt": "2022-08-12T16:07:55Z",
+          "state": "CLOSED",
+          "isDraft": false,
+          "updatedAt": "2022-08-15T15:41:50Z",
+          "mergeable": "UNKNOWN",
+          "baseRefName": "master",
+          "changedFiles": 4,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Columns/ColumnNullable.h",
+                "deletions": 3,
+                "additions": 8
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Functions/FunctionsAES.h",
+                "deletions": 1,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Functions/array/arrayIndex.h",
+                "deletions": 1,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "tests/queries/0_stateless/01318_decrypt.sql",
+                "deletions": 0,
+                "additions": 4
+              }
+            ],
+            "totalCount": 4
+          },
+          "labels": {
+            "totalCount": 1,
+            "nodes": [
+              {
+                "name": "pr-bugfix",
+                "color": "ff4080"
+              }
+            ]
+          },
+          "reviews": {
+            "edges": [
+              {
+                "node": {
+                  "id": "PRR_kwDOA5dJV84_8oGa",
+                  "state": "COMMENTED"
+                }
+              }
+            ]
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 1,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/ClickHouse/commit/2d2d48825425af25ba93cac2c0647686854ae562",
+                    "oid": "2d2d48825425af25ba93cac2c0647686854ae562",
+                    "statusCheckRollup": {
+                      "state": "FAILURE"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": [
+              {
+                "login": "alexey-milovidov",
+                "name": "Alexey Milovidov",
+                "avatarUrl": "https://avatars.githubusercontent.com/u/18581488?v=4",
+                "url": "https://github.com/alexey-milovidov"
+              }
+            ]
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 2,
+            "nodes": [
+              {
+                "author": {
+                  "name": "Alexey Milovidov"
+                },
+                "updatedAt": "2022-08-14T02:29:58Z",
+                "body": "Superseded by #40194."
+              },
+              {
+                "author": {
+                  "name": "Alexey Milovidov"
+                },
+                "updatedAt": "2022-08-12T19:46:48Z",
+                "body": "Tests have failed."
+              }
+            ]
+          }
+        },
+        {
+          "number": 37789,
+          "url": "https://github.com/ClickHouse/ClickHouse/pull/37789",
+          "title": "Fixed storing user ip address on failed login attempt",
+          "createdAt": "2022-06-02T12:04:47Z",
+          "state": "CLOSED",
+          "isDraft": false,
+          "updatedAt": "2022-06-02T13:23:08Z",
+          "mergeable": "UNKNOWN",
+          "baseRefName": "master",
+          "changedFiles": 3,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Interpreters/Session.cpp",
+                "deletions": 1,
+                "additions": 2
+              },
+              {
+                "changeType": "ADDED",
+                "path": "tests/queries/0_stateless/02303_SessionLog_client_IP_on_login_failure.reference",
+                "deletions": 0,
+                "additions": 1
+              },
+              {
+                "changeType": "ADDED",
+                "path": "tests/queries/0_stateless/02303_SessionLog_client_IP_on_login_failure.sh",
+                "deletions": 0,
+                "additions": 29
+              }
+            ],
+            "totalCount": 3
+          },
+          "labels": {
+            "totalCount": 1,
+            "nodes": [
+              {
+                "name": "pr-bugfix",
+                "color": "ff4080"
+              }
+            ]
+          },
+          "reviews": {
+            "edges": []
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 1,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/ClickHouse/commit/6766eede75f51adc2354f041853421289804e4b0",
+                    "oid": "6766eede75f51adc2354f041853421289804e4b0",
+                    "statusCheckRollup": {
+                      "state": "FAILURE"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": [
+              {
+                "login": "tavplubix",
+                "name": "Alexander Tokmakov",
+                "avatarUrl": "https://avatars.githubusercontent.com/u/14847450?v=4",
+                "url": "https://github.com/tavplubix"
+              }
+            ]
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 1,
+            "nodes": [
+              {
+                "author": {
+                  "name": "Alexander Tokmakov"
+                },
+                "updatedAt": "2022-06-02T13:23:07Z",
+                "body": "Already fixed in #37303"
+              }
+            ]
+          }
+        },
+        {
+          "number": 37416,
+          "url": "https://github.com/ClickHouse/ClickHouse/pull/37416",
+          "title": "Implemented changing comment to a ReplicatedMergeTree table",
+          "createdAt": "2022-05-21T17:10:44Z",
+          "state": "MERGED",
+          "isDraft": false,
+          "updatedAt": "2022-05-29T06:28:44Z",
+          "mergeable": "UNKNOWN",
+          "baseRefName": "master",
+          "changedFiles": 4,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Storages/StorageReplicatedMergeTree.cpp",
+                "deletions": 6,
+                "additions": 24
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "tests/queries/0_stateless/02020_alter_table_modify_comment.reference",
+                "deletions": 9,
+                "additions": 9
+              },
+              {
+                "changeType": "ADDED",
+                "path": "tests/queries/0_stateless/02302_ReplicatedMergeTree_comment.reference",
+                "deletions": 0,
+                "additions": 3
+              },
+              {
+                "changeType": "ADDED",
+                "path": "tests/queries/0_stateless/02302_ReplicatedMergeTree_comment.sql",
+                "deletions": 0,
+                "additions": 23
+              }
+            ],
+            "totalCount": 4
+          },
+          "labels": {
+            "totalCount": 1,
+            "nodes": [
+              {
+                "name": "pr-feature",
+                "color": "007700"
+              }
+            ]
+          },
+          "reviews": {
+            "edges": [
+              {
+                "node": {
+                  "id": "PRR_kwDOA5dJV84638Ib",
+                  "state": "COMMENTED"
+                }
+              }
+            ]
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 4,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/ClickHouse/commit/abe6b5d0133c00c1f672f4d5bf5ae2acefd18e26",
+                    "oid": "abe6b5d0133c00c1f672f4d5bf5ae2acefd18e26",
+                    "statusCheckRollup": {
+                      "state": "FAILURE"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": [
+              {
+                "login": "vdimir",
+                "name": "Vladimir C",
+                "avatarUrl": "https://avatars.githubusercontent.com/u/7023786?v=4",
+                "url": "https://github.com/vdimir"
+              }
+            ]
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 1,
+            "nodes": [
+              {
+                "author": {
+                  "name": "Alexander Tokmakov"
+                },
+                "updatedAt": "2022-05-29T06:28:44Z",
+                "body": "This PR breaks test `00992_system_parts_race_condition_zookeeper_long` with `Replicated` database:\r\nhttps://play.clickhouse.com/play?user=play#c2VsZWN0IAp0b1N0YXJ0T2ZIb3VyKGNoZWNrX3N0YXJ0X3RpbWUpIGFzIGQsCmNvdW50KCksIGdyb3VwVW5pcUFycmF5KHB1bGxfcmVxdWVzdF9udW1iZXIpCmZyb20gY2hlY2tzIHdoZXJlICcyMDIyLTAzLTAxJyA8PSBjaGVja19zdGFydF90aW1lIGFuZCB0ZXN0X25hbWUgbGlrZSAnMDA5OTJfc3lzdGVtX3BhcnRzX3JhY2VfY29uZGl0aW9uX3pvb2tlZXBlcl9sb25nJScgYW5kIGNoZWNrX25hbWUgaWxpa2UgJyVyZXBsJScgYW5kIHRlc3Rfc3RhdHVzIGluICgnRkFJTCcsICdGTEFLWScsICdFUlJPUicpIGdyb3VwIGJ5IGQgb3JkZXIgYnkgZCBkZXNj"
+              }
+            ]
+          }
+        },
+        {
+          "number": 36935,
+          "url": "https://github.com/ClickHouse/ClickHouse/pull/36935",
+          "title": "Fixed issues with concurrent access to User object",
+          "createdAt": "2022-05-05T10:29:37Z",
+          "state": "CLOSED",
+          "isDraft": false,
+          "updatedAt": "2022-05-09T13:06:17Z",
+          "mergeable": "UNKNOWN",
+          "baseRefName": "master",
+          "changedFiles": 4,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Interpreters/Access/InterpreterGrantQuery.cpp",
+                "deletions": 1,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Interpreters/Access/InterpreterSetRoleQuery.cpp",
+                "deletions": 1,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Interpreters/Context.cpp",
+                "deletions": 0,
+                "additions": 7
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Interpreters/Session.cpp",
+                "deletions": 1,
+                "additions": 2
+              }
+            ],
+            "totalCount": 4
+          },
+          "labels": {
+            "totalCount": 1,
+            "nodes": [
+              {
+                "name": "pr-bugfix",
+                "color": "ff4080"
+              }
+            ]
+          },
+          "reviews": {
+            "edges": [
+              {
+                "node": {
+                  "id": "PRR_kwDOA5dJV845dMQH",
+                  "state": "COMMENTED"
+                }
+              }
+            ]
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 2,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/ClickHouse/commit/8a0020c21fe2f093007a4fab2d94a966b7b8fc3b",
+                    "oid": "8a0020c21fe2f093007a4fab2d94a966b7b8fc3b",
+                    "statusCheckRollup": {
+                      "state": "FAILURE"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": [
+              {
+                "login": "tavplubix",
+                "name": "Alexander Tokmakov",
+                "avatarUrl": "https://avatars.githubusercontent.com/u/14847450?v=4",
+                "url": "https://github.com/tavplubix"
+              }
+            ]
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 2,
+            "nodes": [
+              {
+                "author": {
+                  "name": "Alexander Tokmakov"
+                },
+                "updatedAt": "2022-05-09T13:06:16Z",
+                "body": "Continued in #35763"
+              },
+              {
+                "author": {
+                  "name": "Alexey Milovidov"
+                },
+                "updatedAt": "2022-05-05T20:50:50Z",
+                "body": "> Fixed a crash that could happen if a user was dropped in a concurrent query.\r\n\r\nIn what concurrent query?\r\nNeed a test."
+              }
+            ]
+          }
+        },
+        {
+          "number": 36930,
+          "url": "https://github.com/ClickHouse/ClickHouse/pull/36930",
+          "title": "Fixed GRANT check",
+          "createdAt": "2022-05-05T07:30:43Z",
+          "state": "CLOSED",
+          "isDraft": false,
+          "updatedAt": "2022-05-05T10:31:03Z",
+          "mergeable": "UNKNOWN",
+          "baseRefName": "master",
+          "changedFiles": 1,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Interpreters/Access/InterpreterGrantQuery.cpp",
+                "deletions": 1,
+                "additions": 1
+              }
+            ],
+            "totalCount": 1
+          },
+          "labels": {
+            "totalCount": 1,
+            "nodes": [
+              {
+                "name": "pr-bugfix",
+                "color": "ff4080"
+              }
+            ]
+          },
+          "reviews": {
+            "edges": []
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 1,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/ClickHouse/commit/24b4384597afe2723c7c88614d3b2ff44f5d6664",
+                    "oid": "24b4384597afe2723c7c88614d3b2ff44f5d6664",
+                    "statusCheckRollup": {
+                      "state": "FAILURE"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": []
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 0,
+            "nodes": []
+          }
+        },
+        {
+          "number": 36482,
+          "url": "https://github.com/ClickHouse/ClickHouse/pull/36482",
+          "title": "Fixed missing enum values for ClientInfo::Interface",
+          "createdAt": "2022-04-21T09:17:23Z",
+          "state": "MERGED",
+          "isDraft": false,
+          "updatedAt": "2022-05-18T13:17:37Z",
+          "mergeable": "UNKNOWN",
+          "baseRefName": "master",
+          "changedFiles": 1,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Interpreters/SessionLog.cpp",
+                "deletions": 2,
+                "additions": 4
+              }
+            ],
+            "totalCount": 1
+          },
+          "labels": {
+            "totalCount": 1,
+            "nodes": [
+              {
+                "name": "pr-not-for-changelog",
+                "color": "007700"
+              }
+            ]
+          },
+          "reviews": {
+            "edges": [
+              {
+                "node": {
+                  "id": "PRR_kwDOA5dJV844klr_",
+                  "state": "APPROVED"
+                }
+              }
+            ]
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 2,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/ClickHouse/commit/583cbcb8345f4ef7af34fe51278ef3f39ad637e8",
+                    "oid": "583cbcb8345f4ef7af34fe51278ef3f39ad637e8",
+                    "statusCheckRollup": {
+                      "state": "FAILURE"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": [
+              {
+                "login": "kitaisreal",
+                "name": "Maksim Kita",
+                "avatarUrl": "https://avatars.githubusercontent.com/u/22458333?v=4",
+                "url": "https://github.com/kitaisreal"
+              }
+            ]
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 1,
+            "nodes": [
+              {
+                "author": {
+                  "name": "Vasily Nemkov"
+                },
+                "updatedAt": "2022-04-21T09:20:00Z",
+                "body": "Similar to #36480, but also adds some preventive measures"
+              }
+            ]
+          }
+        },
+        {
+          "number": 35763,
+          "url": "https://github.com/ClickHouse/ClickHouse/pull/35763",
+          "title": "Fixed crash when reporting successful login if \"Session Log\" is enabled.",
+          "createdAt": "2022-03-30T14:16:32Z",
+          "state": "CLOSED",
+          "isDraft": false,
+          "updatedAt": "2022-05-19T08:32:25Z",
+          "mergeable": "UNKNOWN",
+          "baseRefName": "master",
+          "changedFiles": 8,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Interpreters/Access/InterpreterGrantQuery.cpp",
+                "deletions": 1,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Interpreters/Access/InterpreterSetRoleQuery.cpp",
+                "deletions": 1,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Interpreters/Context.cpp",
+                "deletions": 0,
+                "additions": 7
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Interpreters/Session.cpp",
+                "deletions": 16,
+                "additions": 5
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Interpreters/SessionLog.cpp",
+                "deletions": 7,
+                "additions": 4
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Interpreters/SessionLog.h",
+                "deletions": 1,
+                "additions": 2
+              },
+              {
+                "changeType": "ADDED",
+                "path": "tests/queries/0_stateless/02242_delete_user_race.reference",
+                "deletions": 0,
+                "additions": 0
+              },
+              {
+                "changeType": "ADDED",
+                "path": "tests/queries/0_stateless/02242_delete_user_race.sh",
+                "deletions": 0,
+                "additions": 62
+              }
+            ],
+            "totalCount": 8
+          },
+          "labels": {
+            "totalCount": 1,
+            "nodes": [
+              {
+                "name": "pr-bugfix",
+                "color": "ff4080"
+              }
+            ]
+          },
+          "reviews": {
+            "edges": [
+              {
+                "node": {
+                  "id": "PRR_kwDOA5dJV84517gM",
+                  "state": "COMMENTED"
+                }
+              }
+            ]
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 13,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/ClickHouse/commit/59ed1f9d8efb0c6e79dcf0bc2a47bb958aed9352",
+                    "oid": "59ed1f9d8efb0c6e79dcf0bc2a47bb958aed9352",
+                    "statusCheckRollup": {
+                      "state": "FAILURE"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": [
+              {
+                "login": "tavplubix",
+                "name": "Alexander Tokmakov",
+                "avatarUrl": "https://avatars.githubusercontent.com/u/14847450?v=4",
+                "url": "https://github.com/tavplubix"
+              }
+            ]
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 13,
+            "nodes": [
+              {
+                "author": {
+                  "name": "Alexander Tokmakov"
+                },
+                "updatedAt": "2022-05-10T13:44:21Z",
+                "body": "Stress test (undefined, actions) - segfault in `Session::makeQueryContextImpl` (as expected), need to add `no-backward-compatibility-check` tag"
+              },
+              {
+                "author": {
+                  "name": "Alexander Tokmakov"
+                },
+                "updatedAt": "2022-05-09T13:05:24Z",
+                "body": "> So, I've merged those two together\r\n\r\nSorry, I did not notice it"
+              },
+              {
+                "author": {
+                  "name": "Alexander Tokmakov"
+                },
+                "updatedAt": "2022-05-09T13:03:26Z",
+                "body": "But we cannot merge this PR because tests fail. So we need to merge #36935 first, then merge master into this branch and restart tests in this PR. "
+              },
+              {
+                "author": {
+                  "name": "Vasily Nemkov"
+                },
+                "updatedAt": "2022-05-09T13:01:59Z",
+                "body": "Well, the original issue in SessionLog was fixed a long time ago. Other issues discovered by tests in this PR were addressed in another PR: https://github.com/ClickHouse/ClickHouse/pull/36935\r\n\r\nSo, I've merged those two together"
+              },
+              {
+                "author": {
+                  "name": "Alexey Milovidov"
+                },
+                "updatedAt": "2022-05-07T12:43:12Z",
+                "body": "As nothing was fixed in this PR and it is abandoned, let's close.\r\nIn the meantime I've added deprecation warnings around session_log,\r\nso it will be removed in subsequent releases."
+              },
+              {
+                "author": {
+                  "name": "Alexander Tokmakov"
+                },
+                "updatedAt": "2022-04-30T14:18:50Z",
+                "body": "Actually it's segfault, not timeout:\r\n```\r\n2022.04.28 19:03:29.481245 [ 153165 ] {} <Fatal> BaseDaemon: ########################################\r\n2022.04.28 19:03:29.481304 [ 153165 ] {} <Fatal> BaseDaemon: (version 22.5.1.1, build id: 9203DFA55512D6D8) (from thread 152925) (no query) Received signal Segmentation fault (11)\r\n2022.04.28 19:03:29.481337 [ 153165 ] {} <Fatal> BaseDaemon: Address: 0x138 Access: read. Address not mapped to object.\r\n2022.04.28 19:03:29.481353 [ 153165 ] {} <Fatal> BaseDaemon: Stack trace: 0x154fbe44 0x15cf31a8 0x16273fba 0x17008ad5 0x17017579 0x1b3e358f 0x1b3e59e1 0x1b5ac429 0x1b5a9780 0x7f8bb89e5609 0x7f8bb890a163\r\n2022.04.28 19:03:29.481404 [ 153165 ] {} <Fatal> BaseDaemon: 2. DB::GrantedRoles::findGranted(DB::RolesOrUsersSet const&) const @ 0x154fbe44 in /usr/bin/clickhouse\r\n2022.04.28 19:03:29.481429 [ 153165 ] {} <Fatal> BaseDaemon: 3. DB::Context::setUser(StrongTypedef<wide::integer<128ul, unsigned int>, DB::UUIDTag> const&) @ 0x15cf31a8 in /usr/bin/clickhouse\r\n2022.04.28 19:03:29.481449 [ 153165 ] {} <Fatal> BaseDaemon: 4. DB::Session::makeSessionContext() @ 0x16273fba in /usr/bin/clickhouse\r\n2022.04.28 19:03:29.481469 [ 153165 ] {} <Fatal> BaseDaemon: 5. DB::TCPHandler::runImpl() @ 0x17008ad5 in /usr/bin/clickhouse\r\n2022.04.28 19:03:29.481496 [ 153165 ] {} <Fatal> BaseDaemon: 6. DB::TCPHandler::run() @ 0x17017579 in /usr/bin/clickhouse\r\n2022.04.28 19:03:29.481514 [ 153165 ] {} <Fatal> BaseDaemon: 7. Poco::Net::TCPServerConnection::start() @ 0x1b3e358f in /usr/bin/clickhouse\r\n2022.04.28 19:03:29.481530 [ 153165 ] {} <Fatal> BaseDaemon: 8. Poco::Net::TCPServerDispatcher::run() @ 0x1b3e59e1 in /usr/bin/clickhouse\r\n2022.04.28 19:03:29.481548 [ 153165 ] {} <Fatal> BaseDaemon: 9. Poco::PooledThread::run() @ 0x1b5ac429 in /usr/bin/clickhouse\r\n2022.04.28 19:03:29.481567 [ 153165 ] {} <Fatal> BaseDaemon: 10. Poco::ThreadImpl::runnableEntry(void*) @ 0x1b5a9780 in /usr/bin/clickhouse\r\n2022.04.28 19:03:29.481581 [ 153165 ] {} <Fatal> BaseDaemon: 11. ? @ 0x7f8bb89e5609 in ?\r\n2022.04.28 19:03:29.481594 [ 153165 ] {} <Fatal> BaseDaemon: 12. clone @ 0x7f8bb890a163 in ?\r\n2022.04.28 19:03:30.869445 [ 153165 ] {} <Fatal> BaseDaemon: Calculated checksum of the binary: F40ACC981B80710C79AC778284059B0B. There is no information about the reference checksum.\r\n2022.04.28 19:03:49.892777 [ 387 ] {} <Fatal> Application: Child process was terminated by signal 11.\r\n```"
+              },
+              {
+                "author": {
+                  "name": "Alexey Milovidov"
+                },
+                "updatedAt": "2022-04-30T11:38:46Z",
+                "body": "@Enmk we still observe timeouts in tests."
+              },
+              {
+                "author": {
+                  "name": "Azat Khuzhin"
+                },
+                "updatedAt": "2022-04-15T22:04:43Z",
+                "body": ">Looks like a deadlock. I don't think that reducing number of iterations from 1000 to 100 will really help, we should investigate why this timeout happened.\r\n\r\nI've looked at the logs and they does not have any queries to clickhouse:\r\n\r\n```sh\r\n$ pigz -cd clickhouse-server.log.gz | grep -F -f <(clickhouse-local --file query_log.tsv.gz --input-format TSVWithNamesAndTypes -q \"select distinct query_id from table where current_database = 'test_l3v6if'\")\r\n2022.04.01 01:41:09.875566 [ 385 ] {34dc998d-a7ad-4fb0-bc9d-4529e21b08b6} <Debug> executeQuery: (from [::1]:43106) (comment: 02242_delete_user_race.sh) DROP ROLE IF EXISTS test_role_02242;\r\n2022.04.01 01:41:09.876314 [ 385 ] {34dc998d-a7ad-4fb0-bc9d-4529e21b08b6} <Trace> ContextAccess (default): Access granted: DROP ROLE ON *.*\r\n2022.04.01 01:41:09.877758 [ 385 ] {34dc998d-a7ad-4fb0-bc9d-4529e21b08b6} <Debug> MemoryTracker: Peak memory usage (for query): 0.00 B.\r\n2022.04.01 01:41:09.880693 [ 385 ] {8d6fb637-2cb1-49c1-ab92-b15fa7d0a75a} <Debug> executeQuery: (from [::1]:43106) (comment: 02242_delete_user_race.sh) CREATE ROLE test_role_02242;\r\n2022.04.01 01:41:09.881434 [ 385 ] {8d6fb637-2cb1-49c1-ab92-b15fa7d0a75a} <Trace> ContextAccess (default): Access granted: CREATE ROLE ON *.*\r\n2022.04.01 01:41:09.883165 [ 385 ] {8d6fb637-2cb1-49c1-ab92-b15fa7d0a75a} <Debug> MemoryTracker: Peak memory usage (for query): 3.00 MiB.\r\n```\r\n\r\nSo it is something with the test itself, maybe some issue with `wait` in `bash` (something related to `wait_for: No record of process` error), this test requires some logging to investigate this."
+              },
+              {
+                "author": {
+                  "name": "Alexander Tokmakov"
+                },
+                "updatedAt": "2022-04-01T13:28:29Z",
+                "body": "```\r\n2022-04-01 01:40:58 02242_delete_user_race:                                                 [ OK ] 5.21 sec.\r\n2022-04-01 01:41:03 02242_delete_user_race:                                                 [ OK ] 4.95 sec.\r\n2022-04-01 01:41:08 02242_delete_user_race:                                                 [ OK ] 5.15 sec.\r\n2022-04-01 01:51:09 02242_delete_user_race:                                                 [ FAIL ] 600.47 sec. - Timeout!\r\n2022-04-01 01:51:09 Settings used in the test: --max_insert_threads=10 --group_by_two_level_threshold=100000 --group_by_two_level_threshold_bytes=50000000 --distributed_aggregation_memory_efficient=0 --fsync_metadata=0 --priority=4 --output_format_parallel_formatting=0 --input_format_parallel_parsing=1 --min_chunk_bytes_for_parallel_parsing=17960349 --max_read_buffer_size=868583 --prefer_localhost_replica=0 --max_block_size=41584 --max_threads=5\r\n2022-04-01 01:51:09 \r\n2022-04-01 01:51:09 Database: test_l3v6if\r\n2022-04-01 01:51:15 02242_delete_user_race:                                                 [ OK ] 5.73 sec.\r\n2022-04-01 01:51:21 02242_delete_user_race:                                                 [ OK ] 5.31 sec.\r\n2022-04-01 01:51:27 02242_delete_user_race:                                                 [ OK ] 5.50 sec.\r\n2022-04-01 01:51:32 02242_delete_user_race:                                                 [ OK ] 5.33 sec.\r\n```\r\n\r\nLooks like a deadlock. I don't think that reducing number of iterations from 1000 to 100 will really help, we should investigate why this timeout happened. "
+              },
+              {
+                "author": {
+                  "name": "Alexey Milovidov"
+                },
+                "updatedAt": "2022-03-30T23:27:51Z",
+                "body": "Let'a add a test."
+              }
+            ]
+          }
+        },
+        {
+          "number": 32774,
+          "url": "https://github.com/ClickHouse/ClickHouse/pull/32774",
+          "title": "Lightweight delete",
+          "createdAt": "2021-12-14T20:57:12Z",
+          "state": "CLOSED",
+          "isDraft": true,
+          "updatedAt": "2022-05-07T12:25:00Z",
+          "mergeable": "CONFLICTING",
+          "baseRefName": "master",
+          "changedFiles": 55,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Access/AccessType.h",
+                "deletions": 3,
+                "additions": 4
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Access/tests/gtest_access_rights_ops.cpp",
+                "deletions": 1,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/AggregateFunctions/AggregateFunctionMLMethod.cpp",
+                "deletions": 6,
+                "additions": 6
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Compression/CompressionFactory.cpp",
+                "deletions": 2,
+                "additions": 2
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Compression/CompressionFactory.h",
+                "deletions": 1,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Core/Settings.h",
+                "deletions": 0,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Formats/NativeWriter.cpp",
+                "deletions": 1,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Formats/NativeWriter.h",
+                "deletions": 0,
+                "additions": 2
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/IO/WriteHelpers.h",
+                "deletions": 3,
+                "additions": 4
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Interpreters/ExpressionActions.h",
+                "deletions": 1,
+                "additions": 1
+              },
+              {
+                "changeType": "ADDED",
+                "path": "src/Interpreters/InterpreterDeleteQuery.cpp",
+                "deletions": 0,
+                "additions": 177
+              },
+              {
+                "changeType": "ADDED",
+                "path": "src/Interpreters/InterpreterDeleteQuery.h",
+                "deletions": 0,
+                "additions": 18
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Interpreters/InterpreterFactory.cpp",
+                "deletions": 0,
+                "additions": 6
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Interpreters/InterpreterSelectQuery.cpp",
+                "deletions": 1,
+                "additions": 19
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Interpreters/SelectQueryOptions.h",
+                "deletions": 0,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Interpreters/executeQuery.cpp",
+                "deletions": 1,
+                "additions": 6
+              },
+              {
+                "changeType": "ADDED",
+                "path": "src/Parsers/ASTDeleteQuery.cpp",
+                "deletions": 0,
+                "additions": 28
+              },
+              {
+                "changeType": "ADDED",
+                "path": "src/Parsers/ASTDeleteQuery.h",
+                "deletions": 0,
+                "additions": 20
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Parsers/CommonParsers.h",
+                "deletions": 0,
+                "additions": 2
+              },
+              {
+                "changeType": "ADDED",
+                "path": "src/Parsers/ParserDeleteQuery.cpp",
+                "deletions": 0,
+                "additions": 19
+              },
+              {
+                "changeType": "ADDED",
+                "path": "src/Parsers/ParserDeleteQuery.h",
+                "deletions": 0,
+                "additions": 13
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Parsers/ParserQuery.cpp",
+                "deletions": 2,
+                "additions": 4
+              },
+              {
+                "changeType": "DELETED",
+                "path": "src/Processors/examples/processors_test_merge_sorting_transform.cpp",
+                "deletions": 0,
+                "additions": 0
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Storages/ColumnDefault.h",
+                "deletions": 1,
+                "additions": 2
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Storages/ColumnsDescription.cpp",
+                "deletions": 0,
+                "additions": 2
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Storages/ColumnsDescription.h",
+                "deletions": 1,
+                "additions": 2
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Storages/MergeTree/IMergeTreeDataPart.cpp",
+                "deletions": 0,
+                "additions": 48
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Storages/MergeTree/IMergeTreeDataPart.h",
+                "deletions": 6,
+                "additions": 11
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Storages/MergeTree/MergeTreeBaseSelectProcessor.cpp",
+                "deletions": 6,
+                "additions": 29
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Storages/MergeTree/MergeTreeBlockReadUtils.cpp",
+                "deletions": 2,
+                "additions": 6
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Storages/MergeTree/MergeTreeData.cpp",
+                "deletions": 2,
+                "additions": 23
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Storages/MergeTree/MergeTreeData.h",
+                "deletions": 0,
+                "additions": 3
+              },
+              {
+                "changeType": "ADDED",
+                "path": "src/Storages/MergeTree/MergeTreeDataPartDeletedMask.cpp",
+                "deletions": 0,
+                "additions": 162
+              },
+              {
+                "changeType": "ADDED",
+                "path": "src/Storages/MergeTree/MergeTreeDataPartDeletedMask.h",
+                "deletions": 0,
+                "additions": 36
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Storages/MergeTree/MergeTreeDataSelectExecutor.cpp",
+                "deletions": 0,
+                "additions": 4
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Storages/MergeTree/MergeTreeMutationEntry.cpp",
+                "deletions": 30,
+                "additions": 61
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Storages/MergeTree/MergeTreeMutationEntry.h",
+                "deletions": 8,
+                "additions": 16
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Storages/MergeTree/MergeTreeMutationStatus.h",
+                "deletions": 0,
+                "additions": 2
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Storages/MergeTree/MergeTreeRangeReader.cpp",
+                "deletions": 0,
+                "additions": 29
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Storages/MergeTree/MergeTreeRangeReader.h",
+                "deletions": 0,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Storages/MergeTree/MergeTreeReaderCompact.cpp",
+                "deletions": 0,
+                "additions": 4
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Storages/MergeTree/MergeTreeSequentialSource.cpp",
+                "deletions": 0,
+                "additions": 13
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Storages/MergeTree/ReplicatedMergeTreeQueue.cpp",
+                "deletions": 0,
+                "additions": 1
+              },
+              {
+                "changeType": "ADDED",
+                "path": "src/Storages/MergeTree/tests/gtest_deletedRowsMap.cpp",
+                "deletions": 0,
+                "additions": 133
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Storages/MutationCommands.h",
+                "deletions": 0,
+                "additions": 2
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Storages/StorageMergeTree.cpp",
+                "deletions": 44,
+                "additions": 83
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Storages/StorageMergeTree.h",
+                "deletions": 7,
+                "additions": 35
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Storages/System/StorageSystemMutations.cpp",
+                "deletions": 0,
+                "additions": 2
+              },
+              {
+                "changeType": "RENAMED",
+                "path": "tests/integration/test_lightweight_mutations/__init__.py",
+                "deletions": 0,
+                "additions": 0
+              },
+              {
+                "changeType": "ADDED",
+                "path": "tests/integration/test_lightweight_mutations/test.py",
+                "deletions": 0,
+                "additions": 105
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "tests/queries/0_stateless/01073_grant_and_revoke.reference",
+                "deletions": 1,
+                "additions": 2
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "tests/queries/0_stateless/01271_show_privileges.reference",
+                "deletions": 2,
+                "additions": 3
+              },
+              {
+                "changeType": "RENAMED",
+                "path": "tests/queries/0_stateless/01889_delete_from.reference",
+                "deletions": 0,
+                "additions": 0
+              },
+              {
+                "changeType": "ADDED",
+                "path": "tests/queries/0_stateless/01889_delete_from.sql",
+                "deletions": 0,
+                "additions": 23
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "utils/antlr/ClickHouseParser.g4",
+                "deletions": 0,
+                "additions": 7
+              }
+            ],
+            "totalCount": 55
+          },
+          "labels": {
+            "totalCount": 1,
+            "nodes": [
+              {
+                "name": "pr-feature",
+                "color": "007700"
+              }
+            ]
+          },
+          "reviews": {
+            "edges": []
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 41,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/ClickHouse/commit/96b99c3ebe8846626e7889b75560ee5bd5710888",
+                    "oid": "96b99c3ebe8846626e7889b75560ee5bd5710888",
+                    "statusCheckRollup": {
+                      "state": "SUCCESS"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": []
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 4,
+            "nodes": [
+              {
+                "author": {
+                  "name": "Alexey Milovidov"
+                },
+                "updatedAt": "2022-05-07T12:24:59Z",
+                "body": "Superseded by #35090\r\n@davenger is reviewing #35090"
+              },
+              {
+                "author": {
+                  "name": "Jianmei Zhang"
+                },
+                "updatedAt": "2022-05-05T02:11:12Z",
+                "body": "@alexey-milovidov @Enmk Hi Enmk, Alexey, would you please help to take a look at the pull request #35090? We can work together for the lightweight delete on merge tree.\r\n"
+              },
+              {
+                "author": {
+                  "name": null
+                },
+                "updatedAt": "2022-03-25T14:13:43Z",
+                "body": "it doesn't work for me\r\n\r\ncreate table au(id Int64, x Int64) engine=MergeTree order by id\r\n\r\ninsert into au select number % 10, number % 100 from numbers(10000)\r\n\r\ndelete from au where id=0\r\n\r\nReceived exception from server (version 21.11.1):\r\nCode: 49. DB::Exception: Received from localhost:9000. DB::Exception: Pipeline stuck. Current state:\r\ndigraph\r\n{\r\n  rankdir=\"LR\";\r\n  { node [shape = rect]\r\n    n140347367341848[label=\"MergeTreeInOrder(0 jobs) (NeedData)\"];\r\n    n140347367617560[label=\"ExpressionTransform(0 jobs) (NeedData)\"];\r\n    n140347367434232[label=\"NullSource(0 jobs) (NeedData)\"];\r\n    n140347367434904[label=\"NullSource(0 jobs) (NeedData)\"];\r\n    n140347367690776[label=\"PullingOutputFormat(0 jobs) (Finished)\"];\r\n  }\r\n  n140347367341848 -> n140347367617560;\r\n  n140347367617560 -> n140347367690776;\r\n  n140347367434232 -> n140347367690776;\r\n  n140347367434904 -> n140347367690776;\r\n}\r\n. (LOGICAL_ERROR)"
+              },
+              {
+                "author": {
+                  "name": "Alexey Milovidov"
+                },
+                "updatedAt": "2022-01-13T22:31:02Z",
+                "body": "Let's reuse UInt8 format without introducing any new formats for tombstones."
+              }
+            ]
+          }
+        },
+        {
+          "number": 31858,
+          "url": "https://github.com/ClickHouse/ClickHouse/pull/31858",
+          "title": "Minor improvements to DUMP macro",
+          "createdAt": "2021-11-26T10:24:20Z",
+          "state": "MERGED",
+          "isDraft": false,
+          "updatedAt": "2021-11-26T21:36:20Z",
+          "mergeable": "UNKNOWN",
+          "baseRefName": "master",
+          "changedFiles": 1,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": "base/base/iostream_debug_helpers.h",
+                "deletions": 2,
+                "additions": 21
+              }
+            ],
+            "totalCount": 1
+          },
+          "labels": {
+            "totalCount": 1,
+            "nodes": [
+              {
+                "name": "pr-not-for-changelog",
+                "color": "007700"
+              }
+            ]
+          },
+          "reviews": {
+            "edges": [
+              {
+                "node": {
+                  "id": "PRR_kwDOA5dJV84ws1L2",
+                  "state": "APPROVED"
+                }
+              }
+            ]
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 1,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/ClickHouse/commit/e9466e505ba941408d42b4fe4f1fcd7bf7083697",
+                    "oid": "e9466e505ba941408d42b4fe4f1fcd7bf7083697",
+                    "statusCheckRollup": {
+                      "state": "FAILURE"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": [
+              {
+                "login": "alexey-milovidov",
+                "name": "Alexey Milovidov",
+                "avatarUrl": "https://avatars.githubusercontent.com/u/18581488?v=4",
+                "url": "https://github.com/alexey-milovidov"
+              }
+            ]
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 0,
+            "nodes": []
+          }
+        },
+        {
+          "number": 31662,
+          "url": "https://github.com/ClickHouse/ClickHouse/pull/31662",
+          "title": "Fix decrypt nullable",
+          "createdAt": "2021-11-23T15:13:36Z",
+          "state": "CLOSED",
+          "isDraft": false,
+          "updatedAt": "2021-11-28T13:21:49Z",
+          "mergeable": "UNKNOWN",
+          "baseRefName": "master",
+          "changedFiles": 4,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Functions/FunctionsAES.cpp",
+                "deletions": 2,
+                "additions": 5
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Functions/FunctionsAES.h",
+                "deletions": 89,
+                "additions": 108
+              },
+              {
+                "changeType": "ADDED",
+                "path": "tests/queries/0_stateless/2021_encrypt_decrypt_nullable.reference",
+                "deletions": 0,
+                "additions": 16
+              },
+              {
+                "changeType": "ADDED",
+                "path": "tests/queries/0_stateless/2021_encrypt_decrypt_nullable.sql",
+                "deletions": 0,
+                "additions": 57
+              }
+            ],
+            "totalCount": 4
+          },
+          "labels": {
+            "totalCount": 1,
+            "nodes": [
+              {
+                "name": "pr-bugfix",
+                "color": "ff4080"
+              }
+            ]
+          },
+          "reviews": {
+            "edges": [
+              {
+                "node": {
+                  "id": "PRR_kwDOA5dJV84wmOa7",
+                  "state": "COMMENTED"
+                }
+              }
+            ]
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 2,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/ClickHouse/commit/c66655a134b54b3c99d641cd20caef860596be8c",
+                    "oid": "c66655a134b54b3c99d641cd20caef860596be8c",
+                    "statusCheckRollup": {
+                      "state": "FAILURE"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": [
+              {
+                "login": "alexey-milovidov",
+                "name": "Alexey Milovidov",
+                "avatarUrl": "https://avatars.githubusercontent.com/u/18581488?v=4",
+                "url": "https://github.com/alexey-milovidov"
+              }
+            ]
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 2,
+            "nodes": [
+              {
+                "author": {
+                  "name": "Alexey Milovidov"
+                },
+                "updatedAt": "2021-11-24T20:10:18Z",
+                "body": "Tests have failed."
+              },
+              {
+                "author": {
+                  "name": "Alexey Milovidov"
+                },
+                "updatedAt": "2021-11-24T11:25:03Z",
+                "body": "Fuzzers have found multiple errors."
+              }
+            ]
+          }
+        },
+        {
+          "number": 31062,
+          "url": "https://github.com/ClickHouse/ClickHouse/pull/31062",
+          "title": "Views with comment",
+          "createdAt": "2021-11-03T20:57:12Z",
+          "state": "MERGED",
+          "isDraft": false,
+          "updatedAt": "2021-12-16T18:38:59Z",
+          "mergeable": "UNKNOWN",
+          "baseRefName": "master",
+          "changedFiles": 9,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Parsers/ASTCreateQuery.cpp",
+                "deletions": 1,
+                "additions": 4
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Parsers/ParserCreateQuery.cpp",
+                "deletions": 0,
+                "additions": 4
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Storages/LiveView/StorageLiveView.cpp",
+                "deletions": 2,
+                "additions": 6
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Storages/LiveView/StorageLiveView.h",
+                "deletions": 1,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Storages/StorageFactory.cpp",
+                "deletions": 3,
+                "additions": 3
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Storages/StorageMaterializedView.cpp",
+                "deletions": 2,
+                "additions": 6
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Storages/StorageMaterializedView.h",
+                "deletions": 1,
+                "additions": 2
+              },
+              {
+                "changeType": "ADDED",
+                "path": "tests/queries/0_stateless/02048_views_with_comment.reference",
+                "deletions": 0,
+                "additions": 3
+              },
+              {
+                "changeType": "ADDED",
+                "path": "tests/queries/0_stateless/02048_views_with_comment.sql",
+                "deletions": 0,
+                "additions": 12
+              }
+            ],
+            "totalCount": 9
+          },
+          "labels": {
+            "totalCount": 1,
+            "nodes": [
+              {
+                "name": "pr-feature",
+                "color": "007700"
+              }
+            ]
+          },
+          "reviews": {
+            "edges": [
+              {
+                "node": {
+                  "id": "PRR_kwDOA5dJV84xs1YA",
+                  "state": "APPROVED"
+                }
+              }
+            ]
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 4,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/ClickHouse/commit/4223553508e2f76d063e6c7970b02f0f32b2a199",
+                    "oid": "4223553508e2f76d063e6c7970b02f0f32b2a199",
+                    "statusCheckRollup": {
+                      "state": "FAILURE"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": [
+              {
+                "login": "kitaisreal",
+                "name": "Maksim Kita",
+                "avatarUrl": "https://avatars.githubusercontent.com/u/22458333?v=4",
+                "url": "https://github.com/kitaisreal"
+              }
+            ]
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 4,
+            "nodes": [
+              {
+                "author": {
+                  "name": "sevirov"
+                },
+                "updatedAt": "2021-12-16T18:38:59Z",
+                "body": "Internal documentation ticket: DOCSUP-20289"
+              },
+              {
+                "author": {
+                  "name": "Alexey Milovidov"
+                },
+                "updatedAt": "2021-12-14T01:33:52Z",
+                "body": "@Enmk Your test has failed: https://s3.amazonaws.com/clickhouse-test-reports/31062/0f19807b97b6c4c58046710ffff96405f2068642/fast_test__actions_.html"
+              },
+              {
+                "author": {},
+                "updatedAt": "2021-12-02T08:19:04Z",
+                "body": "> update\n\n#### ✅ Branch has been successfully updated\n\n\n\n<!--\nDO NOT EDIT\n-*- Mergify Payload -*-\n{\"command\": \"update\", \"conclusion\": \"success\"}\n-*- Mergify Payload End -*-\n-->\n"
+              },
+              {
+                "author": {
+                  "name": "Maksim Kita"
+                },
+                "updatedAt": "2021-12-02T08:18:05Z",
+                "body": "@Mergifyio update"
+              }
+            ]
+          }
+        },
+        {
+          "number": 30370,
+          "url": "https://github.com/ClickHouse/ClickHouse/pull/30370",
+          "title": "Attempt to fix #30162",
+          "createdAt": "2021-10-19T12:57:57Z",
+          "state": "MERGED",
+          "isDraft": false,
+          "updatedAt": "2022-05-18T13:17:16Z",
+          "mergeable": "UNKNOWN",
+          "baseRefName": "master",
+          "changedFiles": 2,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Interpreters/Session.cpp",
+                "deletions": 5,
+                "additions": 29
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Interpreters/Session.h",
+                "deletions": 1,
+                "additions": 4
+              }
+            ],
+            "totalCount": 2
+          },
+          "labels": {
+            "totalCount": 1,
+            "nodes": [
+              {
+                "name": "pr-bugfix",
+                "color": "ff4080"
+              }
+            ]
+          },
+          "reviews": {
+            "edges": [
+              {
+                "node": {
+                  "id": "PRR_kwDOA5dJV84uvy4g",
+                  "state": "APPROVED"
+                }
+              }
+            ]
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 3,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/ClickHouse/commit/0ad7f9bba25e4cbf53dfea3b1fbd51379aab2dc3",
+                    "oid": "0ad7f9bba25e4cbf53dfea3b1fbd51379aab2dc3",
+                    "statusCheckRollup": {
+                      "state": "FAILURE"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": [
+              {
+                "login": "vdimir",
+                "name": "Vladimir C",
+                "avatarUrl": "https://avatars.githubusercontent.com/u/7023786?v=4",
+                "url": "https://github.com/vdimir"
+              }
+            ]
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 0,
+            "nodes": []
+          }
+        },
+        {
+          "number": 29899,
+          "url": "https://github.com/ClickHouse/ClickHouse/pull/29899",
+          "title": "Governance/dictionary comment",
+          "createdAt": "2021-10-08T18:01:23Z",
+          "state": "MERGED",
+          "isDraft": false,
+          "updatedAt": "2021-10-15T12:29:08Z",
+          "mergeable": "UNKNOWN",
+          "baseRefName": "master",
+          "changedFiles": 18,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Databases/DatabaseFactory.cpp",
+                "deletions": 2,
+                "additions": 2
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Databases/DatabaseMemory.cpp",
+                "deletions": 1,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Databases/DatabaseOnDisk.cpp",
+                "deletions": 10,
+                "additions": 6
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Databases/MySQL/DatabaseMySQL.cpp",
+                "deletions": 1,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Databases/PostgreSQL/DatabasePostgreSQL.cpp",
+                "deletions": 1,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Databases/SQLite/DatabaseSQLite.cpp",
+                "deletions": 1,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Dictionaries/DictionaryFactory.cpp",
+                "deletions": 1,
+                "additions": 5
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Dictionaries/IDictionary.h",
+                "deletions": 0,
+                "additions": 13
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Dictionaries/getDictionaryConfigurationFromAST.cpp",
+                "deletions": 0,
+                "additions": 9
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Dictionaries/tests/gtest_dictionary_configuration.cpp",
+                "deletions": 1,
+                "additions": 5
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Parsers/ASTCreateQuery.cpp",
+                "deletions": 9,
+                "additions": 15
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Parsers/ASTCreateQuery.h",
+                "deletions": 1,
+                "additions": 1
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Parsers/ParserCreateQuery.cpp",
+                "deletions": 13,
+                "additions": 29
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Parsers/tests/gtest_Parser.cpp",
+                "deletions": 5,
+                "additions": 31
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Storages/StorageFactory.cpp",
+                "deletions": 2,
+                "additions": 2
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Storages/System/StorageSystemDictionaries.cpp",
+                "deletions": 1,
+                "additions": 12
+              },
+              {
+                "changeType": "ADDED",
+                "path": "tests/queries/0_stateless/02024_create_dictionary_with_comment.reference",
+                "deletions": 0,
+                "additions": 2
+              },
+              {
+                "changeType": "ADDED",
+                "path": "tests/queries/0_stateless/02024_create_dictionary_with_comment.sql",
+                "deletions": 0,
+                "additions": 33
+              }
+            ],
+            "totalCount": 18
+          },
+          "labels": {
+            "totalCount": 1,
+            "nodes": [
+              {
+                "name": "pr-feature",
+                "color": "007700"
+              }
+            ]
+          },
+          "reviews": {
+            "edges": [
+              {
+                "node": {
+                  "id": "PRR_kwDOA5dJV84udrgY",
+                  "state": "APPROVED"
+                }
+              }
+            ]
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 5,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/ClickHouse/commit/baf75065e3614a71a28a837df4ac03b345dd54df",
+                    "oid": "baf75065e3614a71a28a837df4ac03b345dd54df",
+                    "statusCheckRollup": {
+                      "state": "PENDING"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": [
+              {
+                "login": "kitaisreal",
+                "name": "Maksim Kita",
+                "avatarUrl": "https://avatars.githubusercontent.com/u/22458333?v=4",
+                "url": "https://github.com/kitaisreal"
+              }
+            ]
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 1,
+            "nodes": [
+              {
+                "author": {
+                  "name": null
+                },
+                "updatedAt": "2021-10-15T12:29:08Z",
+                "body": "Internal documentation ticket: DOCSUP-16607.\r\n"
+              }
+            ]
+          }
+        },
+        {
+          "number": 29800,
+          "url": "https://github.com/ClickHouse/ClickHouse/pull/29800",
+          "title": "[DO NOT MERGE] helloWorld() function",
+          "createdAt": "2021-10-06T09:56:06Z",
+          "state": "CLOSED",
+          "isDraft": false,
+          "updatedAt": "2021-10-17T17:50:00Z",
+          "mergeable": "UNKNOWN",
+          "baseRefName": "master",
+          "changedFiles": 4,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "ADDED",
+                "path": "src/Functions/helloWrold.cpp",
+                "deletions": 0,
+                "additions": 28
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Functions/registerFunctions.cpp",
+                "deletions": 0,
+                "additions": 3
+              },
+              {
+                "changeType": "ADDED",
+                "path": "tests/queries/0_stateless/02030_hello_world.reference",
+                "deletions": 0,
+                "additions": 1
+              },
+              {
+                "changeType": "ADDED",
+                "path": "tests/queries/0_stateless/02030_hello_world.sql",
+                "deletions": 0,
+                "additions": 1
+              }
+            ],
+            "totalCount": 4
+          },
+          "labels": {
+            "totalCount": 1,
+            "nodes": [
+              {
+                "name": "pr-feature",
+                "color": "007700"
+              }
+            ]
+          },
+          "reviews": {
+            "edges": []
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 1,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/ClickHouse/commit/2bde22195aecbc7520b8c8ab1b4a3e97e720d84e",
+                    "oid": "2bde22195aecbc7520b8c8ab1b4a3e97e720d84e",
+                    "statusCheckRollup": {
+                      "state": "FAILURE"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": [
+              {
+                "login": "alexey-milovidov",
+                "name": "Alexey Milovidov",
+                "avatarUrl": "https://avatars.githubusercontent.com/u/18581488?v=4",
+                "url": "https://github.com/alexey-milovidov"
+              }
+            ]
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 0,
+            "nodes": []
+          }
+        },
+        {
+          "number": 29429,
+          "url": "https://github.com/ClickHouse/ClickHouse/pull/29429",
+          "title": "Implemented creating databases with comments",
+          "createdAt": "2021-09-27T12:21:23Z",
+          "state": "MERGED",
+          "isDraft": false,
+          "updatedAt": "2021-10-12T22:39:57Z",
+          "mergeable": "UNKNOWN",
+          "baseRefName": "master",
+          "changedFiles": 11,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Databases/DatabaseDictionary.cpp",
+                "deletions": 0,
+                "additions": 2
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Databases/DatabaseFactory.cpp",
+                "deletions": 1,
+                "additions": 4
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Databases/DatabaseMemory.cpp",
+                "deletions": 0,
+                "additions": 4
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Databases/DatabaseOnDisk.cpp",
+                "deletions": 0,
+                "additions": 10
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Databases/IDatabase.h",
+                "deletions": 0,
+                "additions": 12
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Databases/MySQL/DatabaseMySQL.cpp",
+                "deletions": 0,
+                "additions": 4
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Databases/PostgreSQL/DatabasePostgreSQL.cpp",
+                "deletions": 0,
+                "additions": 4
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Databases/SQLite/DatabaseSQLite.cpp",
+                "deletions": 0,
+                "additions": 4
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "src/Storages/System/StorageSystemDatabases.cpp",
+                "deletions": 0,
+                "additions": 2
+              },
+              {
+                "changeType": "ADDED",
+                "path": "tests/queries/0_stateless/02021_create_database_with_comment.reference",
+                "deletions": 0,
+                "additions": 16
+              },
+              {
+                "changeType": "ADDED",
+                "path": "tests/queries/0_stateless/02021_create_database_with_comment.sh",
+                "deletions": 0,
+                "additions": 38
+              }
+            ],
+            "totalCount": 11
+          },
+          "labels": {
+            "totalCount": 1,
+            "nodes": [
+              {
+                "name": "pr-feature",
+                "color": "007700"
+              }
+            ]
+          },
+          "reviews": {
+            "edges": [
+              {
+                "node": {
+                  "id": "PRR_kwDOA5dJV84t6H8J",
+                  "state": "APPROVED"
+                }
+              }
+            ]
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 1,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/ClickHouse/commit/2f16806cd069d559b6891cf0fab77d6e70a6e515",
+                    "oid": "2f16806cd069d559b6891cf0fab77d6e70a6e515",
+                    "statusCheckRollup": {
+                      "state": "FAILURE"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": [
+              {
+                "login": "CurtizJ",
+                "name": "Anton Popov",
+                "avatarUrl": "https://avatars.githubusercontent.com/u/20361854?v=4",
+                "url": "https://github.com/CurtizJ"
+              }
+            ]
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 2,
+            "nodes": [
+              {
+                "author": {
+                  "name": null
+                },
+                "updatedAt": "2021-10-12T22:39:57Z",
+                "body": "Internal documentation ticket: DOCSUP-16361."
+              },
+              {
+                "author": {
+                  "name": null
+                },
+                "updatedAt": "2021-10-04T08:47:42Z",
+                "body": "[![CLA assistant check](https://cla-assistant.io/pull/badge/signed)](https://cla-assistant.io/ClickHouse/ClickHouse?pullRequest=29429) <br/>All committers have signed the CLA."
+              }
+            ]
+          }
+        }
+      ],
+      "pageInfo": {
+        "endCursor": "Y3Vyc29yOjIw",
+        "hasNextPage": true
+      }
+    }
+  }
+}

@@ -25,7 +25,7 @@ Right now GitHub allows up to 99 PRs from repo per request, so you can set anyth
 
 
 ### Examples
-There could be multiple authors and multiple repositories at once: 
+There could be multiple authors and multiple repositories at once:
 [`https://prs-dashboard.github.io/?author=excitoon&author=enmk&repo=Altinity/ClickHouse&repo=ClickHouse/ClickHouse:50&repo=ClickHouse/Clickhouse-cpp`](https://prs-dashboard.github.io/?author=excitoon&author=enmk&repo=Altinity/ClickHouse&repo=ClickHouse/ClickHouse:50&repo=ClickHouse/Clickhouse-cpp)
 
 Or you can completely omit authors and get unfiltered list of PRs from repository: [`https://prs-dashboard.github.io/?repo=Altinity/ClickHouse&repo=ClickHouse/ClickHouse:50&repo=ClickHouse/Clickhouse-cpp`](https://prs-dashboard.github.io/?repo=Altinity/ClickHouse&repo=ClickHouse/ClickHouse:50&repo=ClickHouse/Clickhouse-cpp)
@@ -51,3 +51,9 @@ If you want to set a new token (maybe with different scope), either do some magi
 
 
 Please feel free to submit issues\PRs, I'd be happy to address those at some point.
+
+## Development
+Because I keep forgetting:
+```bash
+$ npm run dev
+```

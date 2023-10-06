@@ -3,6 +3,78 @@
     "search": {
       "nodes": [
         {
+          "number": 302,
+          "url": "https://github.com/ClickHouse/clickhouse-cpp/pull/302",
+          "title": "added DEBUG_DEPENDENCIES",
+          "createdAt": "2023-04-26T11:18:50Z",
+          "state": "MERGED",
+          "isDraft": false,
+          "updatedAt": "2023-04-26T11:59:44Z",
+          "mergeable": "UNKNOWN",
+          "baseRefName": "master",
+          "changedFiles": 2,
+          "files": {
+            "nodes": [
+              {
+                "changeType": "MODIFIED",
+                "path": "CMakeLists.txt",
+                "deletions": 0,
+                "additions": 34
+              },
+              {
+                "changeType": "MODIFIED",
+                "path": "cmake/Findlz4.cmake",
+                "deletions": 0,
+                "additions": 1
+              }
+            ],
+            "totalCount": 2
+          },
+          "labels": {
+            "totalCount": 0,
+            "nodes": []
+          },
+          "reviews": {
+            "edges": []
+          },
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
+            "login": "Enmk",
+            "url": "https://github.com/Enmk",
+            "name": "Vasily Nemkov"
+          },
+          "commits": {
+            "totalCount": 1,
+            "edges": [
+              {
+                "node": {
+                  "commit": {
+                    "commitUrl": "https://github.com/ClickHouse/clickhouse-cpp/commit/1350915fbebb62ba0bdf808fefa64c4364b167f0",
+                    "oid": "1350915fbebb62ba0bdf808fefa64c4364b167f0",
+                    "statusCheckRollup": {
+                      "state": "SUCCESS"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "assignees": {
+            "nodes": []
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 0,
+            "nodes": []
+          },
+          "repository": {
+            "id": "MDEwOlJlcG9zaXRvcnkyMDgwNDc0NjE=",
+            "nameWithOwner": "ClickHouse/clickhouse-cpp"
+          }
+        },
+        {
           "number": 300,
           "url": "https://github.com/ClickHouse/clickhouse-cpp/pull/300",
           "title": "Minor: Deprecated LowCardinalitySerializationAdaptor",
@@ -62,6 +134,10 @@
           "comments": {
             "totalCount": 0,
             "nodes": []
+          },
+          "repository": {
+            "id": "MDEwOlJlcG9zaXRvcnkyMDgwNDc0NjE=",
+            "nameWithOwner": "ClickHouse/clickhouse-cpp"
           }
         },
         {
@@ -136,6 +212,10 @@
           "comments": {
             "totalCount": 0,
             "nodes": []
+          },
+          "repository": {
+            "id": "MDEwOlJlcG9zaXRvcnkyMDgwNDc0NjE=",
+            "nameWithOwner": "ClickHouse/clickhouse-cpp"
           }
         },
         {
@@ -236,6 +316,10 @@
                 "body": "closing to re-open and re-trigger builds against most recent master"
               }
             ]
+          },
+          "repository": {
+            "id": "MDEwOlJlcG9zaXRvcnkyMDgwNDc0NjE=",
+            "nameWithOwner": "ClickHouse/clickhouse-cpp"
           }
         },
         {
@@ -306,6 +390,10 @@
                 "body": "closing to re-open later, just to trigger builds and tests against latest master"
               }
             ]
+          },
+          "repository": {
+            "id": "MDEwOlJlcG9zaXRvcnkyMDgwNDc0NjE=",
+            "nameWithOwner": "ClickHouse/clickhouse-cpp"
           }
         },
         {
@@ -391,6 +479,10 @@
           "comments": {
             "totalCount": 0,
             "nodes": []
+          },
+          "repository": {
+            "id": "MDEwOlJlcG9zaXRvcnk2MDI0NjM1OQ==",
+            "nameWithOwner": "ClickHouse/ClickHouse"
           }
         },
         {
@@ -453,6 +545,10 @@
           "comments": {
             "totalCount": 0,
             "nodes": []
+          },
+          "repository": {
+            "id": "MDEwOlJlcG9zaXRvcnkyMDgwNDc0NjE=",
+            "nameWithOwner": "ClickHouse/clickhouse-cpp"
           }
         },
         {
@@ -515,6 +611,10 @@
           "comments": {
             "totalCount": 0,
             "nodes": []
+          },
+          "repository": {
+            "id": "MDEwOlJlcG9zaXRvcnkyMDgwNDc0NjE=",
+            "nameWithOwner": "ClickHouse/clickhouse-cpp"
           }
         },
         {
@@ -607,6 +707,10 @@
           "comments": {
             "totalCount": 0,
             "nodes": []
+          },
+          "repository": {
+            "id": "MDEwOlJlcG9zaXRvcnkyMDgwNDc0NjE=",
+            "nameWithOwner": "ClickHouse/clickhouse-cpp"
           }
         },
         {
@@ -675,6 +779,10 @@
           "comments": {
             "totalCount": 0,
             "nodes": []
+          },
+          "repository": {
+            "id": "MDEwOlJlcG9zaXRvcnkyMDgwNDc0NjE=",
+            "nameWithOwner": "ClickHouse/clickhouse-cpp"
           }
         },
         {
@@ -737,6 +845,10 @@
           "comments": {
             "totalCount": 0,
             "nodes": []
+          },
+          "repository": {
+            "id": "MDEwOlJlcG9zaXRvcnkyMDgwNDc0NjE=",
+            "nameWithOwner": "ClickHouse/clickhouse-cpp"
           }
         },
         {
@@ -817,6 +929,10 @@
           "comments": {
             "totalCount": 0,
             "nodes": []
+          },
+          "repository": {
+            "id": "MDEwOlJlcG9zaXRvcnkyMDgwNDc0NjE=",
+            "nameWithOwner": "ClickHouse/clickhouse-cpp"
           }
         },
         {
@@ -879,6 +995,10 @@
           "comments": {
             "totalCount": 0,
             "nodes": []
+          },
+          "repository": {
+            "id": "MDEwOlJlcG9zaXRvcnkyMDgwNDc0NjE=",
+            "nameWithOwner": "ClickHouse/clickhouse-cpp"
           }
         },
         {
@@ -941,6 +1061,10 @@
           "comments": {
             "totalCount": 0,
             "nodes": []
+          },
+          "repository": {
+            "id": "MDEwOlJlcG9zaXRvcnkyMDgwNDc0NjE=",
+            "nameWithOwner": "ClickHouse/clickhouse-cpp"
           }
         },
         {
@@ -1080,6 +1204,10 @@
                 "body": "@Enmk I am not really familiar with the code and its constraints and I will certainly not oppose your fix. But, to be honest, it feels like a bandaid for an issue that should never have happened in the first place. I agree with your section \"bug analysis\", in particular that the member variables of `SettingsProfileInfo` are out-of-sync and that they are set (at least as far as I see) by `SettingsProfilesCache::substituteProfiles()`. So the question is what could have caused this problem. Thoughts:\r\n- We could use Clang TSA to safeguard the locking in SettingsProfileCache, see #38068\r\n- Is `substituteProfiles` really exception-safe? E.g. it does lots of `.insert()`, `.push_back()` and `.emplace()` where a bad_alloc exception could mess up the state of `SettingsProfileInfo`. This could be fixed by first reserving sufficient space in all members and then populating them.\r\n- Maybe there are other places in this function which can throw.\r\n\r\nEven if there is no repro (which is okay, perhaps the issue occurs really super sporadically), my preference would be to make the settings profile creating code more robust."
               }
             ]
+          },
+          "repository": {
+            "id": "MDEwOlJlcG9zaXRvcnk2MDI0NjM1OQ==",
+            "nameWithOwner": "ClickHouse/ClickHouse"
           }
         },
         {
@@ -1214,6 +1342,10 @@
           "comments": {
             "totalCount": 0,
             "nodes": []
+          },
+          "repository": {
+            "id": "MDEwOlJlcG9zaXRvcnkyMDgwNDc0NjE=",
+            "nameWithOwner": "ClickHouse/clickhouse-cpp"
           }
         },
         {
@@ -1491,6 +1623,10 @@
                 "body": "Missing tests."
               }
             ]
+          },
+          "repository": {
+            "id": "MDEwOlJlcG9zaXRvcnk2MDI0NjM1OQ==",
+            "nameWithOwner": "ClickHouse/ClickHouse"
           }
         },
         {
@@ -1576,6 +1712,10 @@
           "comments": {
             "totalCount": 0,
             "nodes": []
+          },
+          "repository": {
+            "id": "MDEwOlJlcG9zaXRvcnk2MDI0NjM1OQ==",
+            "nameWithOwner": "ClickHouse/ClickHouse"
           }
         },
         {
@@ -1715,6 +1855,10 @@
                 "body": "There was some weird issue with this PR being reported unmergeable by GitHub even after merging master into topic branch several times."
               }
             ]
+          },
+          "repository": {
+            "id": "MDEwOlJlcG9zaXRvcnk2MDI0NjM1OQ==",
+            "nameWithOwner": "ClickHouse/ClickHouse"
           }
         },
         {
@@ -1789,6 +1933,10 @@
           "comments": {
             "totalCount": 0,
             "nodes": []
+          },
+          "repository": {
+            "id": "MDEwOlJlcG9zaXRvcnkyMDgwNDc0NjE=",
+            "nameWithOwner": "ClickHouse/clickhouse-cpp"
           }
         },
         {
@@ -1851,6 +1999,10 @@
           "comments": {
             "totalCount": 0,
             "nodes": []
+          },
+          "repository": {
+            "id": "MDEwOlJlcG9zaXRvcnkyMDgwNDc0NjE=",
+            "nameWithOwner": "ClickHouse/clickhouse-cpp"
           }
         },
         {
@@ -1973,6 +2125,10 @@
                 "body": "Still has unresolved external symbol "
               }
             ]
+          },
+          "repository": {
+            "id": "MDEwOlJlcG9zaXRvcnkyMDgwNDc0NjE=",
+            "nameWithOwner": "ClickHouse/clickhouse-cpp"
           }
         },
         {
@@ -2087,6 +2243,10 @@
                 "body": "Tests have failed."
               }
             ]
+          },
+          "repository": {
+            "id": "MDEwOlJlcG9zaXRvcnk2MDI0NjM1OQ==",
+            "nameWithOwner": "ClickHouse/ClickHouse"
           }
         },
         {
@@ -2161,6 +2321,10 @@
           "comments": {
             "totalCount": 0,
             "nodes": []
+          },
+          "repository": {
+            "id": "MDEwOlJlcG9zaXRvcnkyMDgwNDc0NjE=",
+            "nameWithOwner": "ClickHouse/clickhouse-cpp"
           }
         },
         {
@@ -2241,6 +2405,10 @@
           "comments": {
             "totalCount": 0,
             "nodes": []
+          },
+          "repository": {
+            "id": "MDEwOlJlcG9zaXRvcnkyMDgwNDc0NjE=",
+            "nameWithOwner": "ClickHouse/clickhouse-cpp"
           }
         },
         {
@@ -2351,6 +2519,10 @@
           "comments": {
             "totalCount": 0,
             "nodes": []
+          },
+          "repository": {
+            "id": "MDEwOlJlcG9zaXRvcnkyMDgwNDc0NjE=",
+            "nameWithOwner": "ClickHouse/clickhouse-cpp"
           }
         },
         {
@@ -2449,6 +2621,10 @@
           "comments": {
             "totalCount": 0,
             "nodes": []
+          },
+          "repository": {
+            "id": "MDEwOlJlcG9zaXRvcnkyMDgwNDc0NjE=",
+            "nameWithOwner": "ClickHouse/clickhouse-cpp"
           }
         },
         {
@@ -2523,6 +2699,10 @@
           "comments": {
             "totalCount": 0,
             "nodes": []
+          },
+          "repository": {
+            "id": "MDEwOlJlcG9zaXRvcnkyMDgwNDc0NjE=",
+            "nameWithOwner": "ClickHouse/clickhouse-cpp"
           }
         },
         {
@@ -2585,6 +2765,10 @@
           "comments": {
             "totalCount": 0,
             "nodes": []
+          },
+          "repository": {
+            "id": "MDEwOlJlcG9zaXRvcnkyMDgwNDc0NjE=",
+            "nameWithOwner": "ClickHouse/clickhouse-cpp"
           }
         },
         {
@@ -2679,6 +2863,10 @@
                 "body": "Already fixed in #37303"
               }
             ]
+          },
+          "repository": {
+            "id": "MDEwOlJlcG9zaXRvcnk2MDI0NjM1OQ==",
+            "nameWithOwner": "ClickHouse/ClickHouse"
           }
         },
         {
@@ -2801,6 +2989,10 @@
           "comments": {
             "totalCount": 0,
             "nodes": []
+          },
+          "repository": {
+            "id": "MDEwOlJlcG9zaXRvcnkyMDgwNDc0NjE=",
+            "nameWithOwner": "ClickHouse/clickhouse-cpp"
           }
         },
         {
@@ -2908,6 +3100,10 @@
                 "body": "This PR breaks test `00992_system_parts_race_condition_zookeeper_long` with `Replicated` database:\r\nhttps://play.clickhouse.com/play?user=play#c2VsZWN0IAp0b1N0YXJ0T2ZIb3VyKGNoZWNrX3N0YXJ0X3RpbWUpIGFzIGQsCmNvdW50KCksIGdyb3VwVW5pcUFycmF5KHB1bGxfcmVxdWVzdF9udW1iZXIpCmZyb20gY2hlY2tzIHdoZXJlICcyMDIyLTAzLTAxJyA8PSBjaGVja19zdGFydF90aW1lIGFuZCB0ZXN0X25hbWUgbGlrZSAnMDA5OTJfc3lzdGVtX3BhcnRzX3JhY2VfY29uZGl0aW9uX3pvb2tlZXBlcl9sb25nJScgYW5kIGNoZWNrX25hbWUgaWxpa2UgJyVyZXBsJScgYW5kIHRlc3Rfc3RhdHVzIGluICgnRkFJTCcsICdGTEFLWScsICdFUlJPUicpIGdyb3VwIGJ5IGQgb3JkZXIgYnkgZCBkZXNj"
               }
             ]
+          },
+          "repository": {
+            "id": "MDEwOlJlcG9zaXRvcnk2MDI0NjM1OQ==",
+            "nameWithOwner": "ClickHouse/ClickHouse"
           }
         },
         {
@@ -2970,6 +3166,10 @@
           "comments": {
             "totalCount": 0,
             "nodes": []
+          },
+          "repository": {
+            "id": "MDEwOlJlcG9zaXRvcnkyMDgwNDc0NjE=",
+            "nameWithOwner": "ClickHouse/clickhouse-cpp"
           }
         },
         {
@@ -3110,6 +3310,10 @@
           "comments": {
             "totalCount": 0,
             "nodes": []
+          },
+          "repository": {
+            "id": "MDEwOlJlcG9zaXRvcnkyMDgwNDc0NjE=",
+            "nameWithOwner": "ClickHouse/clickhouse-cpp"
           }
         },
         {
@@ -3178,6 +3382,10 @@
           "comments": {
             "totalCount": 0,
             "nodes": []
+          },
+          "repository": {
+            "id": "MDEwOlJlcG9zaXRvcnkyMDgwNDc0NjE=",
+            "nameWithOwner": "ClickHouse/clickhouse-cpp"
           }
         },
         {
@@ -3292,6 +3500,10 @@
                 "body": "> Fixed a crash that could happen if a user was dropped in a concurrent query.\r\n\r\nIn what concurrent query?\r\nNeed a test."
               }
             ]
+          },
+          "repository": {
+            "id": "MDEwOlJlcG9zaXRvcnk2MDI0NjM1OQ==",
+            "nameWithOwner": "ClickHouse/ClickHouse"
           }
         },
         {
@@ -3359,6 +3571,10 @@
           "comments": {
             "totalCount": 0,
             "nodes": []
+          },
+          "repository": {
+            "id": "MDEwOlJlcG9zaXRvcnk2MDI0NjM1OQ==",
+            "nameWithOwner": "ClickHouse/ClickHouse"
           }
         },
         {
@@ -3644,6 +3860,10 @@
           "comments": {
             "totalCount": 0,
             "nodes": []
+          },
+          "repository": {
+            "id": "MDEwOlJlcG9zaXRvcnkyMDgwNDc0NjE=",
+            "nameWithOwner": "ClickHouse/clickhouse-cpp"
           }
         },
         {
@@ -3733,6 +3953,10 @@
                 "body": "Similar to #36480, but also adds some preventive measures"
               }
             ]
+          },
+          "repository": {
+            "id": "MDEwOlJlcG9zaXRvcnk2MDI0NjM1OQ==",
+            "nameWithOwner": "ClickHouse/ClickHouse"
           }
         },
         {
@@ -3927,6 +4151,10 @@
                 "body": "Let'a add a test."
               }
             ]
+          },
+          "repository": {
+            "id": "MDEwOlJlcG9zaXRvcnk2MDI0NjM1OQ==",
+            "nameWithOwner": "ClickHouse/ClickHouse"
           }
         },
         {
@@ -4115,6 +4343,10 @@
           "comments": {
             "totalCount": 0,
             "nodes": []
+          },
+          "repository": {
+            "id": "MDEwOlJlcG9zaXRvcnkyMDgwNDc0NjE=",
+            "nameWithOwner": "ClickHouse/clickhouse-cpp"
           }
         },
         {
@@ -4183,6 +4415,10 @@
           "comments": {
             "totalCount": 0,
             "nodes": []
+          },
+          "repository": {
+            "id": "MDEwOlJlcG9zaXRvcnkyMDgwNDc0NjE=",
+            "nameWithOwner": "ClickHouse/clickhouse-cpp"
           }
         },
         {
@@ -4257,6 +4493,10 @@
           "comments": {
             "totalCount": 0,
             "nodes": []
+          },
+          "repository": {
+            "id": "MDEwOlJlcG9zaXRvcnkyMDgwNDc0NjE=",
+            "nameWithOwner": "ClickHouse/clickhouse-cpp"
           }
         },
         {
@@ -4319,6 +4559,10 @@
           "comments": {
             "totalCount": 0,
             "nodes": []
+          },
+          "repository": {
+            "id": "MDEwOlJlcG9zaXRvcnkyMDgwNDc0NjE=",
+            "nameWithOwner": "ClickHouse/clickhouse-cpp"
           }
         },
         {
@@ -4454,6 +4698,10 @@
           "comments": {
             "totalCount": 0,
             "nodes": []
+          },
+          "repository": {
+            "id": "MDEwOlJlcG9zaXRvcnkyMDgwNDc0NjE=",
+            "nameWithOwner": "ClickHouse/clickhouse-cpp"
           }
         },
         {
@@ -4582,6 +4830,10 @@
           "comments": {
             "totalCount": 0,
             "nodes": []
+          },
+          "repository": {
+            "id": "MDEwOlJlcG9zaXRvcnkyMDgwNDc0NjE=",
+            "nameWithOwner": "ClickHouse/clickhouse-cpp"
           }
         },
         {
@@ -4722,6 +4974,10 @@
           "comments": {
             "totalCount": 0,
             "nodes": []
+          },
+          "repository": {
+            "id": "MDEwOlJlcG9zaXRvcnkyMDgwNDc0NjE=",
+            "nameWithOwner": "ClickHouse/clickhouse-cpp"
           }
         },
         {
@@ -4820,6 +5076,10 @@
           "comments": {
             "totalCount": 0,
             "nodes": []
+          },
+          "repository": {
+            "id": "MDEwOlJlcG9zaXRvcnkyMDgwNDc0NjE=",
+            "nameWithOwner": "ClickHouse/clickhouse-cpp"
           }
         },
         {
@@ -4939,6 +5199,10 @@
                 "body": "> \r\nWe have a 'Client'-tests for that."
               }
             ]
+          },
+          "repository": {
+            "id": "MDEwOlJlcG9zaXRvcnkyMDgwNDc0NjE=",
+            "nameWithOwner": "ClickHouse/clickhouse-cpp"
           }
         },
         {
@@ -5013,68 +5277,10 @@
           "comments": {
             "totalCount": 0,
             "nodes": []
-          }
-        },
-        {
-          "number": 132,
-          "url": "https://github.com/ClickHouse/clickhouse-cpp/pull/132",
-          "title": "CI/CD: fixing  MacOS OpenSSL variant",
-          "createdAt": "2022-01-06T15:36:10Z",
-          "state": "MERGED",
-          "isDraft": false,
-          "updatedAt": "2022-02-01T12:26:18Z",
-          "mergeable": "UNKNOWN",
-          "baseRefName": "master",
-          "changedFiles": 1,
-          "files": {
-            "nodes": [
-              {
-                "changeType": "MODIFIED",
-                "path": ".github/workflows/macos_ssl.yml",
-                "deletions": 2,
-                "additions": 3
-              }
-            ],
-            "totalCount": 1
           },
-          "labels": {
-            "totalCount": 0,
-            "nodes": []
-          },
-          "reviews": {
-            "edges": []
-          },
-          "author": {
-            "avatarUrl": "https://avatars.githubusercontent.com/u/1110183?v=4",
-            "login": "Enmk",
-            "url": "https://github.com/Enmk",
-            "name": "Vasily Nemkov"
-          },
-          "commits": {
-            "totalCount": 4,
-            "edges": [
-              {
-                "node": {
-                  "commit": {
-                    "commitUrl": "https://github.com/ClickHouse/clickhouse-cpp/commit/2214d97e4edb6890fb4a9d1a705d28ca5b497e26",
-                    "oid": "2214d97e4edb6890fb4a9d1a705d28ca5b497e26",
-                    "statusCheckRollup": {
-                      "state": "SUCCESS"
-                    }
-                  }
-                }
-              }
-            ]
-          },
-          "assignees": {
-            "nodes": []
-          },
-          "reviewRequests": {
-            "nodes": []
-          },
-          "comments": {
-            "totalCount": 0,
-            "nodes": []
+          "repository": {
+            "id": "MDEwOlJlcG9zaXRvcnkyMDgwNDc0NjE=",
+            "nameWithOwner": "ClickHouse/clickhouse-cpp"
           }
         }
       ],

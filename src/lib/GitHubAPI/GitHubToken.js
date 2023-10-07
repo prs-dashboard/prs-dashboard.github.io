@@ -33,6 +33,7 @@ async function getValidGithubToken(github_token) {
 }
 
 async function isValidGithubToken(github_token) {
+    return true;
     if (github_token) {
         const github_api = new GitHubGraphQL(github_token);
         let response = await github_api.getRateLimit();

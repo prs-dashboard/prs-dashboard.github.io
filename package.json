@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "test": "ava"
   },
-  "ava" : {
+  "ava": {
     "files": [
       "src/**/*_test.js"
     ]
@@ -21,6 +21,7 @@
     "vite": "^3.2.3"
   },
   "dependencies": {
+    "@octokit/graphql": "^7.0.2",
     "moment": "^2.29.4"
   }
 }

@@ -3,10 +3,11 @@
     import Filters from './lib/Filters.svelte';
     import GitHubRepoPrs from './lib/GitHubRepoPrs.svelte';
 
-    import { getGitHubToken } from './lib/GitHubToken.js'
-    // import { GitHubGraphQL } from './lib/github_api.js';
-    import { GitHubGraphQLMock } from './lib/github_api_mock'
-    import { PRsProvider } from './lib/GitHubPrs.js';
+    import { getGitHubToken } from './lib/GitHubAPI/GitHubToken.js'
+    //import { searchPRs } from './lib/GitHubPrs';
+    import { SimpleRepoProvider } from './lib/GitHubAPI/GitHubPrs.js';
+    import { GitHubGraphQL } from './lib/GitHubAPI/github_api';
+    // import { GitHubGraphQLMock } from './lib/GitHubAPI/github_api_mock.js';
 
     const repos = getRepos();
     const authors = getParameters('author', 'authors');
@@ -19,10 +20,11 @@
 
     // Allow user to specify namespace to use different tokens for different repos/access rights.
     const github_token = getGitHubToken(namespace);
-    // let prs_provider = new PRsProvider(new GitHubGraphQL(github_token), authors, repos, assignees, query);
-    let prs_provider = new PRsProvider(new GitHubGraphQLMock(), authors, repos, assignees, query);
-    // $: console.log("PRS provider: ", prs_provider);
-    // {(console.log('authors: ', authors, ' repos:', repos), '')}
+    console.log('token: ', github_token);
+    // const github_api = new GitHubGraphQLMock();
+    const github_api = new GitHubGraphQL(github_token);
+    const rate_limit = github_api.getRateLimit();
+    {console.log('rate limit response: ', rate_limit);}
 
     // Initially all authors/review assignees are checked
     let authors_filter = authors.map(author => ({id: author}));
@@ -104,7 +106,7 @@
 
         setColor(color);
 
-        // Highlight selected PR or one that was selected with browser's find
+        // Hightlight selected PR or one that was selected with browser's find
         // Helpful when searching for PR by title and not all part of it are visible.
         var selected_pr = null;
         document.addEventListener('selectionchange', () => {
@@ -156,17 +158,13 @@
     </div>
 {/if}
     </header>
-{#await prs_provider.repoProviders() then repos}
-<!-- {@debug prs_provider} -->
-{console.log('repos: ', repos)}
-{#each  [...repos()] as repo}
-    <!-- {console.log(`repo: `, repo)}
-    {@debug repo} -->
-    <!-- {console.log(`repo: ${repo.repoName()}, ${repo.prs()}`)} -->
+{#await github_token then token}
+{#each repos as repo}
     <GitHubRepoPrs
-        github_repo={repo.repoName()}
+        github_repo={repo[0]}
         selected_authors={authors.length > 0 ? authors_selected : null}
-        pull_requests_promise={repo.getPrs()}
+        prs_provider= {new SimpleRepoProvider(github_api, repo[0], authors, assignees, query, 10)}
+        initial_display_prs_count={repo[1]}
     />
 {:else}
     <section>It looks empty...<br>please <a href="https://github.com/prs-dashboard/prs-dashboard.github.io#readme" rel="noopener noreferrer" target="_blank">read the docs</a> on how to add repositories/authors/whatever to dashboard</section>

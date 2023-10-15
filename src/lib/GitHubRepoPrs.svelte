@@ -1,10 +1,13 @@
 <script>
     export let github_repo = '';
-    export let pull_requests_promise = Promise.resolve([])
+    // export let pull_requests_promise = Promise.resolve([])
     export let selected_authors = []; // may be null or undefined if no filtering by authors is required
+    export let prs_provider = new SimpleRepoProvider();
+    export let initial_display_prs_count = 10;
 
     import GitHubPrCard from './GitHubPrCard.svelte';
     import Filters from './Filters.svelte';
+    import { SimpleRepoProvider } from './GitHubAPI/GitHubPrs';
 
     let prs_filters = [
         {id: "open",   text: "open (0)"},
@@ -14,6 +17,7 @@
     ];
 
     let selected_pr_types = prs_filters.map(filter => filter.id);
+    let pull_requests_promise = prs_provider.loadMore(parseInt(initial_display_prs_count));
 
     const repo_name = github_repo;
 
@@ -77,7 +81,8 @@
     {/each}
 {:catch error}
         <p class=error>
-            Error: {error}
+            {error}
+            {console.log(error),''}
         </p>
 {/await}
     </list>

@@ -40,6 +40,6 @@ class GitHubGraphQLMock {
         let result = this.result;
         result.data.search.nodes = result.data.search.nodes.slice(0, request_limit);
 
-        return result;
+        return result['data']['search'];
     }
 };

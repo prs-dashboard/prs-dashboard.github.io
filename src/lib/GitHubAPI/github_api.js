@@ -6,10 +6,7 @@ class GitHubGraphQLError extends Error {
         super(`GitHub API error: ${text} ${response_errors.map(e => e.message).join(', ')}`);
     }
 
-    static throwIfError(response, result) {
-        if (response && !response.ok)
-            throw new GitHubGraphQLError(`${response.status} : ${JSON.stringify(result)}`, []);
-
+    static throwIfError(result) {
         if (result && result['errors'])
             throw new GitHubGraphQLError('', result['errors']);
     }
@@ -24,7 +21,6 @@ class GitHubGraphQL {
     async request(body /* request string */) {
         this.access_token = await Promise.resolve(this.access_token);
 
-        console.log('API request: ', body);
         const result = await graphql(
             body,
             {
@@ -34,21 +30,8 @@ class GitHubGraphQL {
                 },
             },
         );
-        // let response = await fetch('https://api.github.com/graphql', {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //         'Authorization': `Bearer ${this.access_token}`,
-        //         'Sec-Fetch-Mode': 'cors',
-        //     },
-        //     // The payload must contain a string called query
-        //     // https://docs.github.com/en/graphql/guides/forming-calls-with-graphql#communicating-with-graphql
-        //     body: JSON.stringify({ query: body })
-        // });
 
-        // let result = await response.json();
-        console.log('API result: ', result);
-        GitHubGraphQLError.throwIfError(undefined, result);
+        GitHubGraphQLError.throwIfError(result);
 
         return result;
     }
@@ -200,7 +183,6 @@ class GitHubGraphQL {
     }`;
 
         const response = await this.request(request_body);
-        console.log('search response: ', response);
         return response.search;
     }
 };

@@ -1,6 +1,5 @@
 <script>
     export let github_repo = '';
-    // export let pull_requests_promise = Promise.resolve([])
     export let selected_authors = []; // may be null or undefined if no filtering by authors is required
     export let prs_provider = new SimpleRepoProvider();
     export let initial_display_prs_count = 10;
@@ -17,18 +16,18 @@
     ];
 
     let selected_pr_types = prs_filters.map(filter => filter.id);
-    let pull_requests_promise = prs_provider.loadMore(parseInt(initial_display_prs_count));
 
     const repo_name = github_repo;
 
-    function pr_state(pr) {
-        return pr.isDraft ? 'draft' : pr.state.toLowerCase();
-    }
-
     function filterPrs(prs) {
         // Filter incoming PRs, also update counters of the filters
-        // console.log("Before filtering:  ", prs.length, " filters: ", prs_labels);
+        console.log("!! Before filtering:  ", prs.length, " filters: ", prs_filters);
         let counts = new Map();
+
+        function pr_state(pr) {
+            return pr.isDraft ? 'draft' : pr.state.toLowerCase();
+        }
+
         prs = prs.filter((pr) => {
             const state = pr_state(pr);
             let found = selected_pr_types.includes(state);
@@ -42,18 +41,47 @@
             return found;
         });
 
+        // update numbers in filter text description
         prs_filters = prs_filters.map((filter) => {
             let key = filter.id;
             return {id: filter.id, text: `${key} (${counts.get(key) || 0})`};
         });
 
+        console.log("!!! After filtering:  ", prs.length);
         return prs;
     }
 
-    let pull_requests = pull_requests_promise;
-    $: pull_requests = (selected_pr_types, selected_authors, pull_requests_promise.then((prs) => {
-        return filterPrs(prs);
-    }));
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    let prs_unfiltered = [];
+    let prs_are_loading = true;
+    let prs_loading_error = undefined;
+
+    async function loadPrs(prs_provider, number_of_prs_to_load) {
+        prs_are_loading = true;
+        prs_loading_error = undefined;
+
+        try {
+            for await (let value of prs_provider.loadMoreGenerator(number_of_prs_to_load)) {
+                prs_unfiltered.push(value);
+                prs_unfiltered = prs_unfiltered;
+            }
+        } catch (error) {
+            console.log(`Error loading PRs for repo {repo_name} : {error}`);
+            prs_loading_error = error;
+        }
+
+        prs_are_loading = false;
+    }
+
+    loadPrs(prs_provider, parseInt(initial_display_prs_count));
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    let prs_filtered = [];
+    $: {
+        // make sure that updated if selected_pr_types and/or selected_authors change
+        selected_pr_types, selected_authors, prs_unfiltered;
+        prs_filtered = filterPrs(prs_unfiltered);
+    };
 
   </script>
 
@@ -70,22 +98,21 @@
             </a>
             <Filters group_name="pr_filters" filters={prs_filters} bind:selected={selected_pr_types}/>
     </h2>
-    <list
+{#if prs_loading_error}
+    <prs-loading-error class=error>
+        {prs_loading_error}
+    </prs-loading-error>
+{/if}
+    <prs-list
         class="pr-list"
         >
-{#await pull_requests}
-        <p>... Loading ...</p>
-{:then pull_request_list}
-    {#each pull_request_list as pr}
+{#each prs_filtered as pr}
         <GitHubPrCard pull_request={pr} />
-    {/each}
-{:catch error}
-        <p class=error>
-            {error}
-            {console.log(error),''}
-        </p>
-{/await}
-    </list>
+{/each}
+    </prs-list>
+{#if prs_are_loading}
+    <prs-loading>... Loading ...</prs-loading>
+{/if}
 </section>
 
 <style>

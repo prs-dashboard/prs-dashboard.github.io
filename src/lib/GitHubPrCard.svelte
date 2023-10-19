@@ -43,7 +43,7 @@
 </script>
 
 
-<pr-card class="pr-card pr card pr-state-{pr_state} author-{pr.author.login.toLowerCase()}">
+<pr-card class="pr-card pr card pr-state-{pr_state} pr-author-{pr.author.login.toLowerCase()}">
 <div class="card-header">
     <a
         class="pr-title pr-state-{pr_state}"

@@ -38,10 +38,9 @@ async function isValidGithubToken(github_token) {
         const github_api = new GitHubGraphQL(github_token);
         try
         {
-        let response = await github_api.getRateLimit();
-        // console.log(response);
-        if (response && response.rateLimit.remaining > 0)
-            return true;
+            let response = await github_api.getRateLimit();
+            if (response && response.rateLimit.remaining > 0)
+                return true;
         }
         catch(error) {
             console.log('got error while checking token validity: ', error);

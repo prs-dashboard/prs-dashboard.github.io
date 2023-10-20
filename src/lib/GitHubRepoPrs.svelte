@@ -13,7 +13,7 @@
     import { onMount } from 'svelte';
 
     const repo_name = prs_provider.repoName();
-    const section_id = repo_name.replaceAll('/', '_');
+    const pr_list_id = repo_name.replaceAll('/', '_');
 
     let prs_filters = [
         {id: "open",   text: "open (0)"},
@@ -24,9 +24,9 @@
     let selected_pr_types = prs_filters.map(filter => filter.id);
 
     // Ref to DOM entity of the top-level element
-    let top_level_section_element = undefined;
+    let pr_list_element = undefined;
     onMount(() => {
-        top_level_section_element = document.getElementById(section_id);
+        pr_list_element = document.getElementById(pr_list_id);
     });
 
     function filterPrs(selected_pr_types, selected_authors) {
@@ -35,14 +35,14 @@
             return [...all].filter(a => ! new Set(selected).has(a));
         }
 
-        if (!top_level_section_element)
+        if (!pr_list_element)
             return;
 
         const unselected_pr_types = unselected(prs_filters.map(x => x.id), selected_pr_types);
         const unselected_authors = unselected(all_authors, selected_authors);
 
         // Clear all previous style definitions
-        const prev_styles = top_level_section_element.getElementsByTagName('style');
+        const prev_styles = pr_list_element.getElementsByTagName('style');
         if (prev_styles) {
             var arr = [].slice.call(prev_styles).forEach(element => {
                 element.remove();
@@ -50,13 +50,12 @@
         }
 
         let style_element = document.createElement('style')
-        style_element.innerHTML = unselected_pr_types.map(x => `#${section_id} .pr-state-${x} {display: none !important}`).join('\n')
-            + unselected_authors.map(x => `#${section_id} .pr-author-${x} {display: none !important}`).join('\n');
+        style_element.innerHTML = unselected_pr_types.map(x => `#${pr_list_id} .pr-state-${x} {display: none !important}`).join('\n')
+            + unselected_authors.map(x => `#${pr_list_id} .pr-author-${x} {display: none !important}`).join('\n');
 
-        top_level_section_element.appendChild(style_element);
+        pr_list_element.appendChild(style_element);
     }
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////
     let prs_loaded = [];
     let prs_are_loading = true;
     let prs_loading_error = undefined;
@@ -80,18 +79,17 @@
 
     loadPrs(prs_provider, parseInt(initial_display_prs_count));
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////
     $: {
         // make sure that updated if selected_pr_types and/or selected_authors change
         filterPrs(selected_pr_types, selected_authors);
 
-        if (top_level_section_element && prs_loaded) {
+        if (pr_list_element && prs_loaded) {
             // do a timeout to allow all PRs to be in DOM
             setTimeout(() => {
                 // Now count all occurrences of all PR types
                 prs_filters = prs_filters.map((filter) => {
                     let key = filter.id;
-                    const count = top_level_section_element.querySelectorAll(`pr-card .pr-state-${key}`).length;
+                    const count = pr_list_element.querySelectorAll(`pr-card .pr-state-${key}`).length;
 
                     return {id: filter.id, text: `${key} (${count})`};
                 });
@@ -101,7 +99,7 @@
 
 </script>
 
-<section id="{section_id}" style="container-fluid">
+<section id="{repo_name}" style="container-fluid">
     <h2
         class="repo-title"
         >
@@ -120,6 +118,7 @@
     </prs-loading-error>
 {/if}
     <prs-list
+        id="{pr_list_id}"
         class="pr-list"
         >
 {#each prs_loaded as pr}

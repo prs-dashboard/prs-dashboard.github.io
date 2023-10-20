@@ -43,7 +43,7 @@
 </script>
 
 
-<pr-card class="pr-card pr card pr-state-{pr_state} pr-author-{pr.author.login.toLowerCase()}">
+<pr-card class="card pr-state-{pr_state} pr-author-{pr.author.login.toLowerCase()}">
 <div class="card-header">
     <a
         class="pr-title pr-state-{pr_state}"
@@ -151,6 +151,7 @@
         margin-right: 0.1em;
     }
 
+    /* :global due to GitHubUser component using same class */
     :global(.pr-attribute) {
         display: block;
         float: left;
@@ -159,14 +160,16 @@
 
     .pr-target-branch {text-align: right; float: right}
 
-    /* Elements that start new row in the card*/
+    /* Elements that start new row in the card,
+    :global due to GitHubUser component using same class*/
     :global(.pr-reviewer),
     .pr-commit,
     :global(.pr-author) {
         clear: left;
     }
 
-    /* Prevent long github user handles from breaking layout */
+    /* Prevent long github user handles from breaking layout,
+    :global due to GitHubUser component using same class */
     :global(.pr-reviewer) {
         max-width: 8em;
         text-overflow: clip;

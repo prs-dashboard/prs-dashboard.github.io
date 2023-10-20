@@ -115,7 +115,7 @@
                 selected_pr.classList.remove('pr-card-selected');
             }
 
-            selected_pr = window.getSelection().focusNode.parentElement.closest('.pr-card');
+            selected_pr = window.getSelection().focusNode.parentElement.closest('pr-card');
             if (selected_pr) {
                 selected_pr.classList.add('pr-card-selected');
             }

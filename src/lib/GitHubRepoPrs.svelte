@@ -54,6 +54,7 @@
             + unselected_authors.map(x => `#${pr_list_id} .pr-author-${x} {display: none !important}`).join('\n');
 
         pr_list_element.appendChild(style_element);
+        console.log('Rebuilt a style for filtering PRs');
     }
 
     let prs_loaded = [];
@@ -80,23 +81,22 @@
 
     loadPrs(prs_provider, parseInt(initial_display_prs_count));
 
-    $: {
-        // make sure that updated if selected_pr_types and/or selected_authors change
-        filterPrs(selected_pr_types, selected_authors);
+    // make sure that updated if selected_pr_types and/or selected_authors change
+    $: filterPrs(selected_pr_types, selected_authors);
 
-        if (pr_list_element && prs_loaded) {
-            // do a timeout to allow all PRs to be in DOM
-            setTimeout(() => {
-                // Now count all occurrences of all PR types
-                prs_filters = prs_filters.map((filter) => {
-                    let key = filter.id;
-                    const count = pr_list_element.querySelectorAll(`pr-card .pr-state-${key}`).length;
+    // Update filter description counters
+    $: if (pr_list_element && prs_loaded) {
+        // do a timeout to allow all PRs to be in DOM
+        setTimeout(() => {
+            // Now count all occurrences of all PR types
+            prs_filters = prs_filters.map((filter) => {
+                let key = filter.id;
+                const count = pr_list_element.querySelectorAll(`pr-card .pr-state-${key}`).length;
 
-                    return {id: filter.id, text: `${key} (${count})`};
-                });
-            }, 100);
-        }
-    };
+                return {id: filter.id, text: `${key} (${count})`};
+            });
+        }, 100);
+    }
 
 </script>
 
@@ -116,9 +116,7 @@
 {#if prs_loading_error}
     <prs-loading-error class="error">
         <div class="button-container">
-        <button type="button" class='close-button btn btn-danger' on:click={() => {prs_loading_error = null;}}>
-            <i class="fa-solid fa-xmark"></i>
-        </button>
+        <button type="button" class='close-button btn btn-danger fa-solid fa-xmark' on:click={() => {prs_loading_error = null;}} />
         </div>
         Got an error you are:<br><pre>{prs_loading_error}</pre>
     </prs-loading-error>
@@ -130,10 +128,21 @@
 {#each prs_loaded as pr}
         <GitHubPrCard pull_request={pr} />
 {/each}
-    </prs-list>
 {#if prs_are_loading}
-    <prs-loading></prs-loading>
+    <div class='prs_are_loading'>
+        <prs-loading class="fas fa-sync-alt" title='Waiting response from server'/>
+    </div>
+{:else}
+    <div class='load-more'>
+        <button
+            type='button'
+            class='more-button btn btn-outline-secondary fa-solid fa-angles-right'
+            title='Load next PRs'
+            on:click={() => {loadPrs(prs_provider, 10);}}
+        />
+    </div>
 {/if}
+    </prs-list>
 </section>
 
 <style>
@@ -162,19 +171,8 @@
         pointer-events: none;
     }
 
-    prs-loading {
-        animation: fa-spin 2s infinite ease-in-out, blink 2s infinite ease-in-out;
+    .prs_are_loading {
         display: inline-block;
-        vertical-align: text-bottom;
-        /* margin-bottom: 2em; */
-    }
-
-    prs-loading:before {
-        font: var(--fa-font-solid);
-        content: "\f2f1";
-        font-size: 40px;
-        color: var(--highlight-color);
-        margin: -10px calc((400px - 40px)/2);
     }
 
     prs-loading-error {
@@ -206,9 +204,18 @@
         color: darkred;
     }
 
+    prs-loading {
+        animation: fa-spin 2s infinite ease-in-out, blink 2s infinite ease-in-out;
+        display: inline-block;
+        color: var(--highlight-color);
+        font-size: 5em;
+        /* margin-bottom: 2em; */
+    }
+
     @keyframes blink {
         0%   {opacity: 0.2;}
-        50%   {opacity: 0.6;}
+        30%   {opacity: 0.6;}
+        70%   {opacity: 0.6;}
         100% {opacity: 0.2;}
     }
 </style>

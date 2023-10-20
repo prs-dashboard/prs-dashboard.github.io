@@ -13,7 +13,7 @@
     import { onMount } from 'svelte';
 
     const repo_name = prs_provider.repoName();
-    const pr_list_id = repo_name.replaceAll('/', '_');
+    const pr_list_id = repo_name.replaceAll('/', '_');  // Can't use id/classes with '/' in css
 
     let prs_filters = [
         {id: "open",   text: "open (0)"},
@@ -69,6 +69,7 @@
                 prs_loaded.push(value);
                 prs_loaded = prs_loaded;
             }
+            // throw 'Bip-boop some error you got.\nWith more and more details\nmaybe a stacktrace?';
         } catch (error) {
             console.log(`Error loading PRs for repo {repo_name} : {error}`);
             prs_loading_error = error;
@@ -113,8 +114,13 @@
             <Filters group_name="pr_filters" filters={prs_filters} bind:selected={selected_pr_types}/>
     </h2>
 {#if prs_loading_error}
-    <prs-loading-error class=error>
-        {prs_loading_error}
+    <prs-loading-error class="error">
+        <div class="button-container">
+        <button type="button" class='close-button btn btn-danger' on:click={() => {prs_loading_error = null;}}>
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        </div>
+        Got an error you are:<br><pre>{prs_loading_error}</pre>
     </prs-loading-error>
 {/if}
     <prs-list
@@ -134,6 +140,8 @@
     h2.repo-title > :global(form) {display: inline-block;}
     h2.repo-title > :global(form) > :global(label) {font-size: medium;}
     .pr-list > :global(pr-card) {display: inline-block}
+    .pr-list { display: block;}
+    .pr-list > .load-more {display: inline-block;}
 
     .repo-title {
         display: block;
@@ -167,6 +175,35 @@
         font-size: 40px;
         color: var(--highlight-color);
         margin: -10px calc((400px - 40px)/2);
+    }
+
+    prs-loading-error {
+        margin-top: -0.5em;
+        margin-bottom: 1em;
+        background: red;
+        padding: 0.3em;
+
+        display: grid;
+        grid-template-columns: 1fr 30fr;
+    }
+    prs-loading-error pre {
+        color: black;
+        margin: 0px;
+        padding: 0px;
+        grid-row-start: 2;
+        grid-row-end: 100;
+        padding-left: 2em;
+    }
+
+    prs-loading-error .button-container {
+        display: grid;
+        grid-column-start: 1;
+        grid-row-start: 1;
+        grid-row-end: 100;
+        margin-right: 1em;
+    }
+    prs-loading-error .button-container i {
+        color: darkred;
     }
 
     @keyframes blink {

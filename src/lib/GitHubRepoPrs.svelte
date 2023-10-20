@@ -199,9 +199,6 @@
         grid-row-end: 100;
         margin-right: 1em;
     }
-    prs-loading-error .button-container i {
-        color: darkred;
-    }
 
     prs-loading {
         animation: fa-spin 2s infinite ease-in-out, blink 2s infinite ease-in-out;

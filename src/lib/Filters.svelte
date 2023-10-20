@@ -1,6 +1,4 @@
 <script>
-    import { get } from "svelte/store";
-
     export let group_name = '';
     export let filters = []; // [{id: ..., text: "human readable description"}, ...]
 

@@ -3,11 +3,13 @@
     import Filters from './lib/Filters.svelte';
     import GitHubRepoPrs from './lib/GitHubRepoPrs.svelte';
 
-    import { getGitHubToken } from './lib/GitHubToken.js'
-    import { searchPRs } from './lib/GitHubPrs';
+    import { getGitHubToken } from './lib/GitHubAPI/GitHubToken.js'
+    import { SimpleRepoProvider } from './lib/GitHubAPI/GitHubPrs.js';
+    import { GitHubGraphQL } from './lib/GitHubAPI/github_api';
+    // import { GitHubGraphQLMock } from './lib/GitHubAPI/github_api_mock.js';
 
     const repos = getRepos();
-    const authors = getParameters('author');
+    const authors = getParameters('author', 'authors');
     const assignees = getParameters('assignee');
     const query = getParameter('query');
     const title = getParameter('title');
@@ -17,15 +19,19 @@
 
     // Allow user to specify namespace to use different tokens for different repos/access rights.
     const github_token = getGitHubToken(namespace);
+    // const github_api = new GitHubGraphQLMock();
+    const github_api = new GitHubGraphQL(github_token);
+    const rate_limit = github_api.getRateLimit();
+    {console.log('rate limit response: ', rate_limit);}
 
     // Initially all authors/review assignees are checked
     let authors_filter = authors.map(author => ({id: author}));
     let authors_selected = authors;
-    console.log(`authors_selected : ${authors_selected}`)
+    // console.log(`authors_selected : ${authors_selected}`)
     let assignees_filter = assignees.map(assignee => ({id: assignee}));
     let assignees_selected = assignees;
 
-    function getParameters(name) {
+    function getParameters(name, name_array) {
         let result = [];
         // @ts-ignore
         for (const [k, v] of new URL(document.location).searchParams) {
@@ -33,6 +39,13 @@
                 result.push(v);
         }
 
+        for (const [k, v] of new URL(document.location).searchParams) {
+            if (k === name)
+                result.push(v);
+        }
+
+        result = Array.from(new Set(result));
+        result.sort();
         return result;
     }
 
@@ -53,6 +66,8 @@
 
             if (prs_count === undefined)
                 prs_count = DEAFULT_PRS_COUNT;
+            else
+                prs_count = parseInt(prs_count);
 
             // let repo_object = {}
             // repo_object[repo_name] = prs_count;
@@ -78,11 +93,12 @@
         let app_customization = document.querySelector(':root');
         console.log("customization:", app_customization);
         app_customization.style.setProperty('--pr-card-selection-highlight-color', new_color);
+        app_customization.style.setProperty('--highlight-color', new_color);
 
         var icon_element = document.getElementById("icon");
-        console.log(icon_element);
+        // console.log(icon_element);
         icon_element.src = icon.href;
-        console.log(icon_element.href);
+        // console.log(icon_element.href);
     }
 
     onMount( async() => {
@@ -91,7 +107,7 @@
 
         setColor(color);
 
-        // Hightlight selected PR or one that was selected with browser's find
+        // Highlight selected PR or one that was selected with browser's find
         // Helpful when searching for PR by title and not all part of it are visible.
         var selected_pr = null;
         document.addEventListener('selectionchange', () => {
@@ -99,7 +115,7 @@
                 selected_pr.classList.remove('pr-card-selected');
             }
 
-            selected_pr = window.getSelection().focusNode.parentElement.closest('.pr-card');
+            selected_pr = window.getSelection().focusNode.parentElement.closest('pr-card');
             if (selected_pr) {
                 selected_pr.classList.add('pr-card-selected');
             }
@@ -111,8 +127,8 @@
 <main>
     <header>
         <div id=icon_container>
-            <a href="https://github.com/prs-dashboard/prs-dashboard.github.io" title="See this project on GitHub">
-                <img id=icon>
+            <a href="https://github.com/prs-dashboard/prs-dashboard.github.io" rel="noopener noreferrer" target="_blank" title="See this project on GitHub">
+                <img id=icon alt="PRs Dashboard Logo">
             </a>
         </div>
         <div>
@@ -143,18 +159,16 @@
     </div>
 {/if}
     </header>
-{#await github_token then token}
 {#each repos as repo}
     <GitHubRepoPrs
-        github_repo={repo[0]}
+        all_authors={authors}
         selected_authors={authors.length > 0 ? authors_selected : null}
-        pull_requests_promise={searchPRs(repo[0], authors, assignees, query, repo[1], token)}
+        prs_provider= {new SimpleRepoProvider(github_api, repo[0], authors, assignees, query, 10)}
+        initial_display_prs_count={repo[1]}
     />
 {:else}
-    <section>It looks empty...<br>please <a href="https://github.com/prs-dashboard/prs-dashboard.github.io#readme">read the docs</a> on how to add repositories/authors/whatever to dashboard</section>
+    <section>It looks empty...<br>please <a href="https://github.com/prs-dashboard/prs-dashboard.github.io#readme" rel="noopener noreferrer" target="_blank">read the docs</a> on how to add repositories/authors/whatever to dashboard</section>
 {/each}
-
-{/await}
 </main>
 
 <style>

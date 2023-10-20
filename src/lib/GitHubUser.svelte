@@ -8,6 +8,8 @@
     >
     <a
         href="{user.url}"
+        rel="noopener noreferrer"
+        target="_blank"
         >
         <img
             alt="{user.name} avatar"

@@ -1,4 +1,4 @@
-import {doGitHubGraphQLRequest} from './doGitHubGraphQLRequest.js';
+import { GitHubGraphQL } from './github_api.js';
 
 export async function getGitHubToken(token_storage_prefix) {
     const github_token_storage_name = token_storage_prefix && token_storage_prefix.length > 0 ? token_storage_prefix + ':github_token' : 'github_token';
@@ -33,11 +33,19 @@ async function getValidGithubToken(github_token) {
 }
 
 async function isValidGithubToken(github_token) {
+
     if (github_token) {
-        let response = await doGitHubGraphQLRequest(`{rateLimit { remaining }}`, github_token);
-        console.log(response);
-        if (response && response.data && response.data.rateLimit.remaining > 0)
-            return true;
+        const github_api = new GitHubGraphQL(github_token);
+        try
+        {
+            let response = await github_api.getRateLimit();
+            if (response && response.rateLimit.remaining > 0)
+                return true;
+        }
+        catch(error) {
+            console.log('got error while checking token validity: ', error);
+            return false;
+        }
     }
 
     return false;

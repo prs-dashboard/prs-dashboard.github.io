@@ -9,7 +9,7 @@ on:
       - reopened
       - synchronize
     branches:
-      -main
+      - main
 
   workflow_dispatch:
 

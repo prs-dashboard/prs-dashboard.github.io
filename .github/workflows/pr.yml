@@ -1,0 +1,25 @@
+# Based on https://github.com/josecelano/svelte-deploy-with-github-actions/blob/master/.github/workflows/deploy.yml
+
+name: Check that PR is buildable
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+    branches:
+      -main
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install and Build
+        run: |
+          npm install
+          npm run build

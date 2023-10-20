@@ -155,7 +155,6 @@
     .repo-title {
         display: block;
         padding: 5px;
-        background-color: lightgray;
         margin-top: 0.5em;
         width: 100vw;
     }

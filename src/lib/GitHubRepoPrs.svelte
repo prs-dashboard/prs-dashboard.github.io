@@ -1,12 +1,19 @@
 <script>
-    export let github_repo = '';
+    // Inputs
+    export let all_authors = [];
     export let selected_authors = []; // may be null or undefined if no filtering by authors is required
     export let prs_provider = new SimpleRepoProvider();
     export let initial_display_prs_count = 10;
 
+    // Dependencies
     import GitHubPrCard from './GitHubPrCard.svelte';
     import Filters from './Filters.svelte';
     import { SimpleRepoProvider } from './GitHubAPI/GitHubPrs';
+    import { construct_svelte_component } from 'svelte/internal';
+    import { onMount } from 'svelte';
+
+    const repo_name = prs_provider.repoName();
+    const section_id = repo_name.replaceAll('/', '_');
 
     let prs_filters = [
         {id: "open",   text: "open (0)"},
@@ -14,45 +21,43 @@
         {id: "closed", text: "closed (0)"},
         {id: "draft",  text: "draft (0)"},
     ];
-
     let selected_pr_types = prs_filters.map(filter => filter.id);
 
-    const repo_name = github_repo;
+    // Ref to DOM entity of the top-level element
+    let top_level_section_element = undefined;
+    onMount(() => {
+        top_level_section_element = document.getElementById(section_id);
+    });
 
-    function filterPrs(prs) {
-        // Filter incoming PRs, also update counters of the filters
-        console.log("!! Before filtering:  ", prs.length, " filters: ", prs_filters);
-        let counts = new Map();
-
-        function pr_state(pr) {
-            return pr.isDraft ? 'draft' : pr.state.toLowerCase();
+    function filterPrs(selected_pr_types, selected_authors) {
+        // rewrite <style> of the <section> to hide all prs that were deselected
+        function unselected(all, selected) {
+            return [...all].filter(a => ! new Set(selected).has(a));
         }
 
-        prs = prs.filter((pr) => {
-            const state = pr_state(pr);
-            let found = selected_pr_types.includes(state);
-            if (Array.isArray(selected_authors))
-                found = found && selected_authors.includes(pr.author.login.toLowerCase());
+        if (!top_level_section_element)
+            return;
 
-            if (found) {
-                const prev = counts.get(state) || 0;
-                counts.set(state, prev + 1);
-            }
-            return found;
-        });
+        const unselected_pr_types = unselected(prs_filters.map(x => x.id), selected_pr_types);
+        const unselected_authors = unselected(all_authors, selected_authors);
 
-        // update numbers in filter text description
-        prs_filters = prs_filters.map((filter) => {
-            let key = filter.id;
-            return {id: filter.id, text: `${key} (${counts.get(key) || 0})`};
-        });
+        // Clear all previous style definitions
+        const prev_styles = top_level_section_element.getElementsByTagName('style');
+        if (prev_styles) {
+            var arr = [].slice.call(prev_styles).forEach(element => {
+                element.remove();
+            });
+        }
 
-        console.log("!!! After filtering:  ", prs.length);
-        return prs;
+        let style_element = document.createElement('style')
+        style_element.innerHTML = unselected_pr_types.map(x => `#${section_id} .pr-state-${x} {display: none !important}`).join('\n')
+            + unselected_authors.map(x => `#${section_id} .pr-author-${x} {display: none !important}`).join('\n');
+
+        top_level_section_element.appendChild(style_element);
     }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    let prs_unfiltered = [];
+    let prs_loaded = [];
     let prs_are_loading = true;
     let prs_loading_error = undefined;
 
@@ -62,8 +67,8 @@
 
         try {
             for await (let value of prs_provider.loadMoreGenerator(number_of_prs_to_load)) {
-                prs_unfiltered.push(value);
-                prs_unfiltered = prs_unfiltered;
+                prs_loaded.push(value);
+                prs_loaded = prs_loaded;
             }
         } catch (error) {
             console.log(`Error loading PRs for repo {repo_name} : {error}`);
@@ -76,16 +81,27 @@
     loadPrs(prs_provider, parseInt(initial_display_prs_count));
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    let prs_filtered = [];
     $: {
         // make sure that updated if selected_pr_types and/or selected_authors change
-        selected_pr_types, selected_authors, prs_unfiltered;
-        prs_filtered = filterPrs(prs_unfiltered);
+        filterPrs(selected_pr_types, selected_authors);
+
+        if (top_level_section_element && prs_loaded) {
+            // do a timeout to allow all PRs to be in DOM
+            setTimeout(() => {
+                // Now count all occurrences of all PR types
+                prs_filters = prs_filters.map((filter) => {
+                    let key = filter.id;
+                    const count = top_level_section_element.querySelectorAll(`pr-card .pr-state-${key}`).length;
+
+                    return {id: filter.id, text: `${key} (${count})`};
+                });
+            }, 100);
+        }
     };
 
-  </script>
+</script>
 
-<section id="{repo_name}" style="container-fluid">
+<section id="{section_id}" style="container-fluid">
     <h2
         class="repo-title"
         >
@@ -106,12 +122,12 @@
     <prs-list
         class="pr-list"
         >
-{#each prs_filtered as pr}
+{#each prs_loaded as pr}
         <GitHubPrCard pull_request={pr} />
 {/each}
     </prs-list>
 {#if prs_are_loading}
-    <prs-loading>... Loading ...</prs-loading>
+    <prs-loading></prs-loading>
 {/if}
 </section>
 
@@ -137,5 +153,26 @@
         height: 3em;
         visibility: hidden;
         pointer-events: none;
+    }
+
+    prs-loading {
+        animation: fa-spin 2s infinite ease-in-out, blink 2s infinite ease-in-out;
+        display: inline-block;
+        vertical-align: text-bottom;
+        /* margin-bottom: 2em; */
+    }
+
+    prs-loading:before {
+        font: var(--fa-font-solid);
+        content: "\f2f1";
+        font-size: 40px;
+        color: var(--highlight-color);
+        margin: -10px calc((400px - 40px)/2);
+    }
+
+    @keyframes blink {
+        0%   {opacity: 0.2;}
+        50%   {opacity: 0.6;}
+        100% {opacity: 0.2;}
     }
 </style>

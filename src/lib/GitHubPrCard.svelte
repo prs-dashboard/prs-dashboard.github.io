@@ -144,8 +144,8 @@
 
     .pr-target-branch::before {
         /** Doesn't work with --fa-font-regular **/
-        content: " \f126 ";
         font: var(--fa-font-solid);
+        content: " \f126 ";
         margin-left: 0.5em;
         font-size: 0.7em;
         margin-right: 0.1em;

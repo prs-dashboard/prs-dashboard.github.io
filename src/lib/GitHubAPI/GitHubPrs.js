@@ -40,11 +40,9 @@ class SimpleRepoProvider {
   async loadMore(number_of_prs) {
     console.log(`${this.name} loadMore(${number_of_prs})`)
 
-    for (let pr in this.loadMoreGenerator(number_of_prs)) {
+    for await (let pr of this.loadMoreGenerator(number_of_prs)) {
       ;// do nothing, just consume the generator, all PRs are added to this.prs by generator.
     }
-
-
     return this.prs;
   }
 

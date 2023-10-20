@@ -93,6 +93,7 @@
         let app_customization = document.querySelector(':root');
         console.log("customization:", app_customization);
         app_customization.style.setProperty('--pr-card-selection-highlight-color', new_color);
+        app_customization.style.setProperty('--highlight-color', new_color);
 
         var icon_element = document.getElementById("icon");
         // console.log(icon_element);
@@ -160,7 +161,7 @@
     </header>
 {#each repos as repo}
     <GitHubRepoPrs
-        github_repo={repo[0]}
+        all_authors={authors}
         selected_authors={authors.length > 0 ? authors_selected : null}
         prs_provider= {new SimpleRepoProvider(github_api, repo[0], authors, assignees, query, 10)}
         initial_display_prs_count={repo[1]}

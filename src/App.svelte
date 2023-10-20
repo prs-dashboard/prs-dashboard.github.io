@@ -107,7 +107,7 @@
 
         setColor(color);
 
-        // Hightlight selected PR or one that was selected with browser's find
+        // Highlight selected PR or one that was selected with browser's find
         // Helpful when searching for PR by title and not all part of it are visible.
         var selected_pr = null;
         document.addEventListener('selectionchange', () => {

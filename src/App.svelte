@@ -31,6 +31,19 @@
     let assignees_filter = assignees.map(assignee => ({id: assignee}));
     let assignees_selected = assignees;
 
+    function unique(input_array) {
+        let result = [];
+        let tmp_set = new Set();
+        for (const v of input_array) {
+            if (!tmp_set.has(v)) {
+                result.push(v);
+                tmp_set.add(v);
+            }
+        }
+
+        return result;
+    }
+
     function getParameters(name, name_array) {
         let result = [];
         // @ts-ignore
@@ -44,8 +57,7 @@
                 result.push(v);
         }
 
-        result = Array.from(new Set(result));
-        result.sort();
+        result = unique(result);
         return result;
     }
 

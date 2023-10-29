@@ -258,8 +258,9 @@
     }
 
     .card {
-        max-width: 365px;
-        width: 365px;
+        max-width: 400px;
+        min-width: 365px;
+        /* width: 365px; */
         margin: .1em;
     }
 

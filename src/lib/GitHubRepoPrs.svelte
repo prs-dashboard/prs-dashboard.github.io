@@ -221,8 +221,7 @@
         animation: fa-spin 2s infinite ease-in-out, blink 2s infinite ease-in-out;
         display: inline-block;
         color: var(--highlight-color);
-        font-size: 5em;
-        /* margin-bottom: 2em; */
+        font-size: 3em;
     }
 
     @keyframes blink {

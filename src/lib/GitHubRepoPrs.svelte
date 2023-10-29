@@ -58,17 +58,22 @@
     }
 
     let prs_loaded = [];
-    let prs_are_loading = true;
+    let prs_are_loading = false;
     let prs_loading_error = undefined;
+    let prs_can_load_more = true;
+    let prs_shown_count = 0;
 
     async function loadPrs(prs_provider, number_of_prs_to_load) {
         prs_are_loading = true;
         prs_loading_error = undefined;
 
+        let prs_loaded_per_request = 0;
         try {
             for await (let value of prs_provider.loadMoreGenerator(number_of_prs_to_load)) {
+                prs_loaded_per_request += 1;
                 prs_loaded.push(value);
                 prs_loaded = prs_loaded;
+                // await new Promise(resolve => setTimeout(resolve, 500));
             }
             // throw 'Bip-boop some error you got.\nWith more and more details\nmaybe a stacktrace?';
         } catch (error) {
@@ -77,6 +82,10 @@
         }
 
         prs_are_loading = false;
+
+        // if no PRs were loaded in previous iteration, then source must be depleted.
+        if (prs_loaded_per_request == 0 && !prs_loading_error)
+            prs_can_load_more = false;
     }
 
     loadPrs(prs_provider, parseInt(initial_display_prs_count));
@@ -88,13 +97,18 @@
     $: if (pr_list_element && prs_loaded) {
         // do a timeout to allow all PRs to be in DOM
         setTimeout(() => {
+            let prs_shown = 0;
             // Now count all occurrences of all PR types
             prs_filters = prs_filters.map((filter) => {
                 let key = filter.id;
                 const count = pr_list_element.querySelectorAll(`pr-card .pr-state-${key}`).length;
 
+                if (selected_pr_types.findIndex(x => x == filter.id) != -1 )
+                    prs_shown += count;
+
                 return {id: filter.id, text: `${key} (${count})`};
             });
+            prs_shown_count = prs_shown;
         }, 100);
     }
 
@@ -112,6 +126,7 @@
                     {repo_name}
             </a>
             <Filters group_name="pr_filters" filters={prs_filters} bind:selected={selected_pr_types}/>
+            <div class=counters>total {prs_loaded.length}, displayed {prs_shown_count}</div>
     </h2>
 {#if prs_loading_error}
     <prs-loading-error class="error">
@@ -128,35 +143,41 @@
 {#each prs_loaded as pr}
         <GitHubPrCard pull_request={pr} />
 {/each}
+    </prs-list>
 {#if prs_are_loading}
-    <div class='prs_are_loading'>
-        <prs-loading class="fas fa-sync-alt" title='Waiting response from server'/>
-    </div>
+    <!-- <div class='prs_are_loading'> -->
+        <prs-loading class="fas fa-sync-alt" title='Loading data from server'/>
+    <!-- </div> -->
 {:else}
-    <div class='load-more'>
-        <button
+    <button
             type='button'
-            class='more-button btn btn-outline-secondary fa-solid fa-angles-right'
-            title='Load next PRs'
+            class='load-more more-button btn btn-outline-secondary fa-solid fa-angles-right'
+            disabled={!prs_can_load_more}
+            title={prs_can_load_more ? 'Load next PRs' : 'No more PRs in repo'}
             on:click={() => {loadPrs(prs_provider, 10);}}
         />
-    </div>
 {/if}
-    </prs-list>
 </section>
 
 <style>
     h2.repo-title > :global(form) {display: inline-block;}
     h2.repo-title > :global(form) > :global(label) {font-size: medium;}
-    .pr-list > :global(pr-card) {display: inline-block}
-    .pr-list { display: block;}
-    .pr-list > .load-more {display: inline-block;}
+    .pr-list > :global(pr-card) {display: inline-block; flex: 1 1 0;}
+    .pr-list {
+        display: flex;
+        flex-flow: row wrap;
+    }
 
     .repo-title {
         display: block;
         padding: 5px;
         margin-top: 0.5em;
         width: 100vw;
+    }
+
+    .counters {
+        display: inline-block;
+        font-size: medium;
     }
 
     /* Make shure that navigating to Repo title makes it visible despite floating header.
@@ -168,10 +189,6 @@
         height: 3em;
         visibility: hidden;
         pointer-events: none;
-    }
-
-    .prs_are_loading {
-        display: inline-block;
     }
 
     prs-loading-error {

@@ -228,16 +228,22 @@
     }
 
     prs-loading {
-        animation: fa-spin 2s infinite ease-in-out, blink 2s infinite ease-in-out;
+        animation: spin-180 1.6s infinite ease-in, blink 1.6s infinite ease-in;
         display: inline-block;
         color: var(--highlight-color);
         font-size: 3em;
     }
 
     @keyframes blink {
-        0%   {opacity: 0.2;}
-        30%   {opacity: 0.6;}
-        70%   {opacity: 0.6;}
-        100% {opacity: 0.2;}
+        0%   {opacity: 0.7;}
+        1%   {opacity: 0.5;}
+        /* 10%   {opacity: 0.4;}
+        25%   {opacity: 0.7;}
+        75%   {opacity: 0.7;} */
+        100% {opacity: 0.9;}
+    }
+    @keyframes spin-180 {
+        0%   {transform: rotate(0deg);}
+        100% {transform: rotate(180deg);}
     }
 </style>

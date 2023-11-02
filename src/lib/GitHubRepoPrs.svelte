@@ -126,14 +126,23 @@
                     {repo_name}
             </a>
             <Filters group_name="pr_filters" filters={prs_filters} bind:selected={selected_pr_types}/>
-            <div class=counters>total {prs_loaded.length}, displayed {prs_shown_count}</div>
+            <div
+                class=counters
+                >
+                    total {prs_loaded.length}, displayed {prs_shown_count}
+            </div>
     </h2>
 {#if prs_loading_error}
     <prs-loading-error class="error">
         <div class="button-container">
-        <button type="button" class='close-button btn btn-danger fa-solid fa-xmark' on:click={() => {prs_loading_error = null;}} />
+            <button
+                type="button"
+                class='close-button btn btn-danger fa-solid fa-xmark'
+                on:click={() => {prs_loading_error = null;}}
+                />
         </div>
-        Got an error you are:<br><pre>{prs_loading_error}</pre>
+        Got an error you are:<br>
+        <pre>{prs_loading_error}</pre>
     </prs-loading-error>
 {/if}
     <prs-list
@@ -145,16 +154,17 @@
 {/each}
     </prs-list>
 {#if prs_are_loading}
-    <!-- <div class='prs_are_loading'> -->
-        <prs-loading class="fas fa-sync-alt" title='Loading data from server'/>
-    <!-- </div> -->
+    <prs-loading
+        class="fas fa-sync-alt"
+        title='Loading data from server'
+        />
 {:else}
     <button
-            type='button'
-            class='load-more more-button btn btn-outline-secondary fa-solid fa-angles-right'
-            disabled={!prs_can_load_more}
-            title={prs_can_load_more ? 'Load next PRs' : 'No more PRs in repo'}
-            on:click={() => {loadPrs(prs_provider, 10);}}
+        type='button'
+        class='load-more more-button btn btn-outline-secondary fa-solid fa-angles-right'
+        disabled={!prs_can_load_more}
+        title={prs_can_load_more ? 'Load next 10 PRs' : 'No more PRs in repo'}
+        on:click={() => {loadPrs(prs_provider, 10);}}
         />
 {/if}
 </section>
@@ -218,16 +228,22 @@
     }
 
     prs-loading {
-        animation: fa-spin 2s infinite ease-in-out, blink 2s infinite ease-in-out;
+        animation: spin-180 1.6s infinite ease-in, blink 1.6s infinite ease-in;
         display: inline-block;
         color: var(--highlight-color);
         font-size: 3em;
     }
 
     @keyframes blink {
-        0%   {opacity: 0.2;}
-        30%   {opacity: 0.6;}
-        70%   {opacity: 0.6;}
-        100% {opacity: 0.2;}
+        0%   {opacity: 0.7;}
+        1%   {opacity: 0.5;}
+        /* 10%   {opacity: 0.4;}
+        25%   {opacity: 0.7;}
+        75%   {opacity: 0.7;} */
+        100% {opacity: 0.9;}
+    }
+    @keyframes spin-180 {
+        0%   {transform: rotate(0deg);}
+        100% {transform: rotate(180deg);}
     }
 </style>

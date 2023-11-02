@@ -53,10 +53,9 @@ class SimpleRepoProvider {
     // repeat load more until required number of PRs is loaded or until there is no more
     const initial = this.prs.length;
     while (this.hasNextPage && this.prs.length < initial + number_of_prs) {
-      let remaining = number_of_prs + initial - this.prs.length;
-      // console.log(`${this.name} remaining RPs to load: ${remaining}`)
+      const remaining = number_of_prs + initial - this.prs.length;
+
       let data = await this.makeRequest(remaining, this.endCursor);
-      // console.log(`${this.name} received data: `, data)
 
       this.endCursor = data.pageInfo.endCursor
       this.hasNextPage = data.pageInfo.hasNextPage

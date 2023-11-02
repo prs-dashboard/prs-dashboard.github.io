@@ -126,14 +126,23 @@
                     {repo_name}
             </a>
             <Filters group_name="pr_filters" filters={prs_filters} bind:selected={selected_pr_types}/>
-            <div class=counters>total {prs_loaded.length}, displayed {prs_shown_count}</div>
+            <div
+                class=counters
+                >
+                    total {prs_loaded.length}, displayed {prs_shown_count}
+            </div>
     </h2>
 {#if prs_loading_error}
     <prs-loading-error class="error">
         <div class="button-container">
-        <button type="button" class='close-button btn btn-danger fa-solid fa-xmark' on:click={() => {prs_loading_error = null;}} />
+            <button
+                type="button"
+                class='close-button btn btn-danger fa-solid fa-xmark'
+                on:click={() => {prs_loading_error = null;}}
+                />
         </div>
-        Got an error you are:<br><pre>{prs_loading_error}</pre>
+        Got an error you are:<br>
+        <pre>{prs_loading_error}</pre>
     </prs-loading-error>
 {/if}
     <prs-list
@@ -145,16 +154,17 @@
 {/each}
     </prs-list>
 {#if prs_are_loading}
-    <!-- <div class='prs_are_loading'> -->
-        <prs-loading class="fas fa-sync-alt" title='Loading data from server'/>
-    <!-- </div> -->
+    <prs-loading
+        class="fas fa-sync-alt"
+        title='Loading data from server'
+        />
 {:else}
     <button
-            type='button'
-            class='load-more more-button btn btn-outline-secondary fa-solid fa-angles-right'
-            disabled={!prs_can_load_more}
-            title={prs_can_load_more ? 'Load next PRs' : 'No more PRs in repo'}
-            on:click={() => {loadPrs(prs_provider, 10);}}
+        type='button'
+        class='load-more more-button btn btn-outline-secondary fa-solid fa-angles-right'
+        disabled={!prs_can_load_more}
+        title={prs_can_load_more ? 'Load next 10 PRs' : 'No more PRs in repo'}
+        on:click={() => {loadPrs(prs_provider, 10);}}
         />
 {/if}
 </section>

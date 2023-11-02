@@ -12,10 +12,26 @@
 
     // console.log("Got input pr: ", pull_request);
     let pr = pull_request;
-    const commit = pr.commits.edges[0].node.commit;
+
+    const commit = function() {
+        try {
+            return pr.commits.nodes[0].commit;
+        }
+        catch (e) {
+            console.warn('Failed to get commit info from PR: ', pr, '\nerror:', e);
+
+            // Using empty commit so rest of the card can be properly displayed
+            return {
+                statusCheckRollup: '',
+                commitUrl: '',
+                oid: null,
+            };
+        }
+    }();
+
     const review = function () {
         try {
-            return pr.reviews.edges[0].node;
+            return pr.reviews.nodes[0];
         }
         catch (e) {
             return null;
@@ -28,6 +44,8 @@
     const commit_files = (() => {
         let files = [];
         for (let file of pr.files.nodes) {
+            // make a git-like changed file status:
+            // M	-3/+7	tests/ci/build_check.py
             files.push(`${file.changeType.slice(0, 1)}\t-${file.deletions}/+${file.additions}\t${file.path}`);
         }
         return files.join('\n');
@@ -43,21 +61,29 @@
 </script>
 
 
-<pr-card class="card pr-state-{pr_state} pr-author-{pr.author.login.toLowerCase()}">
-<div class="card-header">
-    <a
-        class="pr-title pr-state-{pr_state}"
-        href="{pr.url}"
-        title="#{pr.number} ({pr_state}) {pr.title}"
-        rel="noopener noreferrer" target="_blank"
-        >
+<pr-card
+    class="card pr-state-{pr_state} pr-author-{pr.author.login.toLowerCase()}"
+    >
+    <div class="card-header">
+        <a
+            class="pr-title pr-state-{pr_state}"
+            href="{pr.url}"
+            title="#{pr.number} ({pr_state}) {pr.title}"
+            rel="noopener noreferrer" target="_blank"
+            >
             #{pr.number} {pr.title}
-    </a>
-</div>
-<div class="card-body">
-    <GitHubUser user={pr.author} class="pr-attribute pr-author pr-user"/>
-    <div class="pr-attribute pr-target-branch" title="{pr_target_branch}">{pr_target_branch}</div>
+        </a>
+    </div>
+    <div class="card-body">
+        <GitHubUser user={pr.author} class="pr-attribute pr-author pr-user"/>
+        <div
+            class="pr-attribute pr-target-branch"
+            title="{pr_target_branch}"
+            >
+            {pr_target_branch}
+        </div>
         <div class="pr-attribute pr-commit">
+{#if commit.oid}
             <a
                 class="pr-commit-check-status pr-commit-check-status-{commit_status}"
                 href="{commit.commitUrl}/status-details" title="{commit_status}"
@@ -67,53 +93,66 @@
                 href="{commit.commitUrl}"
                 rel="noopener noreferrer" target="_blank"
                 >
-                    {commit.oid.slice(0, 8)}
+                {commit.oid.slice(0, 8)}
             </a>
+{:else}
+            no commits
+{/if}
         </div>
+{#if pr.commits.totalCount}
         <div
             class="pr-attribute pr-commits-count"
             >
-                ({pr.commits.totalCount})
+            ({pr.commits.totalCount})
         </div>
+{/if}
         <div
             class="pr-attribute pr-files"
             title="{commit_files}"
             >
-                {pr.changedFiles}
+            {pr.changedFiles}
         </div>
         <div
             class="pr-attribute pr-merge-status pr-merge-status-{pr.mergeable.toLowerCase()}"
             >
-                {pr.mergeable.toLowerCase()}
+            {pr.mergeable.toLowerCase()}
         </div>
 
-{#if pr.assignees && pr.assignees.nodes.length > 0}
-    <GitHubUser user={pr.assignees.nodes[0]} class="pr-attribute pr-reviewer pr-user"/>
-{:else}
-    <div class="pr-attribute pr-reviewer pr-user pr-reviewer-missing">NO REVIEWER</div>
-{/if}
-    <div
-        class="pr-attribute pr-reviewed"
-        >
-        {review ? review.state.toLowerCase() : 'NO REVIEW'}
-    </div >
-    <div
-        class="pr-attribute pr-comments"
-        title="{getComments(pr)}"
-        >{pr.comments.totalCount}</div>
-    <div class="pr-attribute pr-labels" title="{pr.labels ? pr.labels.nodes.map(label => label.name).join('\n') : undefined}">
-        {pr.labels ? pr.labels.totalCount : 0}
+    {#if pr.assignees && pr.assignees.nodes.length > 0}
+        <GitHubUser
+            user={pr.assignees.nodes[0]}
+            class="pr-attribute pr-reviewer pr-user"
+            />
+    {:else}
+        <div class="pr-attribute pr-reviewer pr-user pr-reviewer-missing">NO REVIEWER</div>
+    {/if}
+        <div
+            class="pr-attribute pr-reviewed"
+            >
+            {review ? review.state.toLowerCase() : 'NO REVIEW'}
+        </div>
+        <div
+            class="pr-attribute pr-comments"
+            title="{getComments(pr)}"
+            >
+            {pr.comments.totalCount}
+        </div>
+        <div
+            class="pr-attribute pr-labels"
+            title="{pr.labels ? pr.labels.nodes.map(label => label.name).join('\n') : undefined}"
+            >
+            {pr.labels ? pr.labels.totalCount : 0}
+        </div>
     </div>
-</div>
-<div class="card-footer">
-    <div class="pr-attribute pr-created-at pr-time">
-        <RelativeDateTime time={pr.createdAt} />
+    <div class="card-footer">
+        <div class="pr-attribute pr-created-at pr-time">
+            <RelativeDateTime time={pr.createdAt} />
+        </div>
+        <div class="pr-attribute pr-updated-at pr-time">
+            updated:
+            <RelativeDateTime time={pr.updatedAt} />
+        </div>
     </div>
-    <div class="pr-attribute pr-updated-at pr-time">
-        updated:
-        <RelativeDateTime time={pr.updatedAt} />
-    </div>
-</div>
 </pr-card>
 
 <style>

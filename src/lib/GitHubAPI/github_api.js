@@ -62,15 +62,16 @@ class GitHubGraphQL {
         if (after_cursor)
             after_clause = `after: "${after_cursor}"`;
 
-        const request_body = `{
-        search(
-                query: "${repo_clause} is:pr ${authors_clause} ${assignees_clause} sort:created-desc ${query}"
-                type: ISSUE
-                first: ${request_limit}
-                ${after_clause}
-        ) {
-            nodes {
-                ... on PullRequest {
+        const request_body = `
+{
+    search(
+        query: "${repo_clause} is:pr ${authors_clause} ${assignees_clause} sort:updated-desc ${query}"
+        type: ISSUE
+        first: ${request_limit}
+        ${after_clause})
+    {
+        nodes {
+            ... on PullRequest {
                 number
                 url
                 title
@@ -83,26 +84,24 @@ class GitHubGraphQL {
                 changedFiles
                 files(last: 60) {
                     nodes {
-                    changeType
-                    path
-                    deletions
-                    additions
+                        changeType
+                        path
+                        deletions
+                        additions
                     }
                     totalCount
                 }
                 labels (last: 20) {
                     totalCount
                     nodes {
-                    name
-                    color
+                        name
+                        color
                     }
                 }
                 reviews(last: 1) {
-                    edges {
-                    node {
+                    nodes {
                         id
                         state
-                    }
                     }
                 }
                 author {
@@ -110,77 +109,75 @@ class GitHubGraphQL {
                     login
                     url
                     ... on User {
-                    name
+                        name
                     }
                     ... on Organization {
-                    id
-                    name
+                        id
+                        name
                     }
                     ... on EnterpriseUserAccount {
-                    name
+                        name
                     }
                 }
                 commits(last: 1) {
                     totalCount
-                    edges {
-                    node {
+                    nodes {
                         commit {
-                        commitUrl
-                        oid
-                        statusCheckRollup {
-                            state
+                            commitUrl
+                            oid
+                            statusCheckRollup {
+                                state
+                            }
                         }
-                        }
-                    }
                     }
                 }
                 assignees(first: 10) {
                     nodes {
-                    login
-                    name
-                    avatarUrl
-                    url
+                        login
+                        name
+                        avatarUrl
+                        url
                     }
                 }
                 reviewRequests(first: 100) {
                     nodes {
-                    requestedReviewer {
-                        ... on User {
-                        name
-                        login
-                        avatarUrl
-                        url
+                        requestedReviewer {
+                            ... on User {
+                                name
+                                login
+                                avatarUrl
+                                url
+                            }
                         }
-                    }
                     }
                 }
                 comments(last: 10, orderBy: {field: UPDATED_AT, direction: DESC}) {
                     totalCount
                     nodes {
-                    author {
-                        ... on User {
-                        name
+                        author {
+                            ... on User {
+                            name
+                            }
+                            ... on Organization {
+                            id
+                            name
+                            }
+                            ... on EnterpriseUserAccount {
+                            name
+                            }
                         }
-                        ... on Organization {
-                        id
-                        name
-                        }
-                        ... on EnterpriseUserAccount {
-                        name
-                        }
-                    }
-                    updatedAt
-                    body
+                        updatedAt
+                        body
                     }
                 }
-                }
-            }
-            pageInfo {
-                endCursor
-                hasNextPage
             }
         }
-    }`;
+        pageInfo {
+            endCursor
+            hasNextPage
+        }
+    }
+}`;
 
         const response = await this.request(request_body);
         return response.search;

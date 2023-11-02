@@ -8,6 +8,7 @@
     import { GitHubGraphQL } from './lib/GitHubAPI/github_api';
     // import { GitHubGraphQLMock } from './lib/GitHubAPI/github_api_mock.js';
 
+    // TODO: check if repo is actually valid repo name
     const repos = getRepos();
     const authors = getParameters('author', 'authors');
     const assignees = getParameters('assignee');
@@ -46,13 +47,12 @@
 
     function getParameters(name, name_array) {
         let result = [];
-        // @ts-ignore
-        for (const [k, v] of new URL(document.location).searchParams) {
+        for (const [k, v] of new URL(document.location.toString()).searchParams) {
             if (k === name)
                 result.push(v);
         }
 
-        for (const [k, v] of new URL(document.location).searchParams) {
+        for (const [k, v] of new URL(document.location.toString()).searchParams) {
             if (k === name)
                 result.push(v);
         }
@@ -167,7 +167,18 @@
 {/if}
 {#if query}
     <div>
-        Query: {query}
+        <label
+            for="query"
+            >
+            Query:
+            <input
+                type="text"
+                id="query"
+                name="query"
+                value="{query}"
+                disabled
+                >
+        </label>
     </div>
 {/if}
     </header>

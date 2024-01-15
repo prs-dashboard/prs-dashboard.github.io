@@ -94,7 +94,7 @@
         const DEFAULT_COLOR = 'lightGray';
 
         if (!new_color || !CSS.supports('color', new_color)) {
-            console.error(`Invalid color value: ${new_color}, would not change accents not favicon color`);
+            console.error(`Invalid color value: ${new_color}, would not change accents nor favicon color`);
             new_color = DEFAULT_COLOR;
         }
 

@@ -82,6 +82,8 @@ class GitHubGraphQL {
                 mergeable
                 baseRefName
                 changedFiles
+                additions
+                deletions
                 files(last: 60) {
                     nodes {
                         changeType
@@ -133,13 +135,13 @@ class GitHubGraphQL {
                 }
                 assignees(first: 10) {
                     nodes {
-                        login
                         name
+                        login
                         avatarUrl
                         url
                     }
                 }
-                reviewRequests(first: 100) {
+                reviewRequests(last: 1) {
                     nodes {
                         requestedReviewer {
                             ... on User {
@@ -151,19 +153,18 @@ class GitHubGraphQL {
                         }
                     }
                 }
-                comments(last: 10, orderBy: {field: UPDATED_AT, direction: DESC}) {
+                comments(first: 5, orderBy: {field: UPDATED_AT, direction: DESC}) {
                     totalCount
                     nodes {
                         author {
                             ... on User {
-                            name
+                                name
                             }
                             ... on Organization {
-                            id
-                            name
+                                name
                             }
                             ... on EnterpriseUserAccount {
-                            name
+                                name
                             }
                         }
                         updatedAt

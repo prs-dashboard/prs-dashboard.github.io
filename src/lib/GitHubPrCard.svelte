@@ -43,20 +43,25 @@
 
     const commit_files = (() => {
         let files = [];
+        files.push(`+${pr.additions}/-${pr.deletions}`)
         for (let file of pr.files.nodes) {
             // make a git-like changed file status:
             // M	-3/+7	tests/ci/build_check.py
-            files.push(`${file.changeType.slice(0, 1)}\t-${file.deletions}/+${file.additions}\t${file.path}`);
+            files.push(`${file.changeType.slice(0, 1)}\t+${file.additions}/-${file.deletions}\t${file.path}`);
         }
         return files.join('\n');
     })();
 
-    function getComments(pr) {
+    function getComments(pr, last_n) {
+        if (!last_n)
+            last_n = pr.comments.nodes.length;
+
         let comments = [];
-        for (let comment of pr.comments.nodes) {
+        for (let comment of pr.comments.nodes.slice(pr.comments.nodes.length - last_n)) {
             comments.push(`${comment.updatedAt} ${comment.author.name}:\n${comment.body}`)
         }
-        return comments.join('\n\n');
+
+        return comments;
     }
 </script>
 
@@ -131,9 +136,10 @@
             >
             {review ? review.state.toLowerCase() : 'NO REVIEW'}
         </div>
+        <!-- Display only last few comments in reverse order (newest on top) so those are visible in tooltip. -->
         <div
             class="pr-attribute pr-comments"
-            title="{getComments(pr)}"
+            title="{getComments(pr).join('\n')}"
             >
             {pr.comments.totalCount}
         </div>

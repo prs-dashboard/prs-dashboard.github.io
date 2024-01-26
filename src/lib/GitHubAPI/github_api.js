@@ -24,7 +24,6 @@ class GitHubGraphQL {
         const result = await graphql(
             body,
             {
-
                 headers: {
                   authorization: `token ${this.access_token}`,
                 },

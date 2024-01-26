@@ -55,6 +55,8 @@
 
         pr_list_element.appendChild(style_element);
         console.log('Rebuilt a style for filtering PRs');
+
+        scheduleUpdateCounters();
     }
 
     let prs_loaded = [];
@@ -74,6 +76,8 @@
                 prs_loaded.push(value);
                 prs_loaded = prs_loaded;
                 // await new Promise(resolve => setTimeout(resolve, 500));
+
+                scheduleUpdateCounters();
             }
             // throw 'Bip-boop some error you got.\nWith more and more details\nmaybe a stacktrace?';
         } catch (error) {
@@ -90,27 +94,39 @@
 
     loadPrs(prs_provider, parseInt(initial_display_prs_count));
 
-    // make sure that updated if selected_pr_types and/or selected_authors change
-    $: filterPrs(selected_pr_types, selected_authors);
+    function scheduleUpdateCounters() {
+        // Schedule updating all counters
+        // Since counters update could be heavy, don't allow to schedule more that one at time.
+        if (scheduleUpdateCounters.timer)
+            return;
 
-    // Update filter description counters
-    $: if (pr_list_element && prs_loaded) {
-        // do a timeout to allow all PRs to be in DOM
-        setTimeout(() => {
-            let prs_shown = 0;
-            // Now count all occurrences of all PR types
-            prs_filters = prs_filters.map((filter) => {
-                let key = filter.id;
-                const count = pr_list_element.querySelectorAll(`pr-card .pr-state-${key}`).length;
-
-                if (selected_pr_types.findIndex(x => x == filter.id) != -1 )
-                    prs_shown += count;
-
-                return {id: filter.id, text: `${key} (${count})`};
-            });
-            prs_shown_count = prs_shown;
+        // do a timeout to allow all PRs cards to be in DOM
+        scheduleUpdateCounters.timer = setTimeout(() => {
+            updateCounters()
+            scheduleUpdateCounters.timer = undefined;
         }, 100);
     }
+
+    function updateCounters() {
+        if (!pr_list_element)
+            return;
+
+        let prs_shown = 0;
+        // Now count all occurrences of all PR types
+        prs_filters = prs_filters.map((filter) => {
+            let key = filter.id;
+            const count = pr_list_element.querySelectorAll(`pr-card .pr-state-${key}`).length;
+
+            if (selected_pr_types.findIndex(x => x == filter.id) != -1 )
+                prs_shown += count;
+
+            return {id: filter.id, text: `${key} (${count})`};
+        });
+        prs_shown_count = prs_shown;
+    }
+
+    // make sure that updated if selected_pr_types and/or selected_authors change
+    $: filterPrs(selected_pr_types, selected_authors);
 
 </script>
 

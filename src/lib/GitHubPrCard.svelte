@@ -56,8 +56,13 @@
         if (!last_n)
             last_n = pr.comments.nodes.length;
 
+        // Sort in reverse chronological order, (so the newest is at pos 0).
+        let sorted_comments = pr.comments.nodes.toSorted((a, b) => {
+            return a.updatedAt - b.updatedAt;
+        });
+
         let comments = [];
-        for (let comment of pr.comments.nodes.slice(pr.comments.nodes.length - last_n)) {
+        for (let comment of sorted_comments.slice(sorted_comments.length - last_n)) {
             comments.push(`${comment.updatedAt} ${comment.author.name}:\n${comment.body}`)
         }
 

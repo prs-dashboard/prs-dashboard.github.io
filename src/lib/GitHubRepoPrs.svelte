@@ -145,7 +145,7 @@
             <div
                 class=counters
                 >
-                    total {prs_loaded.length}, displayed {prs_shown_count}
+                    showing {prs_shown_count} of {prs_loaded.length}
             </div>
     </h2>
 {#if prs_loading_error}

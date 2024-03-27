@@ -64,6 +64,7 @@ class SimpleRepoProvider {
    * @param {number} number_of_prs
    */
   async *loadMoreGenerator(number_of_prs) {
+    number_of_prs = parseInt(number_of_prs);
     console.log(`${this.name} loadMoreGenerator(${number_of_prs})`)
 
     // repeat load more until required number of PRs is loaded or until there is no more

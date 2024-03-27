@@ -52,7 +52,12 @@
         return files.join('\n');
     })();
 
+    /**
+   * @param {{ comments: { nodes: any[]; }; }} pr
+   * @param {number} [last_n]
+   */
     function getComments(pr, last_n) {
+        // console.log("getComments: ", pr.number, pr.title);
         if (!last_n)
             last_n = pr.comments.nodes.length;
 
@@ -61,9 +66,17 @@
             return a.updatedAt - b.updatedAt;
         });
 
-        let comments = [];
+        const comments = [];
+
+        // Trim comments that are too long (usually some automatic checks), so there are more comments visible to the user.
+        const MAX_COMMENT_LENGTH = 512;
+        const COMMIT_TRIMMED_MARKER = '…';
+
         for (let comment of sorted_comments.slice(sorted_comments.length - last_n)) {
-            comments.push(`${comment.updatedAt} ${comment.author.name}:\n${comment.body}`)
+            const author = comment.author ? (comment.author.name ? comment.author.name : comment.author.login) : "";
+            const comment_body = comment.body.slice(0, MAX_COMMENT_LENGTH) + (comment.body.length > MAX_COMMENT_LENGTH ? COMMIT_TRIMMED_MARKER : '');
+
+            comments.push(`${comment.updatedAt} ${author}:\n${comment_body}`);
         }
 
         return comments;
@@ -144,7 +157,7 @@
         <!-- Display only last few comments in reverse order (newest on top) so those are visible in tooltip. -->
         <div
             class="pr-attribute pr-comments"
-            title="{getComments(pr).join('\n')}"
+            title="{getComments(pr).join('\n\n')}"
             >
             {pr.comments.totalCount}
         </div>

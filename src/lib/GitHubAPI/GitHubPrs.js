@@ -1,4 +1,7 @@
 class PRProviderError extends Error {
+  /**
+   * @param {string} message
+   */
   constructor(message) {
     super(message);
   }
@@ -7,15 +10,23 @@ class PRProviderError extends Error {
 /// Fetch PRs from a repo
 export
 class SimpleRepoProvider {
+  /**
+   * @param {import("./github_api").GitHubGraphQL} github_api
+   * @param {string} name
+   * @param {string[]} authors
+   * @param {string[]} assignees
+   * @param {string} query
+   * @param {number} max_load_batch_size
+   */
   constructor (
-      github_api /* GitHubGraphQLAPI */
-    , name /* string */
-    , authors /* array of strings */
-    , assignees /* array of strings */
-    , query /* string or null */
-    , max_load_batch_size /* number */
+      github_api
+    , name
+    , authors
+    , assignees
+    , query
+    , max_load_batch_size
   ) {
-    this.makeRequest = async (batch_size, cursor) => {
+    this.makeRequest = async (/** @type {number} */ batch_size, /** @type {any} */ cursor) => {
       if (batch_size > max_load_batch_size)
         batch_size = max_load_batch_size;
 
@@ -37,6 +48,9 @@ class SimpleRepoProvider {
     return this.prs;
   }
 
+  /**
+   * @param {number} number_of_prs
+   */
   async loadMore(number_of_prs) {
     console.log(`${this.name} loadMore(${number_of_prs})`)
 
@@ -46,7 +60,9 @@ class SimpleRepoProvider {
     return this.prs;
   }
 
-    // Loads more PRs, yielding each new PR
+  /** Loads more PRs, yielding each new PR one by one
+   * @param {number} number_of_prs
+   */
   async *loadMoreGenerator(number_of_prs) {
     console.log(`${this.name} loadMoreGenerator(${number_of_prs})`)
 

@@ -14,6 +14,7 @@
 
     const repo_name = prs_provider.repoName();
     const pr_list_id = repo_name.replaceAll('/', '_');  // Can't use id/classes with '/' in css
+    const load_more_prs_count = Math.max(10, parseInt(initial_display_prs_count) / 3);
 
     let prs_filters = [
         {id: "open",   text: "open (0)"},
@@ -180,7 +181,7 @@
         class='load-more more-button btn btn-outline-secondary fa-solid fa-angles-right'
         disabled={!prs_can_load_more}
         title={prs_can_load_more ? 'Load next 10 PRs' : 'No more PRs in repo'}
-        on:click={() => {loadPrs(prs_provider, 10);}}
+        on:click={() => {loadPrs(prs_provider, load_more_prs_count);}}
         />
 {/if}
 </section>

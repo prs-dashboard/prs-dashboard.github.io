@@ -186,7 +186,7 @@
     <GitHubRepoPrs
         all_authors={authors}
         selected_authors={authors.length > 0 ? authors_selected : null}
-        prs_provider= {new SimpleRepoProvider(github_api, repo[0], authors, assignees, query, 10)}
+        prs_provider= {new SimpleRepoProvider(github_api, repo[0], authors, assignees, query, 11)}
         initial_display_prs_count={repo[1]}
     />
 {:else}

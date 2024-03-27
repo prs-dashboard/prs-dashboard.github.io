@@ -152,18 +152,25 @@ class GitHubGraphQL {
                         }
                     }
                 }
-                comments(first: 5, orderBy: {field: UPDATED_AT, direction: DESC}) {
+                comments(first: 3, orderBy: {field: UPDATED_AT, direction: DESC}) {
                     totalCount
                     nodes {
                         author {
                             ... on User {
                                 name
+                                login
                             }
                             ... on Organization {
                                 name
+                                login
                             }
                             ... on EnterpriseUserAccount {
                                 name
+                                login
+                            }
+                            ... on Bot {
+                                id
+                                login
                             }
                         }
                         updatedAt
